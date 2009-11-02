@@ -148,19 +148,19 @@
 \supervisor  {}
 \examiner    {}
 \degree      {}
-\authors     {}
+\authors     {Bartosz Tacza³a}
 \university  {\texorpdfstring{\href{University Web Site URL Here (include http://)}
-                {University Name}}
-                {University Name}}
+                {Zachodniopomorski Uniwersytet Technologiczny}}
+                {Zachodniopomorski Uniwersytet Technologiczny}}
 \UNIVERSITY  {\texorpdfstring{\href{University Web Site URL Here (include http://)}
-                {UNIVERSITY NAME (IN BLOCK CAPITALS)}}
-                {UNIVERSITY NAME (IN BLOCK CAPITALS)}}
+                {ZACHODNIOPOMORSKI UNIWERSYTET TECHNOLOGICZNY}}
+                {ZACHODNIOPOMORSKI UNIWERSYTET TECHNOLOGICZNY}}
 \department  {\texorpdfstring{\href{Department or School Web Site URL Here (include http://)}
-                {Department or School Name}}
-                {Department or School Name}}
+                {Wydzia³ Informatyki}}
+                {Wydzia³ Informatyki}}
 \DEPARTMENT  {\texorpdfstring{\href{Department or School Web Site URL Here (include http://)}
-                {DEPARTMENT OR SCHOOL NAME (IN BLOCK CAPITALS)}}
-                {DEPARTMENT OR SCHOOL NAME (IN BLOCK CAPITALS)}}
+                {WYDZIA£ INFORMATYKI}}
+                {WYDZIA£ INFORMATYKI}}
 \group       {\texorpdfstring{\href{Research Group Web Site URL Here (include http://)}
                 {Research Group Name}}
                 {Research Group Name}}
