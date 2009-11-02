@@ -145,20 +145,20 @@
 \newcommand*{\FACULTY}[1]{\def\FACNAME{#1}}
 \newcommand*{\subject}[1]{\def\subjectname{#1}}
 \newcommand*{\keywords}[1]{\def\keywordnames{#1}}
-\supervisor  {}
+\supervisor  {Przemys³aw Klêsk}
 \examiner    {}
-\degree      {}
+\degree      {Master Science Engineer}
 \authors     {Bartosz Tacza³a}
-\university  {\texorpdfstring{\href{University Web Site URL Here (include http://)}
-                {Zachodniopomorski Uniwersytet Technologiczny}}
-                {Zachodniopomorski Uniwersytet Technologiczny}}
-\UNIVERSITY  {\texorpdfstring{\href{University Web Site URL Here (include http://)}
+\university  {\texorpdfstring{\href{http://www.zut.edu.pl/}
+                {Zachodniopomorski Uniwersytet Technologiczny w Szczecinie}}
+                {Zachodniopomorski Uniwersytet Technologiczny w Szczecinie}}
+\UNIVERSITY  {\texorpdfstring{\href{http://www.zut.edu.pl/}
                 {ZACHODNIOPOMORSKI UNIWERSYTET TECHNOLOGICZNY}}
                 {ZACHODNIOPOMORSKI UNIWERSYTET TECHNOLOGICZNY}}
 \department  {\texorpdfstring{\href{Department or School Web Site URL Here (include http://)}
                 {Wydzia³ Informatyki}}
                 {Wydzia³ Informatyki}}
-\DEPARTMENT  {\texorpdfstring{\href{Department or School Web Site URL Here (include http://)}
+\DEPARTMENT  {\texorpdfstring{\href{http://wi.zut.edu.pl/}
                 {WYDZIA£ INFORMATYKI}}
                 {WYDZIA£ INFORMATYKI}}
 \group       {\texorpdfstring{\href{Research Group Web Site URL Here (include http://)}
@@ -174,7 +174,7 @@
                 {FACULTY NAME (IN BLOCK CAPITALS)}}
                 {FACULTY NAME (IN BLOCK CAPITALS)}}
 \addresses   {}
-\subject     {}
+\subject     {Projekt i implementacja aplikacji realizuj¹cej operacje arytmetyczne na kwantyfikatorach lingiwistycznych}
 \keywords    {}
 \renewcommand\maketitle{
   \btypeout{Title Page}
@@ -192,16 +192,14 @@
     \vskip 60\p@
     \begin{center}
       \setlength{\parskip}{0pt}
-      {\large\textbf{\UNIVNAME}\par}
+      {\large\textbf{\univname}\par}
+       \includegraphics[height=60mm]{ZUT_logo.eps}
       \vfill
       {\huge \bf \@title \par}
       \vfill
       {\LARGE by \par}
       \smallskip
       {\LARGE \authornames \par}
-      \vfill
-      {\large A thesis submitted in partial fulfillment for the \par}
-      {\large degree of Doctor of Philosophy \par}
       \bigskip
       \bigskip
       {\large in the \par}
