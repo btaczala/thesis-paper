@@ -13,9 +13,28 @@
     2.3.2) Właśności splotu funkcji
     2.3.3) Różne sploty funkcji, oraz ich wykresy
   2.4) Wyjaśnienie podstawowych zagadnień z zakresu matematyki rozmytej
-  2.5) Jak to się wszystko wiąże przy 
-  2.6) Centralne twierdzenie graniczne
-  2.7) Przykładowe rozkłady gęstości prawdopodobieństwa
+    2.4.1) Czy są kwantyfikatory lingwistyczne oraz na czym polega rozmywanie wiedzy
+    2.4.2) Dlaczego kwantyfikator lingwistyczny można przedstawić jako funkcję rozkładu gęstości prawdopodobieństwa
+  2.5) Centralne twierdzenie graniczne
+  2.6) Łączymy to wszystko razem, czyli ctg i kwantyfikatory oraz funkcje gęstości
+    2.6.1) Jakie zadania można rozwiązywać za pomocą takiej machnieri ( Lofti Zadeha oraz problem dwóch biznesów ) 
 3.) Część praktyczna
+   3.1) Opis założeń programu
+    3.1.1) Co ma program robić, w jakich środowiska działać. 
+   3.2) Opis technologi użytych przy tworzeniu oprogramowania
+    3.2.1) Język, środowisko
+    3.3.2) Biblioteki
+   3.3) Struktura programu
+    3.3.1) Opis modułów użytych w programie
+     3.3.1.1) Szczegółowy opis biblioteki fl ( jakie funkcje itd ) 
+     3.3.1.2) Opis parsera matematycznego
+     3.3.1.3) Opis biblioteki do rysowania funkcji
+    3.3.2) Jak to się wszystko zazębia ( rysunki pewnie ) 
+   3.4) Opis możliwości programu 
+   3.5) Przykładowe użycie
 4.) Rozwiązanie przykładowego zadania
+   4.1) Postawienie zadania
+   4.2) Identyfikacja funkcji gęstości dla słów duże, nie_duże, małe, nie_małe, blisko10mln, nie_blisko10mln, blisko20mln, nie_blisko20mln
+   4.3) Rozwiązanie problemu
+    Wykresy pośrednie, wykresy końcowe, wyliczenie środka masy oraz odchylenie standardowego. 
 5.) Wnioski
