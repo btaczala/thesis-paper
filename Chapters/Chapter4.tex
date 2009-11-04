@@ -23,7 +23,6 @@ który z biznesów zainwestowaæ?
 
 Rozwi¹zanie tego problemu na odpowiadaæ konretnie na 
 
-
 \section{Identyfikacja funkcji gêstoœci }
 Aby podejœæ do próby rozwi¹znia tego problemu nale¿y okreœliæ kwantyfikatory
 ligwistyczne
@@ -58,20 +57,21 @@ W poni¿szych obliczeniach oœ rzêdnych oznacza wartoœæ prawdopodobieñstwa, dla kw
 
 \subsection{Kwantyfikator "du¿e"}
 
-Mamy dany zbiór punktów, przedstawiony na wykresie \ref{fig:wykres_duze}. 
 \begin{figure}[htbp]
-	\label{fig:wykres_duze}
+	
 	\centering
 	\includegraphics[bb=0 0 700 414 ]{duze.png}
 	  \rule{35em}{0.5pt}
 	\caption[Wykres kwantyfikatora du¿e]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{du¿e}}
+	\label{wykres:duze}
 \end{figure}
+Mamy dany zbiór punktów, przedstawiony na wykresie \ref{wykres:duze}. 
 Wartoœci rzêdnych oznaczaj¹ tutaj wartoœæ prawdopodbieñstwa natomiast odciête oznaczaj¹ stopieñ przynale¿noœci prawdopodobieñstwa do kwantyfikatora \emph{du¿e}. Przyk³adowo, je¿eli mówimy ¿e jakieœ zdarzenie nast¹pi z prawdopodobieñstwem 55\% to nie jest to du¿e prawdopodobieñstwo ( prawdopodobieñstwo przynale¿y do du¿ego prawdopodobieñstwa w stopniu zerowym). Jeœli mówimy natomiast ¿e jakieœ zdarzenie nast¹pi z prawdopodobieñstwem 80\% to jest to du¿e prawdopodobieñstwo ( stopieñ przynale¿noœci jest maksymalny). 
 Nasze obliczenia polegaj¹ na obliczeniu maksymalnego stopnia przynale¿noœci ( maksymalnej wartoœci funkcji gêstoœci ), co bêdzie stanowi³o wzór funkcji sta³ej, oraz znalezienia wzoru funkcji liniowej, rozpiêtej miêdzy punktami o najmniejszym stopniu przynale¿noœci oraz o najwiêkszym stopniu przynale¿noœci. 
 Z wykresu odczytujemy punkty graniczne przedzia³ów i tak odwzorowania liniowego szukamy na przedziale (0.55,0.77), natomiast sta³ego na przedziale (0.77,1) 
 Wynika z tego ¿e szukana funkcja ma postaæ:
 \begin{equation}
-\label{equation_duze}
+\label{rownanie:duze_wzor}
 f(x) = \left\{ 
 \begin{array}{l l}
   ax+b & \quad \text{, for 0.55 $<$ $x$ $\leq$ 0.77}\\
@@ -80,7 +80,7 @@ f(x) = \left\{
 \end{equation}
 Aby znaleœæ sta³e $a$, $b$ oraz $c$ rozwi¹zujemy uk³ad równañ:
 \begin{equation}
-\label{duze_uklad_rownan}
+\label{uklad_rownan:duze_ur}
 \begin{cases}
 (1-0.77)*c + \frac{1}{2}*(0.77-0.55)*c = 1\\
 0.55*a + b = 0  \\
@@ -90,14 +90,15 @@ Aby znaleœæ sta³e $a$, $b$ oraz $c$ rozwi¹zujemy uk³ad równañ:
 \begin{cases}
 0*a + 0*b + 0.34*c = 1\\
 0.55*a + 1*b + 0*c = 0\\
-0.55*a + 1*b + 0*c = 0\\
+0.77*a + 1*b - 1*c = 0\\
 \end{cases}
 \end{equation}
-Pierwsze dwa rówania z uk³adu \ref{duze_uklad_rownan}, wynikaj¹ z rozpiêcia funkcji liniowej miêdzy punktami (0.55,0) oraz (0.77,$c$). 
-Trzecie rówanie wynika z faktu, ¿e funkcja rozk³adu gêstoœci prawdopodobieñstwa musi siê ca³kowaæ do 1 na ca³ym przedziale. ( Poza przedzia³em [0.55,1] funkcja jest nieokreœlona, co oznacza, ¿e pole pod wykresem poza tym przedzia³em jest równe 0)
+Pierwsze rówanie z uk³adu \ref{uklad_rownan:duze_ur} wynika z faktu, ¿e funkcja rozk³adu gêstoœci prawdopodobieñstwa musi siê ca³kowaæ do 1 na ca³ym przedziale. (Poza przedzia³em [0.55,1] funkcja jest nieokreœlona, co oznacza, ¿e pole pod wykresem poza tym przedzia³em jest równe 0)
+Kolejne dwa  rówania z uk³adu \ref{uklad_rownan:duze_ur} wynikaj¹ z rozpiêcia funkcji liniowej miêdzy punktami (0.55,0) oraz (0.77,$c$). 
+Trzecie
 Uk³ad równañ, przekszta³camy do równania macierzowego:
 \begin{equation}
-\label{eq:3}
+\label{rownanie:duze_macierz}
  \begin{vmatrix} 
  0 & 0 & 0.34 \\ 
  0.55 & 1 & 0 \\
@@ -118,7 +119,7 @@ Uk³ad równañ, przekszta³camy do równania macierzowego:
 \end{equation} 
 co po przekszta³ceniu daje równanie:
 \begin{equation}
-\label{duze_mnozenie_macierzy} 
+\label{rownanie:duze_mnozenie_macierzy} 
  \begin{vmatrix} 
  a \\ 
  b \\
@@ -145,7 +146,7 @@ Rozwi¹zenie tego równania macierzowego istnieje i wynosi
 \end{equation} 
 Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora \emph{du¿e} wygl¹da zatem nastêpuj¹co:
 \begin{equation}
-\label{equation_duze_wynik}
+\label{rownanie:duze_wynik}
 f(x) = \left\{ 
 \begin{array}{l l}
   13.36x - 7.35 & \quad \text{, for 0.55 $<$ $x$ $\leq$ 0.77}\\
@@ -162,19 +163,19 @@ Funkcje gêstoœci dla kwantyfikatora \emph{ma³e}, którego rozk³ad pokazuje wykres
 	  \rule{35em}{0.5pt}
 	\caption[Wykres kwantyfikatora ma³e]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{ma³e}}
 \end{figure}
-Funkcja ta jest postaci podobnej do funkcji opisanej wzorem \ref{equation_duze} : 
+Funkcja ta jest postaci podobnej do funkcji opisanej wzorem \ref{rownanie:duze_wzor} : 
 \begin{equation}
-\label{equation_male}
+\label{rownanie:male_wzor}
 f(x) = \left\{ 
 \begin{array}{l l}
   ax+b & \quad \text{, for 0.33 $<$ $x$ $\leq$ 0.55}\\
   c & \quad \text{, for 0 $<$ $x$ $<$ 0.33}\\
 \end{array} \right.
 \end{equation}
-Aby obliczyæ $a$, $b$ oraz $c$ rozwi¹zujemy uk³ad analogiczny do uk³adu równañ \ref{duze_uklad_rownan}. 
-Koñcowe operacja jest analogiczna do mno¿enia macierzy \ref{duze_mnozenie_macierzy}, i wygl¹da nastêpuj¹co:
+Aby obliczyæ $a$, $b$ oraz $c$ rozwi¹zujemy uk³ad analogiczny do uk³adu równañ \ref{uklad_rownan:duze_ur}. 
+Koñcowe operacja jest analogiczna do mno¿enia macierzy \ref{rownanie:duze_mnozenie_macierzy}, i wygl¹da nastêpuj¹co:
 \begin{equation}
-\label{male_mnozenie_macierzy} 
+\label{rownanie:male_mnozenie_macierzyy} 
  \begin{vmatrix} 
  a \\ 
  b \\
@@ -202,7 +203,7 @@ Rozwi¹zanie tego uk³adu wygl¹da nastêpuj¹co:
 Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora \emph{ma³e} wygl¹da zatem nastêpuj¹co:
 
 \begin{equation}
-\label{equation_male_wynik}
+\label{rownanie:male_wynik}
 f(x) = \left\{ 
 \begin{array}{l l}
   -10.31*x + 5.67 & \quad \text{, for 0.33 $<$ $x$ $\leq$ 0.55}\\
@@ -211,18 +212,177 @@ f(x) = \left\{
 \end{equation}
 
 \subsection{Kwantyfikator "bliskie 10 mln"}
-Kwantyfikator \emph{bliskie 10 mln} jest zadany przez wykres funkcji \ref{fig:wykres_bliskie10mln}
+Kwantyfikator \emph{bliskie 10 mln} jest zadany przez wykres funkcji \ref{wykres:bliskie10mln}. 
 \begin{figure}[htbp]
-	\label{fig:wykres_bliskie10mln}
 	\centering
-	\includegraphics[bb=0 0 800 505 ]{male.png}
+	\includegraphics[bb=0 0 700 462 ]{bliskie10mln.png}
 	  \rule{35em}{0.5pt}
-	\caption[Wykres kwantyfikatora ma³e]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{ma³e}}
+	\caption[Wykres kwantyfikatora bliskie 10 mln]{Wykres funkcji gêstoœci dla kwantyfikatora  \emph{bliskie 10 mln}}
+      \label{wykres:bliskie10mln}
 \end{figure}
-Tym razem, kwantyfikator ten nie jest wynikiem ankiety, tylko jest zadany przez Profesora Piegata( to samo tyczy siê pozosta³em reszty kwantyfikatorów). 
-Aby uzyskaæ wzór funkcji dla tego i reszty kwantyfikatorów, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{duze_uklad_rownan}. Uk³ad ma postaæ : 
+Tym razem, kwantyfikator ten nie jest wynikiem ankiety, tylko jest zadany przez Profesora Piegata( to samo tyczy siê pozosta³em 
+Aby uzyskaæ wzór funkcji dla tego i reszty kwantyfikatorów, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{uklad_rownan:duze_ur} o postaci:
+\begin{equation}
+\label{bliskie10mln_uklad_rownan}
+\begin{cases}
+(10 - 7.7)*c + \frac{1}{2}*(7.7-5.5)*c = 1\\
+5.5*a + b = 0  \\
+7.7*a + b = c \\
+\end{cases}
+\end{equation}
+Koñcowa operacja macierzowa wygl¹da nastêpuj¹co:
+\begin{equation}
+\label{male_mnozenie_macierzy} 
+ \begin{vmatrix} 
+ a \\ 
+ b \\
+ c \\
+ \end{vmatrix}
+ = 
+ {\begin{vmatrix} 
+ 0 & 0 & 3.4 \\ 
+ 5.5 & 1 & 0 \\
+ 7.7 & 1 & -1 \\
+ \end{vmatrix}}^{-1}
+ *
+ \begin{vmatrix} 
+ 1 \\ 
+ 0 \\
+ 0 \\
+ \end{vmatrix}
+\end{equation} 
+Rozwi¹zanie tego uk³adu wygl¹da nastêpuj¹co:
+\begin{equation}
+ a = 0.13, 
+ b = -0.73,  
+ c = 0.29
+\end{equation} 
+Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora  \emph{bliskie 10 mln} wygl¹da zatem nastêpuj¹co:
+
+\begin{equation}
+\label{equation_male_wynik}
+f(x) = \left\{ 
+\begin{array}{l l}
+  0.13*x - 0.73 & \quad \text{, for 5.5 $<$ $x$ $\leq$ 7.7}\\
+  0.29 & \quad \text{, for 7.7 $<$ $x$ $<$ 1}\\
+\end{array} \right.
+\end{equation}
+
+
 \subsection{Kwantyfikator "nie bliskie 10 mln"}
+Kwantyfikator \emph{nie bliskie 10 mln} jest zadany przez wykres funkcji \ref{wykres:niebliskie10mln}. 
+\begin{figure}[htbp]
+	
+	\centering
+	\includegraphics[bb=0 0 700 462 ]{bliskie10mln.png}
+	  \rule{35em}{0.5pt}
+	\caption[Wykres kwantyfikatora bliskie 10 mln]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{nie bliskie 10 mln}}
+	\label{wykres:niebliskie10mln}
+\end{figure}
+Aby uzyskaæ wzór funkcji dla tego i reszty kwantyfikatorów, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{uklad_rownan:duze_ur} o postaci
+\begin{equation}
+\label{niebliskie10mln_uklad_rownan}
+\begin{cases}
+5.5*c + \frac{1}{2}*(7.7-5.5)*c = 1\\
+5.5*a + b = c  \\
+7.7*a + b = 0 \\
+\end{cases}
+\end{equation}
+Finalna operacja macierzowa wygl¹da nastêpuj¹co:
+\begin{equation}
+\label{male_mnozenie_macierzy} 
+ \begin{vmatrix} 
+ a \\ 
+ b \\
+ c \\
+ \end{vmatrix}
+ = 
+ {\begin{vmatrix} 
+ 0 & 0 & 6.6 \\ 
+ 5.5 & 1 & -1 \\
+ 7.7 & 1 & 0 \\
+ \end{vmatrix}}^{-1}
+ *
+ \begin{vmatrix} 
+ 1 \\ 
+ 0 \\
+ 0 \\
+ \end{vmatrix}
+\end{equation} 
+Rozwi¹zanie tego uk³adu wygl¹da nastêpuj¹co:
+\begin{equation}
+ a = -0.06, 
+ b = 0.53,  
+ c = 0.15
+\end{equation} 
+Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora  \emph{nie bliskie 10 mln} wygl¹da zatem nastêpuj¹co:
+
+\begin{equation}
+\label{equation_male_wynik}
+f(x) = \left\{ 
+\begin{array}{l l}
+ -0.06*x +  0.53 & \quad \text{, for 5.5 $<$ $x$ $\leq$ 7.7}\\
+  0.15 & \quad \text{, for 0 $<$ $x$ $<$ 5.5}\\
+\end{array} \right.
+\end{equation}
 \subsection{Kwantyfikator "bliskie 20 mln"}
+
+Kwantyfikator \emph{bliskie 20 mln} jest zadany przez wykres funkcji \ref{wykres:bliskie20mln}. 
+\begin{figure}[htbp]
+	
+	\centering
+	\includegraphics[bb=0 0 700 462 ]{bliskie20mln.png}
+	  \rule{35em}{0.5pt}
+	\caption[Wykres kwantyfikatora bliskie 10 mln]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{nie bliskie 10 mln}}
+	\label{wykres:bliskie20mln}
+\end{figure}
+Aby uzyskaæ wzór funkcji dla tego i reszty kwantyfikatorów, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{uklad_rownan:duze_ur} o postaci
+\begin{equation}
+\label{niebliskie10mln_uklad_rownan}
+\begin{cases}
+5.5*c + \frac{1}{2}*(7.7-5.5)*c = 1\\
+5.5*a + b = c  \\
+7.7*a + b = 0 \\
+\end{cases}
+\end{equation}
+Finalna operacja macierzowa wygl¹da nastêpuj¹co:
+\begin{equation}
+\label{male_mnozenie_macierzy} 
+ \begin{vmatrix} 
+ a \\ 
+ b \\
+ c \\
+ \end{vmatrix}
+ = 
+ {\begin{vmatrix} 
+ 0 & 0 & 6.6 \\ 
+ 5.5 & 1 & -1 \\
+ 7.7 & 1 & 0 \\
+ \end{vmatrix}}^{-1}
+ *
+ \begin{vmatrix} 
+ 1 \\ 
+ 0 \\
+ 0 \\
+ \end{vmatrix}
+\end{equation} 
+Rozwi¹zanie tego uk³adu wygl¹da nastêpuj¹co:
+\begin{equation}
+ a = -0.06, 
+ b = 0.53,  
+ c = 0.15
+\end{equation} 
+Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora  \emph{nie bliskie 10 mln} wygl¹da zatem nastêpuj¹co:
+
+\begin{equation}
+\label{equation_male_wynik}
+f(x) = \left\{ 
+\begin{array}{l l}
+ -0.06*x +  0.53 & \quad \text{, for 5.5 $<$ $x$ $\leq$ 7.7}\\
+  0.15 & \quad \text{, for 0 $<$ $x$ $<$ 5.5}\\
+\end{array} \right.
+\end{equation}
+
 \subsection{Kwantyfikator "nie bliskie 20 mln"}
 
 \section{Rozwi¹zanie problemu}

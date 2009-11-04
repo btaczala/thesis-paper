@@ -4,7 +4,7 @@ img_extIsRegExp=false
 img_extensions=.eps .jpg .jpeg .png .pdf .ps .fig .gif
 kileprversion=2
 kileversion=2.1 beta2
-lastDocument=Chapters/Chapter4.tex
+lastDocument=Thesis.tex
 masterDocument=
 name=Thesis
 pkg_extIsRegExp=false
@@ -54,12 +54,12 @@ order=-1
 
 [item:Chapters/Chapter4.tex]
 archive=true
-column=151
+column=11
 encoding=windows-1250
 highlight=LaTeX
-line=221
+line=225
 open=true
-order=3
+order=2
 
 [item:Thesis.bbl]
 archive=true
@@ -72,18 +72,18 @@ order=-1
 
 [item:Thesis.cls]
 archive=true
-column=87
+column=12
 encoding=windows-1250
 highlight=LaTeX
-line=163
+line=337
 open=true
-order=2
+order=3
 
 [item:Thesis.tex]
 archive=true
-column=16
+column=0
 encoding=windows-1250
 highlight=LaTeX
-line=21
+line=185
 open=true
 order=0
