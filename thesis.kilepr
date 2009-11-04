@@ -31,7 +31,7 @@ column=0
 encoding=windows-1250
 highlight=LaTeX
 line=0
-open=true
+open=false
 order=1
 
 [item:Chapters/Chapter2.tex]
@@ -54,12 +54,12 @@ order=-1
 
 [item:Chapters/Chapter4.tex]
 archive=true
-column=11
+column=212
 encoding=windows-1250
 highlight=LaTeX
-line=225
+line=45
 open=true
-order=2
+order=1
 
 [item:Thesis.bbl]
 archive=true
@@ -76,14 +76,14 @@ column=12
 encoding=windows-1250
 highlight=LaTeX
 line=337
-open=true
+open=false
 order=3
 
 [item:Thesis.tex]
 archive=true
-column=0
+column=56
 encoding=windows-1250
 highlight=LaTeX
-line=185
+line=45
 open=true
 order=0

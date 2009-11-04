@@ -60,7 +60,7 @@ W poni¿szych obliczeniach oœ rzêdnych oznacza wartoœæ prawdopodobieñstwa, dla kw
 \begin{figure}[htbp]
 	
 	\centering
-	\includegraphics[bb=0 0 700 414 ]{duze.png}
+	\includegraphics[width=15cm]{duze.eps}
 	  \rule{35em}{0.5pt}
 	\caption[Wykres kwantyfikatora du¿e]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{du¿e}}
 	\label{wykres:duze}
@@ -159,7 +159,7 @@ Funkcje gêstoœci dla kwantyfikatora \emph{ma³e}, którego rozk³ad pokazuje wykres
 \begin{figure}[htbp]
 	\label{fig:wykres_male}
 	\centering
-	\includegraphics[bb=0 0 800 505 ]{male.png}
+	\includegraphics[width=15cm]{male.eps}
 	  \rule{35em}{0.5pt}
 	\caption[Wykres kwantyfikatora ma³e]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{ma³e}}
 \end{figure}
@@ -325,68 +325,8 @@ f(x) = \left\{
   0.15 & \quad \text{, for 0 $<$ $x$ $<$ 5.5}\\
 \end{array} \right.
 \end{equation}
-\subsection{Kwantyfikator "bliskie 20 mln"}
-Kwantyfikator \emph{bliskie 20 mln} jest zadany przez wykres funkcji \ref{wykres:bliskie20mln}. 
-\begin{figure}[htbp]
-  
-    \centering
-    \includegraphics[bb=0 0 700 462 ]{bliskie20mln.png}
-        \rule{35em}{0.5pt}
-    \caption[Wykres kwantyfikatora bliskie 10 mln]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{nie bliskie 10 mln}}
-    \label{wykres:bliskie20mln}
-\end{figure}
-Aby uzyskaæ wzór funkcji dla tego i reszty kwantyfikatorów, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{uklad_rownan:duze_ur} o postaci
-\begin{equation}
-\label{bliskie20mln_uklad_rownan}
-\begin{cases}
-(20-15.4)*c + \frac{1}{2}*(15.4-11)*c = 1\\
-11*a + b = 0  \\
-15.4*a + b = c \\
-\end{cases}
-\end{equation}
-Finalna operacja macierzowa wygl¹da nastêpuj¹co:
-\begin{equation}
-\label{bliskie20_mnozenie_macierzy} 
- \begin{vmatrix} 
- a \\ 
- b \\
- c \\
- \end{vmatrix}
- = 
- {\begin{vmatrix} 
- 0 & 0 & 11 \\ 
- 11 & 1 & 0 \\
- 15.4 & 1 & -1 \\
- \end{vmatrix}}^{-1}
- *
- \begin{vmatrix} 
- 1 \\ 
- 0 \\
- 0 \\
- \end{vmatrix}
-\end{equation} 
-Rozwi¹zanie tego uk³adu wygl¹da nastêpuj¹co:
-\begin{equation}
- a = 0.02, 
- b = -0.22,  
- c = 0.09
-\end{equation} 
-Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora  \emph{bliskie 20 mln} wygl¹da zatem nastêpuj¹co:
-\begin{equation}
-\label{equation_bliskie20_wynik}
-f(x) = \left\{ 
-\begin{array}{l l}
- 0.02*x -  0.22 & \quad \text{, for 11 $<$ $x$ $\leq$ 15.4}\\
-  0.09 & \quad \text{, for 15.4 $<$ $x$ $<$ 20}\\
-\end{array} \right.
-\end{equation}
-
-\subsection{Kwantyfikator "nie bliskie 20 mln"}
-
-Poni¿ej, pokazano parami, funkcje rozk³adu gêstoœci prawdopodobniñstwa dla kwantyfikatorów. Na jednym wykresie zawarto kwantyfikator wraz z kwantyfikatorem do niego przeciwnym. 
-
-\todo{Dodaæ rysunki kwantyfikatorów parami}%
-
+% \subsection{Kwantyfikator "bliskie 20 mln"}
+% Kwantyfikator \emph{bliskie 20 mln} jest zadany przez wykres funkcji \ref{wykres:bliskie20mln}. 
 % \begin{figure}[htbp]
 %   
 %     \centering
@@ -395,6 +335,122 @@ Poni¿ej, pokazano parami, funkcje rozk³adu gêstoœci prawdopodobniñstwa dla kwant
 %     \caption[Wykres kwantyfikatora bliskie 10 mln]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{nie bliskie 10 mln}}
 %     \label{wykres:bliskie20mln}
 % \end{figure}
+% Aby uzyskaæ wzór funkcji dla tego i reszty kwantyfikatorów, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{uklad_rownan:duze_ur} o postaci
+% \begin{equation}
+% \label{bliskie20mln_uklad_rownan}
+% \begin{cases}
+% (20-15.4)*c + \frac{1}{2}*(15.4-11)*c = 1\\
+% 11*a + b = 0  \\
+% 15.4*a + b = c \\
+% \end{cases}
+% \end{equation}
+% Finalna operacja macierzowa wygl¹da nastêpuj¹co:
+% \begin{equation}
+% \label{bliskie20_mnozenie_macierzy} 
+%  \begin{vmatrix} 
+%  a \\ 
+%  b \\
+%  c \\
+%  \end{vmatrix}
+%  = 
+%  {\begin{vmatrix} 
+%  0 & 0 & 11 \\ 
+%  11 & 1 & 0 \\
+%  15.4 & 1 & -1 \\
+%  \end{vmatrix}}^{-1}
+%  *
+%  \begin{vmatrix} 
+%  1 \\ 
+%  0 \\
+%  0 \\
+%  \end{vmatrix}
+% \end{equation} 
+% Rozwi¹zanie tego uk³adu wygl¹da nastêpuj¹co:
+% \begin{equation}
+%  a = 0.02, 
+%  b = -0.22,  
+%  c = 0.09
+% \end{equation} 
+% Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora  \emph{bliskie 20 mln} wygl¹da zatem nastêpuj¹co:
+% \begin{equation}
+% \label{equation_bliskie20_wynik}
+% f(x) = \left\{ 
+% \begin{array}{l l}
+%  0.02*x -  0.22 & \quad \text{, for 11 $<$ $x$ $\leq$ 15.4}\\
+%   0.09 & \quad \text{, for 15.4 $<$ $x$ $<$ 20}\\
+% \end{array} \right.
+% \end{equation}
+% 
+% \subsection{Kwantyfikator "nie bliskie 20 mln"}
+% \todo{Kwantyfikator "nie bliskie 20 mln"}
+% Kwantyfikator \emph{nie bliskie 20 mln} jest zadany przez wykres funkcji \ref{wykres:niebliskie20mln}. 
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[bb=0 0 700 462 ]{niebliskie20mln.png}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres kwantyfikatora bliskie 10 mln]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{nie bliskie 10 mln}}
+%     \label{wykres:niebliskie20mln}s
+% \end{figure}
+% Aby uzyskaæ wzór funkcji dla tego kwantyfikatora, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{uklad_rownan:duze_ur} o postaci
+% \begin{equation}
+% \label{niebliskie20mln_uklad_rownan}
+% \begin{cases}
+% 11*c + \frac{1}{2}*(15.4-11)*c = 1\\
+% 11*a + b = c  \\
+% 15.4*a + b = 0 \\
+% \end{cases}
+% \end{equation}
+% Finalna operacja macierzowa wygl¹da nastêpuj¹co:
+% \begin{equation}
+% \label{bliskie20_mnozenie_macierzy} 
+%  \begin{vmatrix} 
+%  a \\ 
+%  b \\
+%  c \\
+%  \end{vmatrix}
+%  = 
+%  {\begin{vmatrix} 
+%  0 & 0 & 13.2 \\ 
+%  11 & 1 & -1 \\
+%  15.4 & 1 & 0 \\
+%  \end{vmatrix}}^{-1}
+%  *
+%  \begin{vmatrix} 
+%  1 \\ 
+%  0 \\
+%  0 \\
+%  \end{vmatrix}
+% \end{equation} 
+% Rozwi¹zanie tego uk³adu wygl¹da nastêpuj¹co:
+% \begin{equation}
+%  a = -0.017
+%  b = 0.263,  
+%  c = 0.075
+% \end{equation} 
+% Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora  \emph{bliskie 20 mln} wygl¹da zatem nastêpuj¹co:
+% \begin{equation}
+% \label{equation_bliskie20_wynik}
+% f(x) = \left\{ 
+% \begin{array}{l l}
+%  -0.017*x + 0.263 & \quad \text{, for 11 $<$ $x$ $\leq$ 15.4}\\
+%   0.075 & \quad \text{, for 0 $<$ $x$ $<$ 11}\\
+% \end{array} \right.
+% \end{equation}
+% 
+% 
+% 
+% Poni¿ej, pokazano parami, funkcje rozk³adu gêstoœci prawdopodobieñstwa dla kwantyfikatorów. Na jednym wykresie zawarto kwantyfikator wraz z kwantyfikatorem do niego przeciwnym. 
+% 
+% \todo{Dodaæ rysunki kwantyfikatorów parami}%
+% 
+% % \begin{figure}[htbp]
+% %   
+% %     \centering
+% %     \includegraphics[bb=0 0 700 462 ]{bliskie20mln.png}
+% %         \rule{35em}{0.5pt}
+% %     \caption[Wykres kwantyfikatora bliskie 10 mln]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{nie bliskie 10 mln}}
+% %     \label{wykres:bliskie20mln}
+% % \end{figure}
 
 
 
