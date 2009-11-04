@@ -10,16 +10,14 @@
 
 \usepackage{polski}   %%%%%%%%%%%%%%%
 \usepackage{graphicx}
+\usepackage[colorlinks]{hyperref}
+\usepackage{todonotes}
 
 
 \usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
 \usepackage{verbatim}  % Needed for the "comment" environment to make LaTeX comments
 \usepackage{vector}  % Allows "\bvec{}" and "\buvec{}" for "blackboard" style bold vectors in maths
 \hypersetup{urlcolor=blue, colorlinks=true}  % Colours hyperlinks in blue, but this can be distracting if there are many links.
-
-%%pz - red for notes
-\usepackage[usenames,dvipsnames]{color}
-\newcommand{\rdm}[1]{\textcolor{BrickRed}{#1}}
 
 %% ----------------------------------------------------------------
 \begin{document}
@@ -34,6 +32,10 @@
 \date       {\today}
 \subject    {}
 \keywords   {}
+
+
+\listoftodos
+\clearpage
 
 \maketitle
 
@@ -124,22 +126,6 @@ needs to clarify such matters as:
 \lhead{\emph{Skróty}}  % Set the left side page header to "Abbreviations"
 \listofsymbols{lll}  
 {
-% \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
-\textbf{ADC} & \textbf{A}nalog to \textbf{D}igital \textbf{C}onverter & \rdm{Czy t³umaczyæ na polski?} \\
-\textbf{ARM} & \textbf{A}dvanced \textbf{R}isc \textbf{M}achine & Firma projektuj¹ca rdzenie IP\\
-\textbf{CORDIC} & \textbf{CO}ordinate \textbf{R}otating \textbf{DI}gital \textbf{C}omputer \\
-\textbf{DSP} & \textbf{D}igital \textbf{S}ignal \textbf{P}rocessing & Cyfrowe przetwarzanie sygna³ów\\
-\textbf{FFT} & \textbf{F}ast \textbf{F}ourier \textbf{T}ransform & Szybka Transformata Fourier'a\\
-\textbf{GCC} & \textbf{G}eneralized \textbf{C}ross \textbf{C}orrelation \\
-\textbf{IP} & \textbf{I}ntellectual \textbf{P}roperty & W³asnoœæ intelektualna  \\ 
-\textbf{ksps} & \textbf{k}ilo \textbf{s}amples \textbf{p}er \textbf{s}econd & tysi¹c próbek na sekundê \\
-\textbf{ML} & \textbf{M}aximum \textbf{L}ikelihood & Maksymalizacjê prawdopodobieñstwa \\
-\textbf{PHAT} & \textbf{PHA}se \textbf{T}ransform & Przesuniêcie fazowe \\
-\textbf{SNR} & \textbf{S}ignal to \textbf{N}oise \textbf{R}atio & Wspó³czynnik sygna³u do szumu \\
-\textbf{SoC} & \textbf{S}ystem \textbf{o}n \textbf{C}hip & Poziom integracji systemu\\
-\textbf{TDoA} & \textbf{T}ime \textbf{D}ifference \textbf{o}f \textbf{A}rrival & Ró¿nica czasu dotarcia sygna³u\\
-\textbf{ToA} & \textbf{T}ime \textbf{o}f \textbf{A}rrival & Czas dotarcia dŸwiêku\\
-
 }
 
 %% ----------------------------------------------------------------
