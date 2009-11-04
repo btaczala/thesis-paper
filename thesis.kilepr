@@ -54,10 +54,10 @@ order=-1
 
 [item:Chapters/Chapter4.tex]
 archive=true
-column=12
+column=151
 encoding=windows-1250
 highlight=LaTeX
-line=65
+line=221
 open=true
 order=3
 
