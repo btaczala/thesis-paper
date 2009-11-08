@@ -9,10 +9,40 @@
 
 
 \usepackage{polski} 
-\usepackage{graphicx}
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+   \pdffalse
+\else
+   \pdfoutput=1
+   \pdftrue
+\fi
+\ifpdf
+   \usepackage{graphicx}
+   \usepackage{epstopdf}
+   \DeclareGraphicsRule{.eps}{pdf}{.pdf}{`epstopdf #1}
+   \pdfcompresslevel=9
+\else
+   \usepackage{graphicx}
+\fi
 \usepackage{epsf}
 \usepackage[colorlinks]{hyperref}
 \usepackage{todonotes}
+\usepackage{listing}
+\lstset{ %
+language=C++,                % choose the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+% showspaces=false,               % show spaces adding particular underscores
+% showstringspaces=false,         % underline spaces within strings
+% showtabs=false,                 % show tabs within strings adding particular underscores
+% frame=single,                   % adds a frame around the code
+% tabsize=2,                  % sets default tabsize to 2 spaces
+% captionpos=b,                   % sets the caption-position to bottom
+% breaklines=true,                % sets automatic line breaking
+% breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}{*)}          % if you want to add a comment within your code
+}
+\renewcommand{\lstlistlistingname}{Lista kodów Ÿród³owych} % Label of Table of Listings
+\renewcommand{\lstlistingname}{Listing} % Label for every Listing
 
 
 \usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
@@ -22,6 +52,7 @@
 
 %% ----------------------------------------------------------------
 \begin{document}
+
 \frontmatter	  % Begin Roman style (i, ii, iii, iv...) page numbering
 
 % Set up the Title Page
@@ -29,7 +60,7 @@
 \authors  {\texorpdfstring{Bartosz Tacza³a}
             {Author Name}
             }
-\addresses  {\groupname\\\deptname\\\univname}  % Do not change this here, instead these must be set in the "Thesis.cls" file, please look through it instead
+\addresses  {\groupname\\\deptname\\\univname} 
 \date       {\today}
 \subject    {}
 \keywords   {}
@@ -75,85 +106,61 @@ Data:\\
 
 \clearpage 
 
-% The Abstract Page
+\todo{Abstract}
 \addtotoc{Abstract}  
 \abstract{
 \addtocontents{toc}{\vspace{1em}}
 
-Sound localization is a complex problem related to many matters of signal processing.
-This Master Thesis contains few most common methodology in sound localization.
-Main focus is taken into comparing those. Signal processing approach in sound localisation
-needs to clarify such matters as:
-
-\begin{itemize}
-\item {Analog signal processing}
-\item {Digital signal processing}
-\item {Analog to Digital Conversion}
-\item {Time difference of arrival}
-\item {Cross-Correlation with few modifications:
-	\begin{itemize}
-	\item {GCC Generalized Cross-Correlation}
-	\item {PHAT Phase Transform}
-	\item {ML Maximum Likelihood}
-	\end{itemize}
-}
-\item {CORDIC equations}
-
-\end{itemize}
+Analitic solution of decisive problems, based only on probabilities of event occurence, is extermally difficult and time-consuming and in most cases incorrect due to arithmetic exceptions made in progress of calculations. 
+In This Master Thesis I will introduce author's application, capable of resolving those decisive problems, by capably operating of probability distribution functions for probabilities given in problem. Main focus is taken into methodology of solving those problems, and for examplary resolution for problem of two buisnesses.  
 
 }
-
-\clearpage  % Abstract ended, start a new page
-
 \pagestyle{fancy}
 
-
-%% ----------------------------------------------------------------
 \lhead{\emph{Spis treœci}}  
 \tableofcontents
 \addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
 
-%% ----------------------------------------------------------------
 \lhead{\emph{Lista Rysunków}}
 \listoffigures
 
 %% ----------------------------------------------------------------
-\lhead{\emph{Lista Tabel}}  % Set the left side page header to "List of Tables"
-\listoftables  % Write out the List of Tables
+% \lhead{\emph{Lista Tabel}}  % Set the left side page header to "List of Tables"
+% \listoftables  % Write out the List of Tables
 
 %% ----------------------------------------------------------------
+\addtotoc{Lista kodów Ÿród³owych}
+\lstlistoflistings
+
 \setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
 \clearpage  % Start a new page
-\lhead{\emph{Skróty}}  % Set the left side page header to "Abbreviations"
+\lhead{\emph{Skróty}} 
 \listofsymbols{lll}  
 {
+    \textbf{STL} & \textbf{S}tandard \textbf{T}emplate \textbf{L}ibrary \\
+    \textbf{GCC} & \textbf{G}nu \textbf{C}ommon \textbf{C}compilers \\
+    \textbf{G++} & kompilator jêzyka C++ z pakietu GCC \\
+    \textbf{MSVC} & \textbf{M}icro\textbf{S}oft \textbf{V}isual \textbf{C}++ \\
+    \textbf{IDE} & \textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment
+    \textbf{GDB} & \textbf{G}nu \textbf{D}e\textbf{b}ugger
+    
+%     funkcja gêstoœci - funkcja rozk³adu gêstoœci prawdopodobieñstwa
+
+    
 }
-
-%% ----------------------------------------------------------------
-\clearpage  % Start a new page
-\lhead{\emph{Sta³e fizyczne}}  % Set the left side page header to "Physical Constants"
-\listofconstants{lrcl}  % Include a list of Physical Constants (a four column table)
-{
-% Constant Name & Symbol & = & Constant Value (with units) \\
-Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$ (exact)\\
-
-}
-
-%% ----------------------------------------------------------------
 \clearpage  
 \lhead{\emph{Symbole}}  
 \listofnomenclature{lll}  
 {
-  $\oplus$ - Splot funkcji z operacj¹ dodawania \\
-  $\ominus$ - Splot funkcji z operacj¹ odejmowania \\
-  $\otimes$ - Splot funkcji z operacj¹ mno¿enia \\
-  $\oslash$ - Splot funkcji z operacj¹ mno¿enia \\
+  $\oplus$ - Operacja dodowania kwantyfikatorów lingwistycznych \\
+  $\ominus$ - Operacja odejmowania kwantyfikatorów lingwistycznych\\
+  $\otimes$ - Operacja mno¿enia kwantyfikatorów lingwistycznych\\
+  $\oslash$ - Operacja dzielenia kwantyfikatorów lingwistycznych \\
 }
+
 \setstretch{1.3}  % Return the line spacing back to 1.3
 \mainmatter	  
-\pagestyle{fancy}  
-
-
+\pagestyle{fancy}
 \input{./Chapters/Chapter1}
 
 \input{./Chapters/Chapter2} 
@@ -179,11 +186,11 @@ Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$
 \addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
 \backmatter
 
-%% ----------------------------------------------------------------
-\label{Bibliografia}
-\lhead{\emph{Bibliografia}}  % Change the left side page header to "Bibliography"
-\bibliographystyle{unsrtnat}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
-\bibliography{Bibliography}  % The references (bibliography) information are stored in the file named "Bibliography.bib"
+
+% \label{Bibliografia}
+% \lhead{\emph{Bibliografia}}  % Change the left side page header to "Bibliography"
+% \bibliographystyle{unsrtnat}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+% \bibliography{Bibliography}  % The references (bibliography) information are stored in the file named "Bibliography.bib"
 
 \end{document}  % The End
 %% ----------------------------------------------------------------

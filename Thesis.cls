@@ -139,10 +139,6 @@
 \newcommand*{\UNIVERSITY}[1]{\def\UNIVNAME{#1}}
 \newcommand*{\department}[1]{\def\deptname{#1}}
 \newcommand*{\DEPARTMENT}[1]{\def\DEPTNAME{#1}}
-\newcommand*{\group}[1]{\def\groupname{#1}}
-\newcommand*{\GROUP}[1]{\def\GROUPNAME{#1}}
-\newcommand*{\faculty}[1]{\def\facname{#1}}
-\newcommand*{\FACULTY}[1]{\def\FACNAME{#1}}
 \newcommand*{\subject}[1]{\def\subjectname{#1}}
 \newcommand*{\keywords}[1]{\def\keywordnames{#1}}
 \supervisor  {Przemys³aw Klêsk}
@@ -161,18 +157,6 @@
 \DEPARTMENT  {\texorpdfstring{\href{http://wi.zut.edu.pl/}
                 {WYDZIA£ INFORMATYKI}}
                 {WYDZIA£ INFORMATYKI}}
-\group       {\texorpdfstring{\href{Research Group Web Site URL Here (include http://)}
-                {Research Group Name}}
-                {Research Group Name}}
-\GROUP       {\texorpdfstring{\href{Research Group Web Site URL Here (include http://)}
-                {RESEARCH GROUP NAME (IN BLOCK CAPITALS)}}
-                {RESEARCH GROUP NAME (IN BLOCK CAPITALS)}}
-\faculty     {\texorpdfstring{\href{Faculty Web Site URL Here (include http://)}
-                {Faculty Name}}
-                {Faculty Name}}
-\FACULTY     {\texorpdfstring{\href{Faculty Web Site URL Here (include http://)}
-                {FACULTY NAME (IN BLOCK CAPITALS)}}
-                {FACULTY NAME (IN BLOCK CAPITALS)}}
 \addresses   {}
 \subject     {Projekt i implementacja aplikacji realizuj¹cej operacje arytmetyczne na kwantyfikatorach lingiwistycznych}
 \keywords    {}
@@ -203,7 +187,6 @@
       \bigskip
       \bigskip
       {\large in the \par}
-      {\large \facname \par}
       {\large \deptname \par}
       \bigskip
       \bigskip
@@ -239,7 +222,6 @@
     \bigskip
     {\huge{\textit{Abstract}} \par}
     \bigskip
-    {\normalsize \facname \par}
     {\normalsize \deptname \par}
     \bigskip
     {\normalsize Doctor of Philosophy\par}

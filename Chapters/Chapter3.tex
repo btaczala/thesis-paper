@@ -3,21 +3,319 @@
 \label{Rozdzia³ 3 }
 \lhead{Rozdzia³ 3. \emph{Czêœæ praktyczna }} 
 
-
 \section{Opis za³o¿eñ programu}
 
-\subsection{Co ma program robiæ, w jakich œrodowiska dzia³aæ. }
+Program bêd¹cy czêœci¹ pracy magisterskiej musi spe³niaæ nastêpuj¹ce za³o¿enia odnoœnie oferowanej funkcjonalnoœci:
+\begin{itemize}
+ \item wczytywaæ i operowaæ na funkcjach w postaciach:
+ \begin{itemize}
+    \item dyskretnej
+    \item ci¹g³ej
+    \item mieszanej, czyli funkcja jest postaci ci¹g³ej, ale tylko w œciœle okreœlonych przedzia³ach, ponadto wzór funkcji w ró¿nych przedzia³ach mo¿e siê ró¿niæ
+ \end{itemize}
+ \item wyœwietlaæ funkcje na skalowalnym przedziale
+ \item wykonywaæ operacje na kwantyfikatorach:
+    \begin{itemize}
+    \item dodawanie
+    \item odejmowanie
+    \item mno¿enie
+    \item dzielenie
+ \end{itemize}
+ \item ca³kowaæ funkcje na zadanym przedziale
+ \item liczyæ wartoœæ oczekiwan¹ oraz odchylenie standardowe dla funkcji rozk³adu gêstoœci prawdopodobieñstwa
+ \item aproksymowaæ funkcje dyskretne do funkcji ci¹g³ych
+\end{itemize}
+\subsection{Œrodowiska dzia³ania programu}
 
+Jednym z g³ównych za³o¿eñ autora przy pisaniu progamu, by³a mo¿liwoœæ odpalenie go na jak najszerszym zakresie sprzêtu komputerowego bez wzglêdu na system operacyjny czy architekturê. Za³o¿enie zosta³o zrealizowane w wystarczaj¹cym stopniu. Modu³ matematyczny programu zosta³ napisany w sposób przenoœny, tak, ¿e dla ka¿dego œrodowiska w którym dzia³a kompilator jêzyka C++ oraz dostêpna jest standardowa biblioteka do tego jêzyka ( STL ). 
+Modu³ graficzny zosta³ napisany z wykorzystaniem bibliotek Qt\textregistered, dziêki czemu kod zarz¹dzaj¹cy grafik¹ jest przenoœny miêdzy wszystkimi wiod¹cymi systemami operacyjnymi ( Microsoft Windows\textregistered, GNU/Linux, Mac OSX\textregistered, czy UNIX i inne). 
+Autorowi uda³o siê poprawnie skompilowaæ i uruchomiæ aplikacjê na poni¿szych platformach:
+\begin{itemize}
+ \item Microsoft Windows XP\textregistered
+ \item GNU/Linux
+ \item Mac OSX Leopard
+ \item Maemo, platforma mobilna, wyposa¿ona w procesor ARM, oraz mobiln¹ edycjê systemu GNU/Linux Debian
+ \item OpenMoko Neo Freerunner, telefon wyposa¿ony w procesor ARM, oraz mobiln¹ wersjê GNU/Linux
+\end{itemize}
+Wy¿ej wymienione system stanowi¹ zdecydowan¹ wiêkszoœæ stosowanych systemów operacyjnych na komputerach stacjonarnych oraz przenoœnych. 
 \section{Opis technologi u¿ytych przy tworzeniu oprogramowania}
-\subsection{Jêzyk, œrodowisko}
-\subsection{Opis bibliotek zewnêtrznych}
+\subsection{Jêzyk programowanie oraz u¿yte narzêdzia}
+Aplikacja zosta³a napisana w jedynie w jêzyku C++, bez wspomagania siê innymi dostêpnymi jêzykami. 
+Do napisania oprogramowania pos³u¿y³y autorowi nastêpuj¹ce narzêdzie programistyczne:
+\begin{itemize}
+ \item MSVC - IDE na platformê Microsoft Windows z wbudowanym kompilatorem
+ \item KDevelop/4.0 - IDE na platformê GNU/Linux
+ \item Qt-Creator\textregistered, IDE na platformy GNU/Linux, Microsoft Windows oraz Mac OSX 
+ \item CMake - wieloplatformowy system budowy firmy Kitware, generuj¹cy Makefile odpowiednie dla danej platformy
+ \item Git - rozproszony system kontroli wersji
+ \item Gdb - debugger 
+ \item Vim - Vi Improved, wieloplatformowy edytor tekstowy
+ \item Umbrello - edytor diagramów UML
+\end{itemize}
 
 \section{Struktura programu}
+Program do pracy magisterskie od pocz¹tku projektowania, pomyœlany zosta³ jako modularyzowany. Oznacza to, ¿e istnieje rdzeñ aplikacji, a do niego do³¹czane s¹ na etapie kompilacji oraz linkowania modu³y, zarówno zewnêtrzne jak i wewnêtrzne. Tym samym aplikacja jest rozszerzalna i funkcjonalnoœæ mo¿e byæ poszerzana przez dowolnego programistê, bez modyfikowania Ÿróde³ aplikacji ( poprzez dopisywania wtyczek, bibliotek dynamicznych). 
 \subsection{Opis modu³ów u¿ytych w programie}
+Modu³y z których sk³ada siê aplikacja, dzielimy na dwie kategorie:
+\begin{itemize}
+ \item modu³y wewnêtrzne - ca³kowicie napisane przez autora
+ \item modu³y zewnêtrzne - modu³y napisane przez innych programistów, niektóre zawieraj¹ zmiany autora, nie naruszaj¹ce wymogów licencyjnych
+\end{itemize}
+
+\subsection{Opis modu³ów wewnêtrznych }
 \subsubsection{Szczegó³owy opis biblioteki fl ( jakie funkcje itd ) }
-\subsubsection{Opis parsera matematycznego}
-\subsubsection{Opis biblioteki do rysowania funkcji}
-\subsection{Jak to siê wszystko zazêbia ( rysunki pewnie ) }
+Modu³ \textbf{fl} jest czêœci¹ bibliotek¹, która umo¿liwie programiœcie operawanie na funkcjach matematycznych. Poprzez operowanie rozumiemy, tworzenie funkcji dyskretnych, ci¹g³ych, mieszanych, liczenie wartoœci w punkcie, ca³kowanie numeryczne oraz numeryczne liczenie pochodnych. 
+\todo{jakiœ sensowny diagram klas na Thesis::fl}
+Na rysunku \ref{} widzimy digram klas dla tego modu³u. Centralnymi klasami s¹ abstrakcyjne klasy \emph{FunctionBase} o sygnaturze\footnote{Komentarze oraz opis poszczególnych funkcji zostaj¹ usuniête z listingów, chyba ¿e komentarz objaœnia mechanizmy nie zawarte w dokumentacji }, przedstawionej na listingu \ref{listing:signature_of_fl_functionBase} oraz \emph{FunctionContinousBase} o sygnaturze przedstawionej na listingu \ref{listing:signature_of_fl_FunctionContinousBase}. Klasa \emph{FunctionBase} jest bardzo prosta, posiada pola: nazwa funkcji, jej typ oraz wymiar ( czy funkcja jest 2 czy 3 wymiarowa ). Oprócz metod - akcesorów do tych pól, oraz konstruktora i wirtualnego konstruktora, widzimy abstrakcyjne metody max() i min(). Ka¿da klasa dziedzicz¹ca po tej klasie, musi implementowaæ te metody ( chyba, ¿e ta klasa jest równie¿ abstrakcyjna). 
+\begin{lstlisting}[caption={Sygnatura klasy fl::FunctionBase},label=listing:signature_of_fl_functionBase, float=tbph]
+ class FunctionBase
+    {
+        public:
+            enum Type{ // function type
+                eDiscrete = 0, 
+                eContinous, 
+                eMixed 
+            } ;
+            FunctionBase( const std::string & _functionName ) : m_FunctionName(_functionName) {} // default constuctor
+            virtual ~FunctionBase() {}
+            const std::string & name() const { return m_FunctionName ; } 
+            void setName ( const std::string & _name ) { m_FunctionName = _name ; } 
+            
+            virtual double max() const = 0  ; 
+            virtual double min() const = 0 ; 
+            virtual int dimensions() { return m_iDimension ; } 
+            virtual Type type() const { return m_Type ; }
+        protected:
+            std::string m_FunctionName ; 
+            int m_iDimension ; 
+            Type m_Type ; 
+    };
+\end{lstlisting}
+Klasa \emph{FunctionContinousBase} jest typem podstawowym dla ka¿dej funkcji, która bêdzie funkcj¹ ci¹g³¹. Widaæ, ¿e klasa ta posiada wskaŸnik do parsera matematycznego oraz napis bêd¹cy równaniem funkcji , co nie jest konieczne, gdy mówimy o funkcjach dyskretnych, lub o funkcjach mieszanych \footnote{ Funkcja mieszana jest traktowane przez bibliotekê jako lista wskaŸników do funkcji ci¹g³ych, jednak sama funkcja mieszana nie ma wzoru, a nie podpiêtego parsera}
+\begin{lstlisting}[caption={Sygnatura klasy fl::FunctionContinousBase},label=listing:signature_of_fl_FunctionContinousBase, float=tbph]
+class FunctionContinousBase
+  public:
+            FunctionContinousBase( const std::string & _equation ) : m_pParser( mu::Parser::proxyFLParser() ) ,m_bMinMaxEval(false)
+            { 
+                ...
+            }
+            virtual ~FunctionContinousBase() {}
+            const std::string & equation() const { return m_functionEquation;}
+            void setEquation( const std::string & _equation ) 
+            { 
+                ...
+            }
+            virtual void addVariable ( const std::string & varName  )
+            {
+                ...
+            }
+            std::vector<char> variables() const ; 
+            double step() const { return m_dStep ; }
+            void setStep( double _step ) { m_dStep = _step ; }
+        protected:
+            std::string m_functionEquation ; 
+            std::auto_ptr<mu::Parser> m_pParser ; // parser matematyczny
+            double m_dStep ; 
+            mutable std::map<std::string,double> m_VariableMap ; 
+            mutable double m_iMin ;
+            mutable double m_iMax ;
+            mutable bool m_bMinMaxEval ;
+    };
+}
+\end{lstlisting}
+\newline
+Kolejnym przedstawionym typem jest typ \emph{fl::Function2D::Function2DBase}, którego sygnatura widnieje na listingu \ref{listing:signature_of_fl_Function2DBae}. Typ ten jest podstaw¹ dla ka¿dej funkcji dwu wymiarowej \footnote{biblioteka fl operuje tylko na funkcja dwu i trój wymiarowych, dla rozwi¹zania zadañ z dziedziny statystyki, nie ma sensu operawaæ na funkcja o wy¿szych stopniach }. 
+W klasie \emph{fl::Function2D::Function2DBase} widzimy ju¿ operacje wylicznie wartoœci funkcji w punkcie, ca³kowania na zadanym przedziale z okreœlonym krokiem czy liczenie œrodka masy funkcji 
+\begin{lstlisting}[caption={Sygnatura klasy fl::Function2D::Function2DBase},label=listing:signature_of_fl_Function2DBae, float=tbph]
+  class Function2DBase : public fl::FunctionBase
+        {
+            public:
+                Function2DBase( const std::string & _functionName ) ; 
+                virtual ~Function2DBase() {}
+                virtual double eval( double point, bool * pCorrect ) const  = 0 ; 
+                virtual double integrate( double start, double stop, double dStep ) const; 
+                virtual double centerOfMass( double start, double stop, double step ) const ; 
+                virtual double max() const = 0 ; 
+                virtual double min() const = 0 ; 
+                virtual double xStartWhereIntegratingMakesSense() const = 0 ;
+                virtual double xStopWhereIntegratingMakesSense() const =  0 ; 
+        };
+\end{lstlisting}
+Analogicznym typem jest klasa \emph{fl::Function3D::Function3DBase}, której sygnatura widnieje na listingu \ref{listing:signature_of_fl_Function2DBae}, bêd¹ca podstaw¹ ka¿dej trójwymiarowej funkcji. Od tej pory skupimy siê jednak na funkcjach 2 wymiarowych, gdy¿ ka¿dy typ dla funkcji trójwymiarowej jest analogiczny do typu dla funkcji dwuwymiarowej. \footnote{oczywiœcie implementacja ró¿ni siê dla obu typów funkcji, jednak w pracy magisterskiej autor nie skupia siê na szczegó³ach implementacyjnych}
+\newline 
+Powy¿ej przedstawione typy s¹ typami abstrakcyjnymi, co oznacza, ¿e nie mo¿na stworzyæ obiektów tych typów, s¹ one tylko podstaw¹ do typów z nich dziedziczonych i ujednolicaj¹ interfejs dla nich. 
+\newline 
+Nie abstrakcyjne typy danych, które mog¹ zostaæ stworzone to:
+\begin{itemize}
+ \item fl::Function2D::FunctionDiscrete
+ \item fl::Function2D::FunctionContinous
+ \item fl::Function2D::FunctionMixed
+\end{itemize}
+oraz analogicznie:
+\begin{itemize}
+ \item fl::Function3D::FunctionDiscrete 
+ \item fl::Function3D::FunctionContinous
+ \item fl::Function3D::FunctionMixed
+\end{itemize}
+% Omawianie typów \emph{fl::Function2D::FunctionDiscrete} oraz \emph{fl::Function2D::FunctionContinous} nie jest szczególnie istotne. 
+Typ \emph{fl::Function2D::FunctionDiscrete} dziedziczy bezspoœrednio z typu \emph{fl::Function2D::Function2DBase}, a poœrednio z \emph{fl::FunctionBase} i jego interfejs nie wprowadza ¿adnych nowy operacji na tym typie, wszystkie operacje s¹ dziedziczone z typów podstawowych. Klasa \emph{fl::Function2D::FunctionContinous} dziedziczy bezpoœrednio z \emph{fl::Function2D::Function2DBase} oraz  \emph{fl::FunctionContinousBase} oraz poœrednio z \emph{fl::FunctionBase} i równie¿ ca³y jej interfejs zosta³ zawarty w klasach bazowych. Obie te klasy, to jest \emph{fl::Function2D::FunctionDiscrete} oraz \emph{fl::Function2D::FunctionContinous}, dostarczaj¹ tylko implementacji swoich interfejsów. 
+Klasa \emph{fl::Function2D::FunctionMixed} wprowadza natomiast nowe operacje oraz typy danych, przedstawione na listingu \ref{listing:signature_of_fl_FunctionMixed} , których trzeba u¿ywaæ, gdy chcemy tworzyæ funkcje o zmiennych równaniach, na okreœlonych przedzia³ach. Klasa ta jest pojemnikiem na obiekty bêd¹ce typu \emph{fl::Function2D::FunctionContinous}. Dodatkowo w klasie zdefiniowano typ okreœlaj¹cy rodzaje operatorów porównañ\footnote {\emph{fl::Function2D::FunctionMixed::Operator}} oraz typ reprezentuj¹cy szcz¹tkow¹ funkcjê na zadanym przedziale \footnote{\emph{fl::Function2D::FunctionMixed::FunctionRange}}. 
+\begin{lstlisting}[caption={Sygnatura klasy fl::Function2D::FunctionMixed},label=listing:signature_of_fl_FunctionMixed, float=tbph]
+  class FunctionMixed : public fl::Function2D::Function2DBase
+        {
+            public:
+                enum Operator{
+                    eGreater=0,
+                    eGreaterEqual,
+                    eLess,
+                    eLessEqual,
+                    eUnknown
+                };
+                struct FunctionRange{
+                    boost::shared_ptr< fl::Function2D::FunctionContinous> m_spFunction ; 
+                    double m_start ; 
+                    double m_stop ; 
+                    Operator m_operatorStart ; 
+                    Operator m_operatorStop ; 
+                };
+            public:
+                FunctionMixed(const std::string & _functionName );
+                virtual ~FunctionMixed(){}
+                virtual double eval( double point , bool *pOk ) const ;
+                virtual double max() const ; 
+                virtual double min() const  ; 
+                virtual double xStartWhereIntegratingMakesSense() const ; 
+                virtual double xStopWhereIntegratingMakesSense() const ; 
+                void addFunction(  fl::Function2D::FunctionContinous * pFunction, double start, Operator startOperator, double stop, Operator stopOperator);
+                const std::vector<FunctionRange> & functionRages() const { return m_Functions ; } 
+            private:
+                mutable std::vector<FunctionRange> m_Functions ; 
+            private:
+                bool isHere( double point, const FunctionRange & funRange) const ; 
+        };
+\end{lstlisting}
+\newline
+Na listingu \ref{listing:signature_of_fl_useCase}, przedstawiono u¿ycie klas \emph{fl::Function2D::FunctionDiscrete}, \emph{fl::Function2D::FunctionContinous} oraz \emph{fl::Function2D::FunctionMixed} w przyk³adowym zastosowaniu. 
+\begin{lstlisting}[caption={Przyk³ady u¿ycia typów, funkcji dwuwymiarowych, z przestrzeni fl},label=listing:signature_of_fl_useCase, float=tbph]
+#include <iostream>
+#include <boost/assign/std/vector.hpp>
+#include <functionException.h>
+#include "functiondiscrete.h"
+#include "functioncontinous.h"
+#include "functionMixed.h"
+#include <limits>
+using namespace boost::assign; // dla szybkiego przypisania wartoœci do wektora 
+int main(int argc, char **argv) {
+    try{
+            std::vector<double> xs ; 
+            std::vector<double> ys ;
+            xs += 1,2,3,4,5,6 ;  // to jest prawid³owy kod C++, dziêki bibliotece Boost::assign
+            ys += -40,77,1,1,2,2 ; // to jest prawid³owy kod C++, dziêki bibliotece Boost::assign
+            
+            fl::Function2D::FunctionDiscrete fl(xs,ys,"example"); 
+            std::cout << fl.eval(3) << std::endl ; 
+            std::cout << fl.max() << std::endl ; 
+            std::cout << fl.min() << std::endl ; 
+            
+            fl::Function2D::FunctionContinous fC ; 
+            fC.setEquation("sin(x)");
+            fC.addVariable("x");
+            std::cout << fC.eval(0);
+            
+            fl::Function2D::FunctionContinous fC2 ; 
+            fC2.setEquation("cos(x)") ;
+            fC2.addVariable("x");
+            
+            fl::Function2D::FunctionMixed fM ; 
+            fM.addFunction(fC, 
+                           -1 * std::numeric_limits<double>::infinity(),
+                           fl::Function2D::FunctionMixed::eGreater, 
+                           0,
+                           fl::Function2D::FunctionMixed::eGreaterEqual, 
+                           );
+            fM.addFunction(fC2, 
+                           0,
+                           fl::Function2D::FunctionMixed::eGreater, 
+                           std::numeric_limits<double>::infinity(),
+                           fl::Function2D::FunctionMixed::eGreater, 
+                           );
+            std::cout << fM.eval(-13);               
+            std::cout << fM.eval(0);
+            std::cout << fM.eval(1);
+    }
+    catch ( fl::FunctionException & e )
+    {
+        const char *ww = e.what() ; 
+        std::cout << ww ;
+    }
+    return 0;
+}
+\end{lstlisting}
+\subsubsection{Opis modu³u operacji matematycznych }
+
+\todo{Opisaæ IPlugin}
+
+Modu³ operacji matematycznych, jest modu³em do którego oddajemy sterowanie, gdy chcemy wykonaæ jak¹œ funkcjê matematyczn¹ na jednej, dwóch lub wiêcej funkcjach. Podstaw¹ tego modu³u jest interfejs \emph{IOperation}, przedstawiony na listingu \ref{listing:signature_of_IOperation}. 
+\begin{lstlisting}[caption={Podstawowy interfejs dla operacji matematycznych \emph{IOperation}},label=listing:signature_of_IOperation, float=tbph]
+class IOperation
+{
+    public:
+        enum Errors{
+            eUndefined=0,
+            eSuccess,
+            eNotIntegratingToOne
+        };
+        typedef boost::shared_ptr<const fl::FunctionBase> FunctionBaseShPtr ; 
+        IOperation() ;
+        virtual ~IOperation() {}
+        virtual void addFunction( const fl::FunctionBase* pPtr ) ; 
+        virtual fl::FunctionBase * calculate() = 0 ; 
+        Errors error () const { return m_error ; } 
+        virtual std::string operation() const =0; 
+    protected:
+        std::vector<FunctionBaseShPtr> m_functions ; 
+        mutable Errors m_error ; 
+        std::string m_operation ; 
+};
+\end{lstlisting}
+Interfejs posiada metodê, które pozwalaj¹ ustawiæ funkcje dla danej operacji \emph{IOperation::addFunction}, oraz wykonaæ operacjê, metoda \emph{IOperation::calculate}. Typ zwracany przez metodê \emph{IOperation::calculate}, jest wkaŸnikiem na typ bazowym ka¿dej funkcji z przestrzeni fl. Oba dostaæ odpowiedni¹ funkcjê, nale¿y sprawdziæ jej wymiar oraz rodzaj i nastêpnie wykonaæ rzutowanie do interesuj¹cego nas typu. 
+Autor dostarcza cztery operacje matematyczne, to jest:
+\begin{itemize}
+ \item splatanie z dodawaniem \todo{splot z dodawaniem ? }
+ \item splatanie z odejmowanie \todo{operacja splot odejmowaniem?}
+ \item splatanie z mno¿eniem \todo{operacja splot mno¿eniem?}
+ \item splatanie z dzieleniem \todo{operacja splot dzieleniem?}
+\end{itemize}
+Aby samemu rozszerzyæ aplikacjê o kolejn¹ metodê, nale¿y wydziedziczyæ interfejs \emph{IOperation} oraz przedstawiæ implementacjê w³asnej operacji. 
+\subsubsection{Opis modu³u metod aproksymacji }
+Modu³ dotycz¹cy aproksymacji funkcji jest bardzo podobny do modu³u operacji matematycznych, równie¿ posiada jeden interfejs, \emph{IApproximation} przedstawiony na listingu \ref{listing:signature_of_IApproximation}. Autor dostarcza metodê aproksymacji wielomianowej jako rozszerzenie aplikacji. Mo¿liwe jest oczywiœcie dopisanie innych metod aproksymacji, poprzez wydziedziczenie interfejsu \emph{IApproximation} oraz przedstawienie implementacji. 
+\begin{lstlisting}[caption={Podstawowy interfejs dla metod aproksymacji },label=listing:signature_of_IApproximation, float=tbph]
+class IApproximation
+        {
+            public:
+                IApproximation(const Function2D::FunctionDiscrete::DomainRange & _range) ; 
+                virtual ~IApproximation() ; 
+                virtual Function2D::FunctionContinous * approximate() const  = 0 ; 
+            protected:
+                Function2D::FunctionDiscrete::DomainRange m_range ;
+            public:
+                static fl::Function2D::FunctionMixed * cropFunction (fl::Function2D::Function2DBase * pFunc, double xstart, double xstop);
+        };
+\end{lstlisting}
+\subsubsection{Opis czêœci graficznej}
+\subsection{Opis modu³ów zewnêtrznych}
+W programie zosta³y u¿yte biblioteki zewnêtrzne do grafiki, parsowania wyra¿eñ matematycznych oraz do operowania na macierzach oraz wektorach danych. 
+Autor nie mia³ intencji pisania lepszych rozwi¹zañ w tych dziedzinach, gdy¿ obecne dostêpne s¹ lepsze szybsze, dok³adniejsze oraz przede wszystkim s¹ dok³adnie przetestowane przez spo³ecznoœæ programistów. Niektóre zewnêtrze biblioteki zosta³y przez autora zmodyfikowane, aby dostarczyæ funkcjonalnoœæ której jeszcze nie mia³. Wszystkie zewnêtrzne Ÿród³a zosta³y wydane na wolnoœciowych licencjach ( GNU GPL lub GNU LGPL ), tak ¿e ich licencje w ¿adnym punkcie nie zosta³y z³amane. 
+\newline
+Do wyœwietlania grafiki zosta³y u¿yte:
+\begin{itemize}
+ \item \textbf{Qt} w wersji 4.5.3 - wieloplatformowa modularna biblioteka odpowiedzialna za graficzn¹ czêœæ ekranu. To ona wykonuje wszystkie operacje zarz¹dzania okienkami, tworzy zasoby okien, oraz zajmuje siê integracj¹ z systemem operacyjnym, tak by aplikacja wygl¹da³a w ka¿dym œrodowisku w sposób naturalny dla danego œrodowiska. U¿yte modu³y z biblioteki Qt to 
+ \item \textbf{Boost} w wersji 1.38.0 - wieloplatformowa biblioteka do jêzyka C++, która rozszerza jêzyk o dodatkow¹ funkcjonalnoœæ. W aplikacji zosta³y u¿yte: wskaŸniki ze zliczaniem referencji, kontenery na wskaŸniki do funkcji, dodatkowe funkcje matematyczne, tablice o statycznym rozmiarze oraz typ danych konwertowalny na ka¿dy dowolny typ. 
+ \item \textbf{muParser} - parser wyra¿eñ matematycznych wykorzystuj¹cy algorytm odwrotnej notacji polskiej. Naniesione zosta³y na niego drobne zmiany przez autora, aby parser domyœlnie u¿ywa³ funkcji matematycznych ze standardu C++98 oraz z biblioteki \textbf{Boost::Math}
+ \item \textbf{KPlot} - biblioteka ze œrodowiska KDE4 przeniesiona do œrodowiska \textbf{Qt}, tak aby by³a kompilowana w œrodwiska gdzie nie ma dostêpnego KDE4. Naniesione modyfikacje dotycz¹ równie¿ sposobu wyœwietlania funkcji.
+ \item \textbf{Eigen2} - biblioteka szablonowa u¿ywana przy operacjach macierzowych
+\end{itemize}
+\subsection{Jak to siê wszystko zazêbia ( rysunki pewnie ), diagramy przep³ywu ;) }
 
 
 \section{Opis mo¿liwoœci programu }

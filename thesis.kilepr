@@ -30,36 +30,36 @@ archive=true
 column=0
 encoding=windows-1250
 highlight=LaTeX
-line=0
-open=false
+line=23
+open=true
 order=1
 
 [item:Chapters/Chapter2.tex]
 archive=true
-column=158313584
-encoding=
-highlight=
-line=0
-open=false
-order=-1
+column=50
+encoding=windows-1250
+highlight=LaTeX
+line=16
+open=true
+order=4
 
 [item:Chapters/Chapter3.tex]
 archive=true
-column=6357104
-encoding=
-highlight=
-line=0
-open=false
-order=-1
+column=35
+encoding=windows-1250
+highlight=LaTeX
+line=280
+open=true
+order=3
 
 [item:Chapters/Chapter4.tex]
 archive=true
-column=212
+column=2
 encoding=windows-1250
 highlight=LaTeX
-line=45
+line=127
 open=true
-order=1
+order=0
 
 [item:Thesis.bbl]
 archive=true
@@ -72,18 +72,18 @@ order=-1
 
 [item:Thesis.cls]
 archive=true
-column=12
+column=14
 encoding=windows-1250
 highlight=LaTeX
-line=337
+line=190
 open=false
 order=3
 
 [item:Thesis.tex]
 archive=true
-column=56
+column=3
 encoding=windows-1250
 highlight=LaTeX
-line=45
+line=25
 open=true
-order=0
+order=2

@@ -12,10 +12,139 @@
 \subsection{Definicja splotu funkcji}
 \subsection{W³aœnoœci splotu funkcji}
 \subsection{Ró¿ne sploty funkcji, oraz ich wykresy}
-
 \section{Wyjaœnienie podstawowych zagadnieñ z zakresu matematyki rozmytej}
-\subsection{nCzy s¹ kwantyfikatory lingwistyczne oraz na czym polega rozmywanie wiedzy}
+\subsection{Czy s¹ kwantyfikatory lingwistyczne oraz na czym polega rozmywanie wiedzy}
 \subsection{Dlaczego kwantyfikator lingwistyczny mo¿na przedstawiæ jako funkcjê rozk³adu gêstoœci prawdopodobieñstwa?}
-
 \section{Centralne twierdzenie graniczne}
+\clearpage
+\section{Aproksymacja funkcji wielomianem algebraicznym}
+Zadanie: funkcjê zadan¹ w postaci dyskretniej, poprzez zdefiniowanie zbioru punktów w których ta funkcja jest okreœlona, nale¿y przybli¿yæ funkcj¹ ci¹g³¹ na zadanym przedziale. Funkcja ta ma byæ dana wielomianem m-tego stopnia, gdzie m musi spe³niaæ zale¿noœæ
+\begin{equation}
+ n > m + 1 \Rightarrow m < n -1
+\end{equation}, 
+gdzie:
+\begin{itemize}
+ \item $n$ - iloœæ punktów przez który zadana jest funkcja aproksymowana
+ \item $m$ - stopnieñ wielomianu
+\end{itemize}
+Funkcje bazowe wynikowego wielomianu s¹ postaci :
+\begin{eqnarray*}
+ U_{0}(x)&=&x^0 \\
+ U_{1}(x)&=&x^1 \\
+ .......... \\
+ U_{m}(x)&=&x^m.
+\end{eqnarray*}
+Funkcja aproksymuj¹ca ma postaæ:
+\begin{equation}
+\label{equation:glowna_postac}
+ F(x) = a_0 + a_{1}x + a_{2}x^2 + ... + a_{m}x^m , 
+\end{equation} 
+a odchylenie standardowe wyra¿a siê nastêpuj¹co:
+\begin{equation}
+\label{equation:odchylenie_standardowe}
+ S = \sum_{i=1}^n ( a_0 + a_{1}x + a_{2}x^2 + ... + a_{m}x^m - y_i )^2 .
+\end{equation}
+To równanie nazywane jest form¹ kwadratow¹ i wykazane zosta³o ¿ê ma tylko jedno minimum. W takim przypadku warunek konieczny istnienia minimum, \ref{equation:czastkowe_do_zera} , jest jednoczeœnie warunkiem koniecznym. 
+Aby znaleœæ funkcjê aproksymuj¹c¹ nale¿y znaleœæ wspó³czyniki $a_0 , a_1, a_2, ... , a_m$, takie aby $S$ mia³o wartoœæ minimaln¹. W tym celu bêdziemy przyrównywaæ pochodnê cz¹stowe do zera:
+\begin{eqnarray*}
+\label{equation:czastkowe_do_zera}
+ \frac{\delta S}{\delta a_0}&=&0 \\
+ \frac{\delta S}{\delta a_1}&=&0 \\
+ .... \\
+ \frac{\delta S}{\delta a_m}&=&0 \\
+\end{eqnarray*}
+Ró¿niczkuj¹c \ref{equation:odchylenie_standardowe} otrzymujemy uk³ad równañ liniowych:
+\begin{eqnarray*}
+ 2 \sum_{i=n}^n (a_0 + a_{1}x + a_{2}x^2 + ... + a_{m}x^m - y_i) *1 &=& 0 \\
+ 2 \sum_{i=n}^n (a_0 + a_{1}x + a_{2}x^2 + ... + a_{m}x^m - y_i) *x_{i} &=& 0 \\
+ 2 \sum_{i=n}^n (a_0 + a_{1}x + a_{2}x^2 + ... + a_{m}x^m - y_i) *x_{i}^2 &=& 0 \\
+ .... \\\
+ 2 \sum_{i=n}^n (a_0 + a_{1}x + a_{2}x^2 + ... + a_{m}x^m - y_i) *x_{i}^m &=& 0 \\
+\end{eqnarray*}
+o m+1 niewiadomych i takiej samej iloœci zmiennych. Korzystaj¹c z prawa przemiennoœci sumowania otrzymujemy:
+\begin{eqnarray*}
+ a_{0} \sum_{i=1}^n {1}+a_{1} \sum_{i=1}^n {x_i} + a_{2} \sum_{i=1}^n {{x_i}^2} + ... + a_{m} \sum_{i=1}^n {{x_i}^m} &=& \sum_{i=1}^n {y_i} \\
+ a_{0} \sum_{i=1}^n {x_i}+a_{1} \sum_{i=1}^n {{x_i}^2} + a_{2} \sum_{i=1}^n {{x_i}^3} + ... + a_{m} \sum_{i=1}^n {{x_i}^{m+1}} &=& \sum_{i=1}^n {x_i * y_i} \\
+ a_{0} \sum_{i=1}^n {{x_i}^2}+a_{1} \sum_{i=1}^n {{x_i}^3} + a_{2} \sum_{i=1}^n {{x_i}^4} + ... + a_{m} \sum_{i=1}^n {{x_i}^{m+2}} &=& \sum_{i=1}^n {{x_i}^2 * y_i} \\
+ ... & \\
+ a_{0} \sum_{i=1}^n {{x_i}^m} + a_{1} \sum_{i=1}^n {{x_i}^{m+1}} + a_{2} \sum_{i=1}^n {{x_i}^{m+2}} + ... + a_{m} \sum_{i=1}^n {{x_i}^{m+m}} &=& \sum_{i=1}^n {{x_i}^m * y_i}.
+\end{eqnarray*}
+Wprowadzaj¹c oznaczenia:
+\begin{eqnarray*}
+ S_k &=&  \sum_{i=1}^n {{x_i}^k}   (k=0,1,2,...,2m) \\
+ t_k &=&  \sum_{i=1}^n {{x_i}^ky_i}   (k=0,1,2,...,2m) \\
+\end{eqnarray*}
+otrzymujemy równanie macierzowe:
+\begin{equation}
+\label{equation:rownanie_macierzowe_pierwsze}
+ \begin{vmatrix} 
+ S_0 & S_1 & ... & S_m \\
+ S_1 & S_2 & ... & S_{m+1} \\
+ ... & ... & ... & ... \\
+ S_{m+1} & S_{m+2} & ... & S_{m+m} \\
+ \end{vmatrix}
+ * 
+ \begin{vmatrix} 
+ a_0 \\ 
+ a_1 \\
+ ... \\
+ a_m \\
+ \end{vmatrix}
+ = 
+ \begin{vmatrix} 
+ t_0 \\ 
+ t_1 \\
+ ... \\
+ t_m \\
+ \end{vmatrix},
+\end{equation}
+którego przekszta³camy do:
+\begin{equation}
+\label{equation:rownanie_macierzowe_drugie}
+ \begin{vmatrix} 
+ a_0 \\ 
+ a_1 \\
+ ... \\
+ a_m \\
+ \end{vmatrix}
+ =
+ {\begin{vmatrix} 
+ S_0 & S_1 & ... & S_m \\
+ S_1 & S_2 & ... & S_{m+1} \\
+ ... & ... & ... & ... \\
+ S_{m+1} & S_{m+2} & ... & S_{m+m} \\
+ \end{vmatrix}}^{-1}2
+ *
+ \begin{vmatrix} 
+ t_0 \\ 
+ t_1 \\
+ ... \\
+ t_m \\
+ \end{vmatrix}.
+\end{equation}
+Wartoœci $a_0, a_1 , ... , a_m$ s¹ rozwi¹zaniem równania \ref{equation:rownanie_macierzowe_drugie} i stanowi¹ sta³e w naszej funkcje aproksymuj¹cej \ref{equation:glowna_postac}. 
+Aby poznaæ jakoœæ aproksymacji mo¿e pos³u¿yæ siê nastêpuj¹cymi parametrami:
+\begin{itemize}
+ \item odchylenie kwadratowe:
+ \begin{equation}
+        S = \sum_{i=1}^n ( a_0 + a_1x_i + a_2x_i^ + .. + a_m{x_i}^m - y_i)^2
+ \end{equation}
+ \item wariancja:
+ \begin{equation}
+        S_{y/x}^2 = \frac{S}{n-(m+1)}
+ \end{equation}
+ \item odchylenie standardowe:
+ \begin{equation}
+        S_{y/x} = \delta = \sqrt{S_{y/x}^2}
+ \end{equation}
+ \item wspó³czynik korelacji:
+ \begin{equation}
+        r = \sqrt{ 1 - \frac{S_{y/x}^2}{S_y^2}}
+ \end{equation}
+ gdzie:
+ \begin{equation}
+        {S_y}^2 = \frac{{{\sum_{i=1}^n {{y_i}^2}} - ({\sum_{i=1}^n {y_i}})^2}/n}{n-1}
+ \end{equation}
+ jest wariancj¹ zmiennej y. 
+\end{itemize}
 
