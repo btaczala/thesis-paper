@@ -1,719 +1,718 @@
-% Wprowadzenie, rozdzia³ 1 
-\chapter{Rozwi¹zanie przyk³adowego zadania} 
-\label{Rozdzia³ 4 }
-\lhead{Rozdzia³ 4. \emph{Rozwi¹zanie przyk³adowego zadania }} 
-
-
-\section{Postawienie zadania}
-
-Zadaniem, które zostanie rozwi¹zane za pomoc¹ programu bêd¹cego podmiotem pracy
-magisterskiej, jest problem "dwóch biznesów". Jest to problem decyzyjny, w
-którym decydent podejmuje jedn¹ z dwóch mo¿liwoœci przy braku informacji
-zupe³nej. 
-Problem dwóch biznesów brzmi nastêpuj¹co:
-\newline
-
-\begin{quote}
-W biznesie B1 mo¿na zarobiæ od 0 do 10 milionów z³otych. Prawdopodobieñstwo
-dochodu bliskiego 10 milionów z³otych jest du¿e. 
-W biznesie B2 mo¿na zarobiæ od 0 do 20 milionów z³otych. Prawdopodobieñstwo
-dochodu bliskiego 20 milionów z³otych jest jednak ma³e. \newline Decyzja: W
-który z biznesów zainwestowaæ?
-\end{quote}
-
-Rozwi¹zanie tego problemu na odpowiadaæ konretnie na 
-
-\section{Identyfikacja funkcji gêstoœci }
-Aby podejœæ do próby rozwi¹znia tego problemu nale¿y okreœliæ kwantyfikatory
-ligwistyczne
-\begin{itemize}
-\item {du¿e}
-\item {ma³e ( nie du¿e ) }
-\item {bliskie, dla wartoœci maksymalnej dochodu z biznesu pierwszego }
-\item {nie bliskie , dla wartoœci maksymalnej dochodu z biznesu pierwszego }
-\item {bliskie, dla wartoœci maksymalnej dochodu z biznesu drugiego }
-\item {nie bliskie , dla wartoœci maksymalnej dochodu z biznesu drugiego}
-\end{itemize}
-oraz odpowiadaj¹ce im funkcje rozk³adu gêstoœci. 
-
-Kwantyfikatory \emph{du¿e} i \emph{ma³e}, zostan¹ okreœlone na podstawie pracy 
-doktora Marka Landowskiego \todo{Sprawdziæ jaka praca, dodaæ do bibliografii}. 
-Doktor po przeprowadzeniu ankiety wy³uska³ dane dotycz¹ce oznaczania danej wartoœci prawdopodobieñstwa jako du¿ej, ma³ej oraz œredniej. W naszym przypadku, interesuj¹ nas tylko badania odnoœnie pojmowania prawdopodobieñstwa jako du¿ego oraz ma³ego. 
-Kwantyfikatory uzyskane przez doktora Marka Landowskiego pos³u¿¹ nam do okreœlenia funkcji rozk³adu gêstoœci prawdopodbieñstwa. 
-Kwantyfikatory \emph{bliskie 10 mln}, \emph{nie bliskie 10 mln}, \emph{bliskie 20 mln} oraz \emph{nie bliskie 20 mln} s¹ natomiast okreœlone przez Profesora Andrzej Piegata. \todo{Czy prof siê nazywa andrzej ? }%
-
-Dane otrzymane przez doktora Landowskiego ,mo¿na przybli¿yæ funkcjami wysokich rzêdów, ale punkty uk³adaj¹ siê w sposób pozwalaj¹cy przeprowadziæ aproksymacjê funkcjami pierwszego i zerowego rzêdu ( funkcjami liniowymi oraz
-funkcjami sta³ymi ), bez du¿ej straty dok³adnoœci \todo{sprawdziæ niedok³adnoœæ}, co pokazano na rysunkach \ref{wykres:duze_kropki_aproksymacja} \ref{wykres:male_kropki_aproksymacja}.Aby zachowaæ pewne ustalenie, pozosta³e kwantyfikatory równie¿ bêd¹ mia³y postaæ funkcji pierwszego i zerowego rzêdu. 
-
-Aby zidentyfikowaæ poszczególne funkcje rozk³adu gêstoœci prawdopodobieñstwa nale¿y przypatrzeæ siê rozk³adowi punktów dla danego kwantyfikatora, oraz wykorzystuj¹æ w³aœciwoœæ ca³kowania do 1 funkcji gêstoœci na okreœlonym przedziale, rozwi¹zaæ uk³ad równañ, który okreœli nam funkcjê pierwszego rzêdu oraz maksymaln¹ wysokoœæ funkcji rozk³adu prawdopodobieñstwa ( maksymalna wysokoœæ kwantyfikatorów wynosi 1, jednak w naszym przypadku, wysokoœæ trzeba przeskalowaæ, aby uzyskaæ funkcjê ca³kuj¹c¹ siê do 1 ). 
-Ca³y algorytm aproksymacji zostanie przedstawiony dla kwantyfikatora \emph{du¿e}, natomiast dla reszty kwantyfikatorów pominiête zostan¹ obliczenia i przedstawione zostan¹ tylko wyniki. 
-
-W poni¿szych obliczeniach oœ rzêdnych oznacza wartoœæ prawdopodobieñstwa, dla kwantyfikatorów \emph{du¿e} i \emph{ma³e}, oraz wartoœæ dochodu dla kwantyfikatorów \emph{bliskie 10 mln}, \emph{nie bliskie 10 mln}, \emph{bliskie 20 mln} oraz \emph{nie bliskie 20 mln}.  
-
-\subsection{Kwantyfikator "du¿e"}
-\todo{Przecinki to wzorach i uk³adach równañ}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=15cm]{duze_kropki_aproksymacja.eps}
-      \rule{35em}{0.5pt}
-    \caption[Wykres kwantyfikatora du¿e]{Wykres punktów zebranych dla kwantyfikatora \emph{du¿e}}
-    \label{wykres:duze_kropki_aproksymacja}
-\end{figure}
-Mamy dany zbiór punktów, przedstawiony na wykresie \ref{wykres:duze_kropki_aproksymacja} i dla tego zbioru, trzeba oszacowaæ funkcjê rozk³adu gêstoœci prawdopodobieñstwa. Aby to uczyniæ trzeba odczytaæ z wykresu punkty gdzie funkcja zaczyna zmieniaæ swoj¹ postaæ. W punkcie [0.56,0] funkcja zaczyna rosn¹æ, w punkcie [0.78,1] funkcja zmienia swoj¹ charakterystykê z liniowej na sta³¹. Tak wiêc nasza szukana funkcja bêdzie w przedziale 0 - 0.56 sta³a, w przedziale 0.56 - 0.78 przyjmie postaæ funkcji liniowej, a w przedziale 0.78 - 1 znowu zmienia siê w funkcjê sta³¹. Na rysunku zaznaczono równie¿, jak dobrze funkcja liniowa pokrywa siê z punktami z przedzia³u 0.56 - 0.78 i ¿e jest ona wystarczaj¹ca do aproksymacji. 
-Przy aproksymacji nale¿y pamiêtaæ, ¿e o ile wartoœæ maksymalna kwantyfikatora wynosi 1 ( jakaœ wartoœæ przynale¿y do kwantyfikatora w stopniu maksymalnym ), to zaaproksymowana na jej podstawie funkcja gêstoœci wartoœæ maksymaln¹ bêdzie mia³a przeskalowan¹ tak, aby mog³a siê ca³kowaæ do 1. 
-
-Szukana funkcja bêdzie mia³a zatem postaæ:
-\begin{equation}
-\label{rownanie:duze_wzor}
-f(x) = \left\{ 
-\begin{array}{l l}
-  ax+b & \quad \text{, for 0.56 $<$ $x$ $\leq$ 0.78}\\
-  c & \quad \text{, for 0.78 $<$ $x$ $<$ 1}\\
-\end{array} \right.
-\end{equation}
-Aby znaleœæ sta³e $a$, $b$ oraz $c$ rozwi¹zujemy uk³ad równañ:
-\begin{equation}
-\label{uklad_rownan:duze_ur}
-\begin{cases}
-(1-0.78)*c + \frac{1}{2}*(0.78-0.56)*c = 1\\
-0.56*a + b = 0  \\
-0.78*a + b = c \\
-\end{cases}
-\Rightarrow \;
-\begin{cases}
-0*a + 0*b + 0.33*c = 1\\
-0.56*a + 1*b + 0*c = 0\\
-0.78*a + 1*b - 1*c = 0\\
-\end{cases}
-\end{equation}
-Pierwsze rówanie z uk³adu \ref{uklad_rownan:duze_ur} wynika z faktu, ¿e funkcja rozk³adu gêstoœci prawdopodobieñstwa musi siê ca³kowaæ do 1 na ca³ym przedziale. (Poza przedzia³em 0.56 - 1 funkcja jest nieokreœlona, co oznacza, ¿e pole pod wykresem poza tym przedzia³em jest równe 0 i nie musi byæ brane pod uwagê)
-Kolejne dwa  rówania z uk³adu \ref{uklad_rownan:duze_ur} wynikaj¹ z rozpiêcia funkcji liniowej miêdzy punktami (0.56 , 0) oraz (0.78  ,$c$). 
-Trzecie
-Uk³ad równañ, przekszta³camy do równania macierzowego:
-\begin{equation}
-\label{rownanie:duze_macierz}
- \begin{vmatrix} 
- 0 & 0 & 0.33 \\ 
- 0.56 & 1 & 0 \\
- 0.78 & 1 & -1 \\
- \end{vmatrix}
- * 
- \begin{vmatrix} 
- a \\ 
- b \\
- c \\
- \end{vmatrix}
- = 
- \begin{vmatrix} 
- 1 \\ 
- 0 \\
- 0 \\
- \end{vmatrix}
-\end{equation} 
-co po przekszta³ceniu daje równanie:
-\begin{equation}
-\label{rownanie:duze_mnozenie_macierzy} 
- \begin{vmatrix} 
- a \\ 
- b \\
- c \\
- \end{vmatrix}
- = 
- {\begin{vmatrix} 
- 0 & 0 & 0.33 \\ 
- 0.56 & 1 & 0 \\
- 0.78 & 1 & -1 \\
- \end{vmatrix}}^{-1}
- *
- \begin{vmatrix} 
- 1 \\ 
- 0 \\
- 0 \\
- \end{vmatrix}
-\end{equation} 
-Rozwi¹zenie tego równania macierzowego wynosi:
-\begin{equation}
- a = 13.774,
- b = -7.713
- c = 3.030
-\end{equation}. 
-\begin{figure}[htbp]
-    \label{wykres:duze_kwantyfikator_wraz_z_aproksymacja}
-    \centering
-    \includegraphics[width=15cm]{duze_kwantyfikator_aproksymacja.eps}
-      \rule{35em}{0.5pt}
-    \caption[Wykres kwantyfikatora \emph{du¿e} wraz z aproksymowan¹ funkcj¹ ]{Wykres kwantyfikatora \emph{du¿e} wraz z aproksymowan¹ funkcj¹}
-\end{figure}
-Funkcja rozk³adu gêstoœci prawdopodobieñstwa, dla kwantyfikatora \emph{du¿e}, pokazana na rysunku \ref{wykres:duze_kwantyfikator_wraz_z_aproksymacja} wraz z kwantyfikatorem, ma nastêpuj¹cy wzór:
-\begin{equation}
-\label{rownanie:duze_wynik}
-f(x) = \left\{ 
-\begin{array}{l l}
-  10.331*x - 5.785 & \quad \text{, for 0.56 $<$ $x$ $\leq$ 0.78}\\
-  2.273 & \quad \text{, for 0.78 $<$ $x$ $<=$ 1}\\
-\end{array}\right.
-\end{equation}
-abc
-
-\subsection{Kwantyfikator "ma³e"}
-\begin{figure}[htbp]
-    \label{wykres:male_kropki_aproksymacja}
-    \centering
-    \includegraphics[width=15cm]{male_kwantyfikator_aproksymacja.eps}
-      \rule{35em}{0.5pt}
-    \caption[Wykres kwantyfikatora ma³e]{Wykres punktów zebranych dla kwantyfikatora \emph{ma³e}}
-\end{figure}
-Mamy dany zbiór punktów, przedstawiony na wykresie \ref{wykres:male_kropki_aproksymacja} i analogicznie trzeba oszacowaæ funkcjê rozk³adu gêstoœci prawdopodobieñstwa. Odcztyujemy z wykresu punkty gdzie funkcja zaczyna zmieniaæ swoj¹ postaæ. W punkcie [0.204,0] funkcja zaczyna maleæ, w punkcie [0.454,1] funkcja zmienia swoj¹ charakterystykê z liniowej na sta³¹. Tak wiêc nasza szukana funkcja bêdzie w przedziale 0 - 0.204 sta³a, w przedziale 0. - 0.454 przyjmie postaæ funkcji liniowej, a w przedziale 0.454 - 1 znowu zmienia siê w funkcjê sta³¹. 
-
-Aproksymowana funkcja bêdzie postaci podobnej do funkcji gêstoœci dla kwantyfikatora \emph{du¿e} opisanej wzorem \ref{rownanie:duze_wzor} : 
-\begin{equation}
-\label{rownanie:male_wzor}
-f(x) = \left\{ 
-\begin{array}{l l}
-  ax+b & \quad \text{, for 0.204 $<$ $x$ $\leq$ 0.454}\\
-  c & \quad \text{, for 0 $<$ $x$ $<$ 0.204}\\
-\end{array} \right.
-\end{equation}
-Aby obliczyæ $a$, $b$ oraz $c$ rozwi¹zujemy uk³ad analogiczny do uk³adu równañ \ref{uklad_rownan:duze_ur}. 
-Koñcowe operacja jest analogiczna do mno¿enia macierzy \ref{rownanie:duze_mnozenie_macierzy}, i wygl¹da nastêpuj¹co:
-\begin{equation}
-\label{rownanie:male_mnozenie_macierzy} 
- \begin{vmatrix} 
- a \\ 
- b \\
- c \\
- \end{vmatrix}
- = 
- {\begin{vmatrix} 
- 0 & 0 & 0.33 \\ 
- 0.455 & 1 & 0 \\
- 0.204 & 1 & -1 \\
- \end{vmatrix}}^{-1}
- *
- \begin{vmatrix} 
- 1 \\ 
- 0 \\
- 0 \\
- \end{vmatrix}
-\end{equation} 
-Rozwi¹zanie tego uk³adu wygl¹da nastêpuj¹co:
-\begin{equation}
- a = -8.775, 
- b = 3.993,  
- c = 2.203
-\end{equation} 
-\begin{figure}[htbp]
-    \label{wykres:male_kwantyfikator_wraz_z_aproksymacja}
-    \centering
-    \includegraphics[width=15cm]{male_kwantyfikator_aproksymacja.eps}
-      \rule{35em}{0.5pt}
-    \caption[Wykres kwantyfikatora \emph{ma³e} wraz z aproksymowan¹ funkcj¹ ]{Wykres kwantyfikatora \emph{ma³e} wraz z aproksymowan¹ funkcj¹}
-\end{figure}
-Funkcja rozk³adu gêstoœci prawdopodobieñstwa, dla kwantyfikatora \emph{du¿e}, pokazana na rysunku \ref{wykres:male_kwantyfikator_wraz_z_aproksymacja} wraz z kwantyfikatorem, ma nastêpuj¹cy wzór:
-
-\begin{equation}
-\label{rownanie:male_wynik}
-f(x) = \left\{ 
-\begin{array}{l l}
-  -8.775*x+3.993 & \quad \text{, for 0.204 $<$ $x$ $\leq$ 0.454}\\
-  2.203 & \quad \text{, for 0 $<$ $x$ $<$ 0.204}\\
-\end{array} \right.
-\end{equation}
-
-
-% RESZTA KWANTYFIKATORÓW
-
-
-\subsection{Kwantyfikator "bliskie 10 mln"}
-Kwantyfikator \emph{bliskie 10 mln} jest zadany przez wykres funkcji \ref{wykres:bliskie10mln}. 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=15cm]{bliskie10mln.eps}
-	  \rule{35em}{0.5pt}
-	\caption[Wykres funkcji gêstoœci dla kwantyfikatora  \emph{bliskie 10 mln}]{Wykres funkcji gêstoœci dla kwantyfikatora  \emph{bliskie 10 mln}}
-      \label{wykres:bliskie10mln}
-\end{figure}
-Tym razem, kwantyfikator ten nie jest wynikiem ankiety, tylko jest zadany przez Profesora Piegata( tak samo jak dla reszty kwantyfikatorów ). 
-Aby uzyskaæ wzór funkcji dla tego i reszty kwantyfikatorów, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{uklad_rownan:duze_ur} o postaci:
-\begin{equation}
-\label{bliskie10mln_uklad_rownan}
-\begin{cases}
-(10 - 7.7)*c + \frac{1}{2}*(7.7-5.5)*c = 1\\
-5.5*a + b = 0  \\
-7.7*a + b = c \\
-\end{cases}
-\end{equation}.
-Koñcowa operacja macierzowa wygl¹da nastêpuj¹co:
-\begin{equation}
-\label{bliskie10mln_mnozenie_macierzy} 
- \begin{vmatrix} 
- a \\ 
- b \\
- c \\
- \end{vmatrix}
- = 
- {\begin{vmatrix} 
- 0 & 0 & 3.4 \\ 
- 5.5 & 1 & 0 \\
- 7.7 & 1 & -1 \\
- \end{vmatrix}}^{-1}
- *
- \begin{vmatrix} 
- 1 \\ 
- 0 \\
- 0 \\
- \end{vmatrix}
-\end{equation}.
-Rozwi¹zaniem tego uk³adu jest trójka:
-\begin{equation}
- a = 0.13, 
- b = -0.73,  
- c = 0.29
-\end{equation}.
-Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora  \emph{bliskie 10 mln} wygl¹da zatem nastêpuj¹co:
-\begin{equation}
-\label{equation_bliskie10mln_wynik}
-f(x) = \left\{ 
-\begin{array}{l l}
-  0.13*x - 0.73 & \quad \text{, for 5.5 $<$ $x$ $\leq$ 7.7}\\
-  0.29 & \quad \text{, for 7.7 $<$ $x$ $<$ 1}\\
-\end{array} \right.
-\end{equation}.
-
-
-\subsection{Kwantyfikator "nie bliskie 10 mln"}
-Kwantyfikator \emph{nie bliskie 10 mln} jest zadany przez wykres funkcji \ref{wykres:niebliskie10mln}. 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=15cm]{niebliskie10mln.eps}
-	  \rule{35em}{0.5pt}
-	\caption[Wykres funkcji gêstoœci dla kwantyfikatora \emph{nie bliskie 10 mln}]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{nie bliskie 10 mln}}
-	\label{wykres:niebliskie10mln}
-\end{figure}
-Aby uzyskaæ wzór funkcji dla tego i reszty kwantyfikatorów, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{uklad_rownan:duze_ur} o postaci:
-\begin{equation}
-\label{niebliskie10mln_uklad_rownan}
-\begin{cases}
-5.5*c + \frac{1}{2}*(7.7-5.5)*c = 1\\
-5.5*a + b = c  \\
-7.7*a + b = 0 \\
-\end{cases}
-\end{equation}.
-Finalna operacja macierzowa wygl¹da nastêpuj¹co:
-\begin{equation}
-\label{niebliskie10mln_mnozenie_macierzy} 
- \begin{vmatrix} 
- a \\ 
- b \\
- c \\
- \end{vmatrix}
- = 
- {\begin{vmatrix} 
- 0 & 0 & 6.6 \\ 
- 5.5 & 1 & -1 \\
- 7.7 & 1 & 0 \\
- \end{vmatrix}}^{-1}
- *
- \begin{vmatrix} 
- 1 \\ 
- 0 \\
- 0 \\
- \end{vmatrix}
-\end{equation}.
-Rozwi¹zanie tego uk³adu jest trójka:
-\begin{equation}
- a = -0.06, 
- b = 0.53,  
- c = 0.15
-\end{equation}.
-Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora  \emph{nie bliskie 10 mln} wygl¹da zatem nastêpuj¹co:
-\begin{equation}
-\label{equation_niebliskie10mln_wynik}
-f(x) = \left\{ 
-\begin{array}{l l}
- -0.06*x +  0.53 & \quad \text{, for 5.5 $<$ $x$ $\leq$ 7.7}\\
-  0.15 & \quad \text{, for 0 $<$ $x$ $<$ 5.5}\\
-\end{array} \right.
-\end{equation}.
-\subsection{Kwantyfikator "bliskie 20 mln"}
-Kwantyfikator \emph{bliskie 20 mln} jest zadany przez wykres funkcji \ref{wykres:bliskie20mln}. 
-\begin{figure}[htbp]
-  
-    \centering
-    \includegraphics[width=15cm]{bliskie20mln.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres kwantyfikatora bliskie 20 mln]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{nie bliskie 20 mln}}
-    \label{wykres:bliskie20mln}
-\end{figure}
-Aby uzyskaæ wzór funkcji dla tej funkcji gêstoœci, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{uklad_rownan:duze_ur} o postaci:
-\begin{equation}
-\label{bliskie20mln_uklad_rownan}
-\begin{cases}
-(20-15.4)*c + \frac{1}{2}*(15.4-11)*c = 1\\
-11*a + b = 0  \\
-15.4*a + b = c \\
-\end{cases}
-\end{equation}.
-Finalna operacja macierzowa wygl¹da nastêpuj¹co:
-\begin{equation}
-\label{bliskie20_mnozenie_macierzy} 
- \begin{vmatrix} 
- a \\ 
- b \\
- c \\
- \end{vmatrix}
- = 
- {\begin{vmatrix} 
- 0 & 0 & 6.8 \\ 
- 11 & 1 & 0 \\
- 15.4 & 1 & -1 \\
- \end{vmatrix}}^{-1}
- *
- \begin{vmatrix} 
- 1 \\ 
- 0 \\
- 0 \\
- \end{vmatrix}
-\end{equation}.
-Rozwi¹zanie tego uk³adu jest trójka:
-\begin{equation}
- a = 0.033, 
- b = -0.368,  
- c = 0.147
-\end{equation} 
-Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora  \emph{bliskie 20 mln} wygl¹da zatem nastêpuj¹co:
-\begin{equation}
-\label{equation_bliskie20mln_wynik}
-f(x) = \left\{ 
-\begin{array}{l l}
- 0.02*x -  0.22 & \quad \text{, for 11 $<$ $x$ $\leq$ 15.4}\\
-  0.09 & \quad \text{, for 15.4 $<$ $x$ $<$ 20}\\
-\end{array} \right.
-\end{equation}.
-
-\subsection{Kwantyfikator "nie bliskie 20 mln"}
-\todo{Kwantyfikator "nie bliskie 20 mln"}
-Kwantyfikator \emph{nie bliskie 20 mln} jest zadany przez wykres funkcji \ref{wykres:niebliskie20mln}. 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=15cm]{niebliskie20mln.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres kwantyfikatora \emph{nie bliskie 20 mln}]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{nie bliskie 20 mln}}
-    \label{wykres:niebliskie20mln}
-\end{figure}
-Aby uzyskaæ wzór funkcji dla tego kwantyfikatora, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{uklad_rownan:duze_ur} o postaci
-\begin{equation}
-\label{niebliskie20mln_uklad_rownan}
-\begin{cases}
-11*c + \frac{1}{2}*(15.4-11)*c = 1\\
-11*a + b = c  \\
-15.4*a + b = 0 \\
-\end{cases}
-\end{equation}.
-Finalna operacja macierzowa wygl¹da nastêpuj¹co:
-\begin{equation}
-\label{niebliskie20_mnozenie_macierzy} 
- \begin{vmatrix} 
- a \\ 
- b \\
- c \\
- \end{vmatrix}
- = 
- {\begin{vmatrix} 
- 0 & 0 & 13.2 \\ 
- 11 & 1 & -1 \\
- 15.4 & 1 & 0 \\
- \end{vmatrix}}^{-1}
- *
- \begin{vmatrix} 
- 1 \\ 
- 0 \\
- 0 \\
- \end{vmatrix}
-\end{equation}.
-Rozwi¹zanie tego uk³adu jest trójka:
-\begin{equation}
- a = -0.017
- b = 0.263,  
- c = 0.075
-\end{equation} 
-Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora  \emph{nie bliskie 20 mln} wygl¹da zatem nastêpuj¹co:
-\begin{equation}
-\label{equation_niebliskie20mln_wynik}
-f(x) = \left\{ 
-\begin{array}{l l}
- -0.017*x + 0.263 & \quad \text{, for 11 $<$ $x$ $\leq$ 15.4}\\
-  0.075 & \quad \text{, for 0 $<$ $x$ $<$ 11}\\
-\end{array} \right.
-\end{equation}.
-Poni¿ej, pokazano parami, funkcje rozk³adu gêstoœci prawdopodobieñstwa dla przeciwstawnych kwantyfikatorów. 
-Funkcjê rozk³adu gêstoœci prawdopodobieñstwa dla kwantyfikatorów \emph{du¿e} \emph{ma³e} pokazano na wykresie \ref{wykres:duze_i_male}, dla kwantyfikarów \emph{bliskie 10 mln} i \emph{nie bliskie 10 mln}, pokazano na wykresie \ref{wykres:kwantyfikatory10mln} a dla kwantyfikarów \emph{bliskie 20 mln } i \emph{nie bliskie 20 mln } na wykresie \ref{wykres:kwantyfikatory20mln}. 
-\begin{figure}[htbp]  
-    \centering
-    \includegraphics[width=16cm]{male_duze.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres funkcji gêstoœci dla kwantyfikatorów \emph{du¿e} i \emph{ma³e} ]{Wykres funkcji gêstoœci dla kwantyfikatorów \emph{du¿e} i \emph{ma³e}}
-    \label{wykres:duze_i_male}
-\end{figure}
-\begin{figure}[htbp]  
-    \centering
-    \includegraphics[width=16cm]{kw10mln.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres funkcji gêstoœci dla kwantyfikarów \emph{bliskie 10 mln} i \emph{nie bliskie 10 mln}]{Wykres funkcji gêstoœci dla kwantyfikarów \emph{bliskie 10 mln} i \emph{nie bliskie 10 mln}}
-    \label{wykres:kwantyfikatory10mln}
-\end{figure}
-\begin{figure}[htbp]  
-    \centering
-    \includegraphics[width=16cm]{kw20mln.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres funkcji gêstoœci dla kwantyfikarów \emph{bliskie 20 mln } i \emph{nie bliskie 20 mln }]{Wykres funkcji gêstoœci dla kwantyfikarów \emph{bliskie 20 mln } i \emph{nie bliskie 20 mln }}
-    \label{wykres:kwantyfikatory20mln}
-\end{figure}
-\section{Rozwi¹zanie problemu}
-Po identyfikacji funkcji rozk³adu gêstoœci prawdopodobieñstwa, mo¿na przyst¹piæ do rozwi¹zania zadanego problemu. Jako odpowiedŸ na postawiony w zadaniu problem decyzyjny postaramy siê podaæ rozk³ady gêstoœci prawdopodobieñstwa dla biznesu pierwszego oraz biznesu drugiego, oraz policzyæ wartoœæ oczekiwan¹ z wynikowych rozk³adów. Wartoœæ oczekiwana oraz odchylenie standardowe z tych rozk³adów bêd¹ stanowi³y dla nas podstawê do ostatecznego podjêcia decyzji, który biznes, ze statystycznego punktu widzenia, jest bardziej korzystny. 
-\subsection{Przedstawienie analitycznej formy rozk³adów gêstoœci prawdopodbieñstwa dla zadania}
-Ogólna funkcja rozk³adu gêstoœci przyjmuje postaæ:
-\begin{equation}
-\label{equation:ogolna_postac_gestosci_rozkladu_prawdopodobienstwa}
-gp_{DBn} = f(DBn,p),
-\end{equation}
-gdzie
-\begin{itemize}
-\item $gp_{DBn}$ - oznacza gêstoœæ rozk³adu pradopodobieñstwa dochodu z biznesu n-tego
-\item $DBn$ - oznacza dochód z biznesu n-tego
-\item $p$ - oznacza prawdopodobieñstwo
-\end{itemize}
-Funkcjê rozk³adu gêstoœci prawdopodobieñstwa dla biznesu pierwszego przedstawia siê nastêpuj¹co:
-\begin{equation}
-\label{equation:funkcja_rozkladu_gest_prawd_biznes1}
-gp_{DB1} = \newline f(DB1,p) = fb10mln(p)\otimes D(p) \oplus fnb10mln(p)\otimes M(p),
-\end{equation}
-gdzie 
-\begin{itemize}
- \item $fb10mln(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{bliskie 10 mln}
- \item $D(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{du¿e}
- \item $fnb10mln(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{nie bliskie 10 mln}
- \item $M(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{ma³e}
-\end{itemize}
-Analogicznie, by okreœlamy funkcjê rozk³adu gêstoœci prawdopodobieñstwa dla biznesu drugiego:
-\begin{equation}
-\label{equation:funkcja_rozkladu_gest_prawd_biznes2}
-gp_{DB2} = \newline f(DB1,p) = fb20mln(p)\otimes M(p) \oplus fnb20mln(p)\otimes D(p),
-\end{equation}
-gdzie 
-\begin{itemize}
- \item $fb20mln(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{bliskie 20 mln}
- \item $D(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{du¿e}
- \item $fnb20mln(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{nie bliskie 20 mln}
- \item $M(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{ma³e}
-\end{itemize}
-
-Gdy uda nam siê ustaliæ obie funkcje, nale¿y policzyæ wartoœæ oczekiwan¹ takiego rozk³adu oraz odchylenie standardowe, co bêdzie stanowi³o dla nas statystyczn¹ odpowiedŸ. 
-\subsection{Funkcje rozk³adu gêstoœci prawdopodbieñstwa dla biznesu pierwszego}
-Funkcja gêstoœci rozk³adu prawdopodobieñstwa jest dana wzorem \ref{equation:funkcja_rozkladu_gest_prawd_biznes1}. 
-Zanim zostanie przedstawiona koñcowa funkcje gêstoœci, pokazane zostan¹ wyniki posi³kowe poszczególnych operacji. 
-Pierwsz¹ operacj¹ jest operacja:
-\begin{equation}
-\label{equation:pierwsza_operacja_biznes1}
-biznes1f1(x) = fb10mln(p)\otimes D(p), 
-\end{equation}
-która zachodzi miêdzy funkcjami rozk³adów gêstoœci prawdopodobieñstwa dla kwantyfikarów \emph{bliskie 10 mln} i \emph{du¿e}.Operacja $\otimes$ zosta³a opisana w rozdziale \todo{Dodaæ gdzie zosta³a zdefiniowana i j¹ zdefiniowaæ ? }. Wynik tego dzia³ania zosta³ przedstawiony na wykresie \ref{wykres:frgp_biznes1_op1}. Funkcja, która powstaje w wyniku tej operacji, wyliczona w programie jest funkcj¹ dyskretn¹ okreœlon¹ w danych punktach. Poniewa¿, nas interesuj¹ jedynie funkcje ci¹g³e, funkcja ta musi zostaæ zaaproksymowana na zadanym przedziale ( pamiêtamy o tym ¿e funkcja bêd¹ca wynikiem aproksymacji, równie¿ musi byæ funkcj¹ gêstoœæ, co oznacza jej ca³kowalnoœæ do 1) . Wykres \ref{wykres:frgp_biznes1_op1_aproksymacja} przedstawia funkcjê dyskretn¹ oraz jej aproksymacjê do wielomianu 6-tego stopnia. Stopnie wielomianu, w tej operacji przybli¿enia, oraz w pozosta³ych, zosta³y ustalone empirycznie poprzez minimalizacjê odchylenia odchy³ki funkcji od jej przybli¿enia. Równanie funkcji zosta³o przedstawione na wzorze \ref{wzor:fgrp1_biznes1_op1_aproks_rownanie}:
-\begin{equation}
-\label{wzor:fgrp1_biznes1_op1_aproks_rownanie}
-biznes1f1(x) = \left\{ 
-\begin{array}{l l}
- \frac{(-7.22336*x^0 + 8.84955*x^1 + -4.29262*x^2 + 1.04695*x^3+ -x^4 + x^5 + -0.000226031*x^6 )}{0.98102} & \quad \text{, dla 3.08 $<$ $x$ $\leq$ 9.98}\\
-  0 & \quad \text{, dla -inf $<$ $x$ $<$ 3.08 }\\
-  0 & \quad \text{, dla 9.98 $<$ $x$ $<$ inf}\\
-\end{array} \right. .
-\end{equation}
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=16cm]{frgp_biznes1_op1.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres funkcji gêstoœci dla kwantyfikarów \emph{du¿e} i \emph{bliskie 10 mln} oraz funkcji wynikowej dla operacji $\otimes$ miêdzy nimi]{Wykres funkcji gêstoœci dla kwantyfikarów \emph{du¿e} i \emph{bliskie 10 mln} oraz funkcji wynikowej dla operacji $\otimes$ miêdzy nimi}
-    \label{wykres:frgp_biznes1_op1}s
-\end{figure}
-
-Jak widaæ na wykresie \ref{wykres:frgp_biznes1_op1_aproksymacja}, aproksymacja ta jest bardzo dok³adna na przedziale i jej b³¹d jest niewielki. 
-\begin{figure}[htbp]  
-    \centering
-    \includegraphics[width=16cm]{frgp_biznes1_op1_aproksymacja.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci \emph{bliskie 10 mln}$\otimes$\emph{du¿e}]{Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci \emph{bliskie 10 mln}$\otimes$ \emph{du¿e}}
-    \label{wykres:frgp_biznes1_op1_aproksymacja}
-\end{figure}
-\newline
-Nastêpnym dzia³anie jest:
-\begin{equation}
-\label{equation:druga_operacja_biznes1}
-biznes1f2(x) = fnb10mln(p)\otimes M(p)
-\end{equation}
-Wynik tej operacji zosta³ przedstawiony na wykresie \ref{wykres:frgp_biznes1_op2}. Tak jak w przypadku operacji \ref{equation:pierwsza_operacja_biznes1} tak w tym przypadku powsta³a funkcja jest funkcj¹ dyskretn¹ wymagaj¹c¹ aproksymacji na przedziale. Równanie funkcji zosta³o przedstawione na wzorze \ref{wzor:fgrp1_biznes1_op2_aproks_rownanie}, a niedok³adnoœci aproksymacji na wykresie \ref{wykres:frgp_biznes1_op2_aproksymacja}. 
-\begin{figure}[htbp]  
-    \centering
-    \includegraphics[width=16cm]{frgp_biznes1_op2.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres funkcji gêstoœci dla kwantyfikarów \emph{ma³e} i \emph{nie bliskie 10 mln} oraz funkcji wynikowej dla operacji $\otimes$ miêdzy nimi]{Wykres funkcji gêstoœci dla kwantyfikarów \emph{ma³e} i \emph{nie bliskie 10 mln} oraz funkcji wynikowej dla operacji $\otimes$ miêdzy nimi}
-    \label{wykres:frgp_biznes1_op2}
-\end{figure}
-\begin{equation}
-\label{wzor:fgrp1_biznes1_op2_aproks_rownanie}
-biznes1f2(x) = \left\{ 
-\begin{array}{l l}
- \frac{(2.54408*x^0 + -13.4774*x^1 + 40.2776*x^2 + -64.1313*x^3 + 57.4434*x^4 + -30.0347*x^5 + 9.09288*x^6 + -1.47599*x^7 + 0.0993372*x^8)}{0.978629} & \quad \text{, dla 0 $<$ $x$ $\leq$ 3.45}\\
-  0 & \quad \text{, dla -inf $<$ $x$ $<$ 0 }\\
-  0 & \quad \text{, dla 3.45 $<$ $x$ $<$ inf}\\
-\end{array} \right.
-\end{equation}
-\begin{figure}[htbp]  
-    \centering
-    \includegraphics[width=16cm]{frgp_biznes1_op2_aproksymacja.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci  \emph{ma³e} $\otimes$ \emph{nie bliskie 10 mln} ]{Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci \emph{ma³e} $\otimes$ \emph{nie bliskie 10 mln}}
-    \label{wykres:frgp_biznes1_op2_aproksymacja}
-\end{figure}
-
-Ostatni¹ operacj¹ jest splecenie funkcji poœrednich, uzyskanych w operacjach \ref{equation:pierwsza_operacja_biznes1} oraz \ref{equation:druga_operacja_biznes1} : 
-\begin{equation}
-\label{equation:trzecia_operacja_biznes1}
-gp_{DB1} = biznes1f1(x) \oplus biznes1f2(x) = fb10mln(p)\otimes D(p) \oplus fnb10mln(p)\otimes M(p), 
-\end{equation}
-o wzorach \ref{wzor:fgrp1_biznes1_op1_aproks_rownanie} i\ref{wzor:fgrp1_biznes1_op2_aproks_rownanie}. 
-Wynik tego dzia³ania pokazany jest na wykresie \ref{wykres:frgp_biznes1_op3}, a niedok³adnoœæ aproksymacji na wykresie \ref{wykres:frgp_biznes1_op3_aproksymacja}. Wynikowa funkcja $gp_{DB1}$, ma wzór:
-\begin{equation}
-\label{wzor:fgrp1_biznes1_op3_aproks_rownanie}
-gp_{DB1} = \left\{ 
-\begin{array}{l l}
-\frac(2.5253*x^0 + -1.57345*x^1 + 0.25237*x^2 + 0.0159547*x^3 + -0.00724035*x^4 + 0.000607499*x^5 + -1.62706e-05*x^6){0.999594} & \quad \text{, dla 3.18 $<$ $x$ $\leq$ 13.38}\\
-  0 & \quad \text{, dla -inf $<$ $x$ $<$ 3.18 }\\
-  0 & \quad \text{, dla 13.38 $<$ $x$ $<$ inf}\\
-\end{array} \right. . 
-\end{equation}
-\begin{figure}[htbp]  
-    \centering
-    \includegraphics[width=16cm]{frgp_biznes1_op3.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres funkcji gêstoœci $gp_{DB1}$ ]{Wykres funkcji gêstoœci $gp_{DB1}$ }
-    \label{wykres:frgp_biznes1_op3}
-\end{figure}
-\begin{figure}[htbp]  
-    \centering
-    \includegraphics[width=16cm]{frgp_biznes1_op3_aproksymacja.eps}
-        \rule{35em}{0.5pt}
-    \caption[ ]{Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci $gp_{DB1}$}
-    \label{wykres:frgp_biznes1_op3_aproksymacja}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\subsection{Funkcje rozk³adu gêstoœci prawdopodbieñstwa dla biznesu drugiego}
-
-Funkcja gêstoœci rozk³adu prawdopodobieñstwa dla biznesu drugiego jest dana wzorem \ref{equation:funkcja_rozkladu_gest_prawd_biznes2}.
-Tak jak w przypadku obliczeñ funkcji gêstoœci prawdopodobieñstwa dla biznesu pierwszego, tak w tym przypadku obliczenia zostan¹ podzielone na trzy operacje. 
-Pierwszym dzia³aniem jest:
-\begin{equation}
-\label{equation:pierwsza_operacja_biznes2}
-biznes2f1(x) = fnb20mln(p)\otimes D(p), 
-\end{equation}
-która zachodzi miêdzy funkcjami rozk³adów gêstoœci prawdopodobieñstwa dla kwantyfikarów \emph{nie bliskie 20 mln} i \emph{du¿e}.Wynik tego dzia³ania zosta³ przedstawiony na wykresie \ref{wykres:frgp_biznes2_op1}, a niedok³adnoœæ odwzorowania zosta³a uwidoczniona na wykresie \ref{wykres:frgp_biznes2_op1_aproksymacja}. Równanie funkcji zosta³o przedstawione na wzorze \ref{wzor:fgrp1_biznes2_op1_aproks_rownanie}:
-\begin{equation}
-\label{wzor:fgrp1_biznes2_op1_aproks_rownanie}
-biznes2f1(x) = \left\{ 
-\begin{array}{l l}
- \frac{(0.0836205*x^0 + 0.0177805*x^1 + -0.0116741*x^2 + 0.00319557*x^3 + -0.000398944*x^4 + 2.20096e-05*x^5 + -4.41138e-07*x^6)}{0.988036} & \quad \text{, dla 0.5 $<$ $x$ $\leq$ 15.35}\\
-  0 & \quad \text{, dla -inf $<$ $x$ $<$ 0.5 }\\
-  0 & \quad \text{, dla 15.35 $<$ $x$ $<$ inf}\\
-\end{array} \right. .
-\end{equation}
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=16cm]{frgp_biznes2_op1.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres funkcji gêstoœci dla kwantyfikarów \emph{du¿e} i \emph{nie bliskie 20 mln} oraz funkcji wynikowej dla operacji $\otimes$ miêdzy nimi]{Wykres funkcji gêstoœci dla kwantyfikarów \emph{du¿e} i \emph{nie bliskie 20 mln} oraz funkcji wynikowej dla operacji $\otimes$ miêdzy nimi}
-    \label{wykres:frgp_biznes2_op1}
-\end{figure}
-\begin{figure}[htbp]  
-    \centering
-    \includegraphics[width=16cm]{frgp_biznes2_op1_aproksymacja.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci \emph{nie bliskie 20 mln}$\otimes$\emph{du¿e}]{Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci \emph{nie bliskie 10 mln}$\otimes$ \emph{du¿e}}
-    \label{wykres:frgp_biznes2_op1_aproksymacja}
-\end{figure}
-\newline
-
-Nastêpnym dzia³anie jest:
-\begin{equation}
-\label{equation:druga_operacja_biznes2}
-biznes2f2(x) = fb20mln(p)\otimes M(p)
-\end{equation}
-Wynik tej operacji zosta³ przedstawiony na wykresie \ref{wykres:frgp_biznes2_op2}. Równanie zaaproksymowanej funkcji zosta³o przedstawione na wzorze \ref{wzor:fgrp1_biznes2_op2_aproks_rownanie}, a niedok³adnoœci aproksymacji na wykresie \ref{wykres:frgp_biznes2_op2_aproksymacja}. 
-\begin{figure}[htbp]  
-    \centering
-    \includegraphics[width=16cm]{frgp_biznes1_op2.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres funkcji gêstoœci dla kwantyfikarów \emph{ma³e} i \emph{nie bliskie 10 mln} oraz funkcji wynikowej dla operacji $\otimes$ miêdzy nimi]{Wykres funkcji gêstoœci dla kwantyfikarów \emph{ma³e} i \emph{nie bliskie 10 mln} oraz funkcji wynikowej dla operacji $\otimes$ miêdzy nimi}
-    \label{wykres:frgp_biznes2_op2}
-\end{figure}
-\begin{equation}
-\label{wzor:fgrp1_biznes2_op2_aproks_rownanie}
-biznes1f2(x) = \left\{ 
-\begin{array}{l l}
- \frac{(0.186694*x^0 + -0.0295955*x^0 + 0.0317438*x^2 + -0.0113698*x^3 + 0.00139805*x^4 + -5.87695e-05*x^5 + 1.75719e-07*x^6)}{0.952766} & \quad \text{, dla 0.1 $<$ $x$ $\leq$ 9.05}\\
-  0 & \quad \text{, dla -inf $<$ $x$ $<$ 0.1 }\\
-  0 & \quad \text{, dla 9.05 $<$ $x$ $<$ inf}\\
-\end{array} \right.
-\end{equation}
-\begin{figure}[htbp]  
-    \centering
-    \includegraphics[width=16cm]{frgp_biznes2_op2_aproksymacja.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci  \emph{ma³e} $\otimes$ \emph{nie bliskie 10 mln} ]{Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci \emph{ma³e} $\otimes$ \emph{nie bliskie 10 mln}}
-    \label{wykres:frgp_biznes2_op2_aproksymacja}
-\end{figure}
+% % Wprowadzenie, rozdzia³ 1 
+% \chapter{Rozwi¹zanie przyk³adowego zadania} 
+% \label{Rozdzia³ 4 }
+% \lhead{Rozdzia³ 4. \emph{Rozwi¹zanie przyk³adowego zadania }} 
 % 
-
-Ostatni¹ operacj¹ jest splecenie funkcji poœrednich, uzyskanych w operacjach \ref{equation:pierwsza_operacja_biznes2} oraz \ref{equation:druga_operacja_biznes2} : 
-\begin{equation}
-\label{equation:trzecia_operacja_biznes2}
-gp_{DB2} = biznes2f1(x) \oplus biznes2f2(x) = fnb20mln(p)\otimes D(p) \oplus fb20mln(p)\otimes M(p), 
-\end{equation}
-o wzorach \ref{wzor:fgrp1_biznes2_op1_aproks_rownanie} i\ref{wzor:fgrp1_biznes2_op2_aproks_rownanie}. 
-Wynik tego dzia³ania pokazany jest na wykresie \ref{wykres:frgp_biznes2_op3}, a niedok³adnoœæ aproksymacji na wykresie \ref{wykres:frgp_biznes2_op3_aproksymacja}. Wynikowa funkcja $gp_{DB2}$, ma wzór:
-\begin{equation}
-\label{wzor:fgrp1_biznes2_op3_aproks_rownanie}
-gp_{DB2} = \left\{ 
-\begin{array}{l l}
-\frac{(-0.00187736*x^0 + 0.0153108*x^1 + 0.0015905*x^2 + -0.000360704*x^3 + 1.37708e-05*x^4 + 5.76882e-08*x^5 + -6.93204e-09*x^6}){1.0002} & \quad \text{, dla 0.25 $<$ $x$ $\leq$ 24.35 }\\
-  0 & \quad \text{, dla -inf $<$ $x$ $<$ 3.18 }\\
-  0 & \quad \text{, dla 13.38 $<$ $x$ $<$ inf}\\
-\end{array} \right. . 
-\end{equation}
-\begin{figure}[htbp]  
-    
-    \centering
-    \includegraphics[width=16cm]{frgp_biznes2_op3.eps}
-        \rule{35em}{0.5pt}
-    \caption[Wykres funkcji gêstoœci $gp_{DB2}$ ]{Wykres funkcji gêstoœci $gp_{DB2}$ }
-    \label{wykres:frgp_biznes2_op3}
-\end{figure}
-\begin{figure}[htbp]  
-    \centering
-    \includegraphics[width=16cm]{frgp_biznes2_op3_aproksymacja.eps}
-        \rule{35em}{0.5pt}
-    \caption[ ]{Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci $gp_{DB2}$}
-    \label{wykres:frgp_biznes2_op3_aproksymacja}
-    
-\end{figure}
-\subsection{Wartoœci oczekiwane i b³¹d}
-Z funkcji rozk³adu gêstoœci prawdopodobieñstwa biznesu pierwszego, danej wzorem \ref{wzor:fgrp1_biznes1_op3_aproks_rownanie}, policzona wartoœæ oczekiwana wynosi $\approx$ 7.4, natomiast z funkcji rozk³adu gêstoœci prawdopodobieñstwa biznesu drugiego, danej wzorem \ref{wzor:fgrp1_biznes1_op3_aproks_rownanie}, wyliczona wartoœæ oczekiwana wynosi $\approx$ 8.46. 
-\newline
-Przedstawione wy¿ej wartoœci s¹ wartoœciami uœrednionymi. Zale¿nie od wyboru stopnia wielomianów, którymi aproksymowaliœmy wynikowe funkcje, wartoœæ oczekiwana obu koñcowych rozk³adów ulega³a zmianie. Wartoœæ oczekiwana biznesu pierwszego zawsze nale¿a³a do przedzia³u [ 7.34 -7.4 ], natomiast dla biznesu drugiego [ 8.38 - 8.55 ]. B³¹d wyniku dla pierwszego biznesu wynosi³ zatem $\approx$ 1 \% i by³ taki sam jak dla biznesu drugiego. 
-\newline
-B³¹d na takim poziomie nie wp³ywa na koñcowy wynik. 
-\subsection{OdpowiedŸ na problem dwóch biznesów}
-
-Ze statystycznego punktu widzienia, zdecydowanie lepiej jest wybraæ biznes drugi, poniewa¿ wartoœæ oczekiwana dochodu z niego jest wy¿sza $\approx$ 1 mln z³otych. 
-
+% 
+% \section{Postawienie zadania}
+% 
+% Zadaniem, które zostanie rozwi¹zane za pomoc¹ programu bêd¹cego podmiotem pracy
+% magisterskiej, jest problem "dwóch biznesów". Jest to problem decyzyjny, w
+% którym decydent podejmuje jedn¹ z dwóch mo¿liwoœci przy braku informacji
+% zupe³nej. 
+% Problem dwóch biznesów brzmi nastêpuj¹co:
+% \newline
+% 
+% \begin{quote}
+% W biznesie B1 mo¿na zarobiæ od 0 do 10 milionów z³otych. Prawdopodobieñstwo
+% dochodu bliskiego 10 milionów z³otych jest du¿e. 
+% W biznesie B2 mo¿na zarobiæ od 0 do 20 milionów z³otych. Prawdopodobieñstwo
+% dochodu bliskiego 20 milionów z³otych jest jednak ma³e. \newline Decyzja: W
+% który z biznesów zainwestowaæ?
+% \end{quote}
+% 
+% Rozwi¹zanie tego problemu na odpowiadaæ konretnie na 
+% 
+% \section{Identyfikacja funkcji gêstoœci }
+% Aby podejœæ do próby rozwi¹znia tego problemu nale¿y okreœliæ kwantyfikatory
+% ligwistyczne
+% \begin{itemize}
+% \item {du¿e}
+% \item {ma³e ( nie du¿e ) }
+% \item {bliskie, dla wartoœci maksymalnej dochodu z biznesu pierwszego }
+% \item {nie bliskie , dla wartoœci maksymalnej dochodu z biznesu pierwszego }
+% \item {bliskie, dla wartoœci maksymalnej dochodu z biznesu drugiego }
+% \item {nie bliskie , dla wartoœci maksymalnej dochodu z biznesu drugiego}
+% \end{itemize}
+% oraz odpowiadaj¹ce im funkcje rozk³adu gêstoœci. 
+% 
+% Kwantyfikatory \emph{du¿e} i \emph{ma³e}, zostan¹ okreœlone na podstawie pracy doktora Marka Landowskiego \cite{landowski_d}. 
+% Doktor po przeprowadzeniu ankiety wy³uska³ dane dotycz¹ce oznaczania danej wartoœci prawdopodobieñstwa jako du¿ej, ma³ej oraz œredniej. W naszym przypadku, interesuj¹ nas tylko badania odnoœnie pojmowania prawdopodobieñstwa jako du¿ego oraz ma³ego. 
+% Kwantyfikatory uzyskane przez doktora Marka Landowskiego pos³u¿¹ nam do okreœlenia funkcji rozk³adu gêstoœci prawdopodbieñstwa. 
+% Kwantyfikatory \emph{bliskie 10 mln}, \emph{nie bliskie 10 mln}, \emph{bliskie 20 mln} oraz \emph{nie bliskie 20 mln} s¹ natomiast okreœlone przez Profesora Andrzej Piegata. \todo{Czy prof siê nazywa andrzej ? }%
+% 
+% Dane otrzymane przez doktora Landowskiego ,mo¿na przybli¿yæ funkcjami wysokich rzêdów, ale punkty uk³adaj¹ siê w sposób pozwalaj¹cy przeprowadziæ aproksymacjê funkcjami pierwszego i zerowego rzêdu ( funkcjami liniowymi oraz
+% funkcjami sta³ymi ), bez du¿ej straty dok³adnoœci \todo{sprawdziæ niedok³adnoœæ}, co pokazano na rysunkach \ref{wykres:duze_kropki_aproksymacja} \ref{wykres:male_kropki_aproksymacja}.Aby zachowaæ pewne ustalenie, pozosta³e kwantyfikatory równie¿ bêd¹ mia³y postaæ funkcji pierwszego i zerowego rzêdu. 
+% 
+% Aby zidentyfikowaæ poszczególne funkcje rozk³adu gêstoœci prawdopodobieñstwa nale¿y przypatrzeæ siê rozk³adowi punktów dla danego kwantyfikatora, oraz wykorzystuj¹æ w³aœciwoœæ ca³kowania do 1 funkcji gêstoœci na okreœlonym przedziale, rozwi¹zaæ uk³ad równañ, który okreœli nam funkcjê pierwszego rzêdu oraz maksymaln¹ wysokoœæ funkcji rozk³adu prawdopodobieñstwa ( maksymalna wysokoœæ kwantyfikatorów wynosi 1, jednak w naszym przypadku, wysokoœæ trzeba przeskalowaæ, aby uzyskaæ funkcjê ca³kuj¹c¹ siê do 1 ). 
+% Ca³y algorytm aproksymacji zostanie przedstawiony dla kwantyfikatora \emph{du¿e}, natomiast dla reszty kwantyfikatorów pominiête zostan¹ obliczenia i przedstawione zostan¹ tylko wyniki. 
+% 
+% W poni¿szych obliczeniach oœ rzêdnych oznacza wartoœæ prawdopodobieñstwa, dla kwantyfikatorów \emph{du¿e} i \emph{ma³e}, oraz wartoœæ dochodu dla kwantyfikatorów \emph{bliskie 10 mln}, \emph{nie bliskie 10 mln}, \emph{bliskie 20 mln} oraz \emph{nie bliskie 20 mln}.  
+% 
+% \subsection{Kwantyfikator "du¿e"}
+% \todo{Przecinki to wzorach i uk³adach równañ}
+% 
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[width=15cm]{duze_kropki_aproksymacja.eps}
+%       \rule{35em}{0.5pt}
+%     \caption[Wykres kwantyfikatora du¿e]{Wykres punktów zebranych dla kwantyfikatora \emph{du¿e}}
+%     \label{wykres:duze_kropki_aproksymacja}
+% \end{figure}
+% Mamy dany zbiór punktów, przedstawiony na wykresie \ref{wykres:duze_kropki_aproksymacja} i dla tego zbioru, trzeba oszacowaæ funkcjê rozk³adu gêstoœci prawdopodobieñstwa. Aby to uczyniæ trzeba odczytaæ z wykresu punkty gdzie funkcja zaczyna zmieniaæ swoj¹ postaæ. W punkcie [0.56,0] funkcja zaczyna rosn¹æ, w punkcie [0.78,1] funkcja zmienia swoj¹ charakterystykê z liniowej na sta³¹. Tak wiêc nasza szukana funkcja bêdzie w przedziale 0 - 0.56 sta³a, w przedziale 0.56 - 0.78 przyjmie postaæ funkcji liniowej, a w przedziale 0.78 - 1 znowu zmienia siê w funkcjê sta³¹. Na rysunku zaznaczono równie¿, jak dobrze funkcja liniowa pokrywa siê z punktami z przedzia³u 0.56 - 0.78 i ¿e jest ona wystarczaj¹ca do aproksymacji. 
+% Przy aproksymacji nale¿y pamiêtaæ, ¿e o ile wartoœæ maksymalna kwantyfikatora wynosi 1 ( jakaœ wartoœæ przynale¿y do kwantyfikatora w stopniu maksymalnym ), to zaaproksymowana na jej podstawie funkcja gêstoœci wartoœæ maksymaln¹ bêdzie mia³a przeskalowan¹ tak, aby mog³a siê ca³kowaæ do 1. 
+% 
+% Szukana funkcja bêdzie mia³a zatem postaæ:
+% \begin{equation}
+% \label{rownanie:duze_wzor}
+% f(x) = \left\{ 
+% \begin{array}{l l}
+%   ax+b & \quad \text{, for 0.56 $<$ $x$ $\leq$ 0.78}\\
+%   c & \quad \text{, for 0.78 $<$ $x$ $<$ 1}\\
+% \end{array} \right.
+% \end{equation}
+% Aby znaleœæ sta³e $a$, $b$ oraz $c$ rozwi¹zujemy uk³ad równañ:
+% \begin{equation}
+% \label{uklad_rownan:duze_ur}
+% \begin{cases}
+% (1-0.78)*c + \frac{1}{2}*(0.78-0.56)*c = 1\\
+% 0.56*a + b = 0  \\
+% 0.78*a + b = c \\
+% \end{cases}
+% \Rightarrow \;
+% \begin{cases}
+% 0*a + 0*b + 0.33*c = 1\\
+% 0.56*a + 1*b + 0*c = 0\\
+% 0.78*a + 1*b - 1*c = 0\\
+% \end{cases}
+% \end{equation}
+% Pierwsze rówanie z uk³adu \ref{uklad_rownan:duze_ur} wynika z faktu, ¿e funkcja rozk³adu gêstoœci prawdopodobieñstwa musi siê ca³kowaæ do 1 na ca³ym przedziale. (Poza przedzia³em 0.56 - 1 funkcja jest nieokreœlona, co oznacza, ¿e pole pod wykresem poza tym przedzia³em jest równe 0 i nie musi byæ brane pod uwagê)
+% Kolejne dwa  rówania z uk³adu \ref{uklad_rownan:duze_ur} wynikaj¹ z rozpiêcia funkcji liniowej miêdzy punktami (0.56 , 0) oraz (0.78  ,$c$). 
+% Trzecie
+% Uk³ad równañ, przekszta³camy do równania macierzowego:
+% \begin{equation}
+% \label{rownanie:duze_macierz}
+%  \begin{vmatrix} 
+%  0 & 0 & 0.33 \\ 
+%  0.56 & 1 & 0 \\
+%  0.78 & 1 & -1 \\
+%  \end{vmatrix}
+%  * 
+%  \begin{vmatrix} 
+%  a \\ 
+%  b \\
+%  c \\
+%  \end{vmatrix}
+%  = 
+%  \begin{vmatrix} 
+%  1 \\ 
+%  0 \\
+%  0 \\
+%  \end{vmatrix}
+% \end{equation} 
+% co po przekszta³ceniu daje równanie:
+% \begin{equation}
+% \label{rownanie:duze_mnozenie_macierzy} 
+%  \begin{vmatrix} 
+%  a \\ 
+%  b \\
+%  c \\
+%  \end{vmatrix}
+%  = 
+%  {\begin{vmatrix} 
+%  0 & 0 & 0.33 \\ 
+%  0.56 & 1 & 0 \\
+%  0.78 & 1 & -1 \\
+%  \end{vmatrix}}^{-1}
+%  *
+%  \begin{vmatrix} 
+%  1 \\ 
+%  0 \\
+%  0 \\
+%  \end{vmatrix}
+% \end{equation} 
+% Rozwi¹zenie tego równania macierzowego wynosi:
+% \begin{equation}
+%  a = 13.774,
+%  b = -7.713
+%  c = 3.030
+% \end{equation}. 
+% \begin{figure}[htbp]
+%     \label{wykres:duze_kwantyfikator_wraz_z_aproksymacja}
+%     \centering
+%     \includegraphics[width=15cm]{duze_kwantyfikator_aproksymacja.eps}
+%       \rule{35em}{0.5pt}
+%     \caption[Wykres kwantyfikatora \emph{du¿e} wraz z aproksymowan¹ funkcj¹ ]{Wykres kwantyfikatora \emph{du¿e} wraz z aproksymowan¹ funkcj¹}
+% \end{figure}
+% Funkcja rozk³adu gêstoœci prawdopodobieñstwa, dla kwantyfikatora \emph{du¿e}, pokazana na rysunku \ref{wykres:duze_kwantyfikator_wraz_z_aproksymacja} wraz z kwantyfikatorem, ma nastêpuj¹cy wzór:
+% \begin{equation}
+% \label{rownanie:duze_wynik}
+% f(x) = \left\{ 
+% \begin{array}{l l}
+%   10.331*x - 5.785 & \quad \text{, for 0.56 $<$ $x$ $\leq$ 0.78}\\
+%   2.273 & \quad \text{, for 0.78 $<$ $x$ $<=$ 1}\\
+% \end{array}\right.
+% \end{equation}
+% abc
+% 
+% \subsection{Kwantyfikator "ma³e"}
+% \begin{figure}[htbp]
+%     \label{wykres:male_kropki_aproksymacja}
+%     \centering
+%     \includegraphics[width=15cm]{male_kwantyfikator_aproksymacja.eps}
+%       \rule{35em}{0.5pt}
+%     \caption[Wykres kwantyfikatora ma³e]{Wykres punktów zebranych dla kwantyfikatora \emph{ma³e}}
+% \end{figure}
+% Mamy dany zbiór punktów, przedstawiony na wykresie \ref{wykres:male_kropki_aproksymacja} i analogicznie trzeba oszacowaæ funkcjê rozk³adu gêstoœci prawdopodobieñstwa. Odcztyujemy z wykresu punkty gdzie funkcja zaczyna zmieniaæ swoj¹ postaæ. W punkcie [0.204,0] funkcja zaczyna maleæ, w punkcie [0.454,1] funkcja zmienia swoj¹ charakterystykê z liniowej na sta³¹. Tak wiêc nasza szukana funkcja bêdzie w przedziale 0 - 0.204 sta³a, w przedziale 0. - 0.454 przyjmie postaæ funkcji liniowej, a w przedziale 0.454 - 1 znowu zmienia siê w funkcjê sta³¹. 
+% 
+% Aproksymowana funkcja bêdzie postaci podobnej do funkcji gêstoœci dla kwantyfikatora \emph{du¿e} opisanej wzorem \ref{rownanie:duze_wzor} : 
+% \begin{equation}
+% \label{rownanie:male_wzor}
+% f(x) = \left\{ 
+% \begin{array}{l l}
+%   ax+b & \quad \text{, for 0.204 $<$ $x$ $\leq$ 0.454}\\
+%   c & \quad \text{, for 0 $<$ $x$ $<$ 0.204}\\
+% \end{array} \right.
+% \end{equation}
+% Aby obliczyæ $a$, $b$ oraz $c$ rozwi¹zujemy uk³ad analogiczny do uk³adu równañ \ref{uklad_rownan:duze_ur}. 
+% Koñcowe operacja jest analogiczna do mno¿enia macierzy \ref{rownanie:duze_mnozenie_macierzy}, i wygl¹da nastêpuj¹co:
+% \begin{equation}
+% \label{rownanie:male_mnozenie_macierzy} 
+%  \begin{vmatrix} 
+%  a \\ 
+%  b \\
+%  c \\
+%  \end{vmatrix}
+%  = 
+%  {\begin{vmatrix} 
+%  0 & 0 & 0.33 \\ 
+%  0.455 & 1 & 0 \\
+%  0.204 & 1 & -1 \\
+%  \end{vmatrix}}^{-1}
+%  *
+%  \begin{vmatrix} 
+%  1 \\ 
+%  0 \\
+%  0 \\
+%  \end{vmatrix}
+% \end{equation} 
+% Rozwi¹zanie tego uk³adu wygl¹da nastêpuj¹co:
+% \begin{equation}
+%  a = -8.775, 
+%  b = 3.993,  
+%  c = 2.203
+% \end{equation} 
+% \begin{figure}[htbp]
+%     \label{wykres:male_kwantyfikator_wraz_z_aproksymacja}
+%     \centering
+%     \includegraphics[width=15cm]{male_kwantyfikator_aproksymacja.eps}
+%       \rule{35em}{0.5pt}
+%     \caption[Wykres kwantyfikatora \emph{ma³e} wraz z aproksymowan¹ funkcj¹ ]{Wykres kwantyfikatora \emph{ma³e} wraz z aproksymowan¹ funkcj¹}
+% \end{figure}
+% Funkcja rozk³adu gêstoœci prawdopodobieñstwa, dla kwantyfikatora \emph{du¿e}, pokazana na rysunku \ref{wykres:male_kwantyfikator_wraz_z_aproksymacja} wraz z kwantyfikatorem, ma nastêpuj¹cy wzór:
+% 
+% \begin{equation}
+% \label{rownanie:male_wynik}
+% f(x) = \left\{ 
+% \begin{array}{l l}
+%   -8.775*x+3.993 & \quad \text{, for 0.204 $<$ $x$ $\leq$ 0.454}\\
+%   2.203 & \quad \text{, for 0 $<$ $x$ $<$ 0.204}\\
+% \end{array} \right.
+% \end{equation}
+% 
+% 
+% % RESZTA KWANTYFIKATORÓW
+% 
+% 
+% \subsection{Kwantyfikator "bliskie 10 mln"}
+% Kwantyfikator \emph{bliskie 10 mln} jest zadany przez wykres funkcji \ref{wykres:bliskie10mln}. 
+% \begin{figure}[htbp]
+% 	\centering
+% 	\includegraphics[width=15cm]{bliskie10mln.pdf}
+% 	  \rule{35em}{0.5pt}
+% 	\caption[Wykres funkcji gêstoœci dla kwantyfikatora  \emph{bliskie 10 mln}]{Wykres funkcji gêstoœci dla kwantyfikatora  \emph{bliskie 10 mln}}
+%       \label{wykres:bliskie10mln}
+% \end{figure}
+% Tym razem, kwantyfikator ten nie jest wynikiem ankiety, tylko jest zadany przez Profesora Piegata( tak samo jak dla reszty kwantyfikatorów ). 
+% Aby uzyskaæ wzór funkcji dla tego i reszty kwantyfikatorów, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{uklad_rownan:duze_ur} o postaci:
+% \begin{equation}
+% \label{bliskie10mln_uklad_rownan}
+% \begin{cases}
+% (10 - 7.7)*c + \frac{1}{2}*(7.7-5.5)*c = 1\\
+% 5.5*a + b = 0  \\
+% 7.7*a + b = c \\
+% \end{cases}
+% \end{equation}.
+% Koñcowa operacja macierzowa wygl¹da nastêpuj¹co:
+% \begin{equation}
+% \label{bliskie10mln_mnozenie_macierzy} 
+%  \begin{vmatrix} 
+%  a \\ 
+%  b \\
+%  c \\
+%  \end{vmatrix}
+%  = 
+%  {\begin{vmatrix} 
+%  0 & 0 & 3.4 \\ 
+%  5.5 & 1 & 0 \\
+%  7.7 & 1 & -1 \\
+%  \end{vmatrix}}^{-1}
+%  *
+%  \begin{vmatrix} 
+%  1 \\ 
+%  0 \\
+%  0 \\
+%  \end{vmatrix}
+% \end{equation}.
+% Rozwi¹zaniem tego uk³adu jest trójka:
+% \begin{equation}
+%  a = 0.13, 
+%  b = -0.73,  
+%  c = 0.29
+% \end{equation}.
+% Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora  \emph{bliskie 10 mln} wygl¹da zatem nastêpuj¹co:
+% \begin{equation}
+% \label{equation_bliskie10mln_wynik}
+% f(x) = \left\{ 
+% \begin{array}{l l}
+%   0.13*x - 0.73 & \quad \text{, for 5.5 $<$ $x$ $\leq$ 7.7}\\
+%   0.29 & \quad \text{, for 7.7 $<$ $x$ $<$ 1}\\
+% \end{array} \right.
+% \end{equation}.
+% 
+% 
+% \subsection{Kwantyfikator "nie bliskie 10 mln"}
+% Kwantyfikator \emph{nie bliskie 10 mln} jest zadany przez wykres funkcji \ref{wykres:niebliskie10mln}. 
+% \begin{figure}[htbp]
+% 	\centering
+% 	\includegraphics[width=15cm]{niebliskie10mln.eps}
+% 	  \rule{35em}{0.5pt}
+% 	\caption[Wykres funkcji gêstoœci dla kwantyfikatora \emph{nie bliskie 10 mln}]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{nie bliskie 10 mln}}
+% 	\label{wykres:niebliskie10mln}
+% \end{figure}
+% Aby uzyskaæ wzór funkcji dla tego i reszty kwantyfikatorów, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{uklad_rownan:duze_ur} o postaci:
+% \begin{equation}
+% \label{niebliskie10mln_uklad_rownan}
+% \begin{cases}
+% 5.5*c + \frac{1}{2}*(7.7-5.5)*c = 1\\
+% 5.5*a + b = c  \\
+% 7.7*a + b = 0 \\
+% \end{cases}
+% \end{equation}.
+% Finalna operacja macierzowa wygl¹da nastêpuj¹co:
+% \begin{equation}
+% \label{niebliskie10mln_mnozenie_macierzy} 
+%  \begin{vmatrix} 
+%  a \\ 
+%  b \\
+%  c \\
+%  \end{vmatrix}
+%  = 
+%  {\begin{vmatrix} 
+%  0 & 0 & 6.6 \\ 
+%  5.5 & 1 & -1 \\
+%  7.7 & 1 & 0 \\
+%  \end{vmatrix}}^{-1}
+%  *
+%  \begin{vmatrix} 
+%  1 \\ 
+%  0 \\
+%  0 \\
+%  \end{vmatrix}
+% \end{equation}.
+% Rozwi¹zanie tego uk³adu jest trójka:
+% \begin{equation}
+%  a = -0.06, 
+%  b = 0.53,  
+%  c = 0.15
+% \end{equation}.
+% Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora  \emph{nie bliskie 10 mln} wygl¹da zatem nastêpuj¹co:
+% \begin{equation}
+% \label{equation_niebliskie10mln_wynik}
+% f(x) = \left\{ 
+% \begin{array}{l l}
+%  -0.06*x +  0.53 & \quad \text{, for 5.5 $<$ $x$ $\leq$ 7.7}\\
+%   0.15 & \quad \text{, for 0 $<$ $x$ $<$ 5.5}\\
+% \end{array} \right.
+% \end{equation}.
+% \subsection{Kwantyfikator "bliskie 20 mln"}
+% Kwantyfikator \emph{bliskie 20 mln} jest zadany przez wykres funkcji \ref{wykres:bliskie20mln}. 
+% \begin{figure}[htbp]
+%   
+%     \centering
+%     \includegraphics[width=15cm]{bliskie20mln.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres kwantyfikatora bliskie 20 mln]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{nie bliskie 20 mln}}
+%     \label{wykres:bliskie20mln}
+% \end{figure}
+% Aby uzyskaæ wzór funkcji dla tej funkcji gêstoœci, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{uklad_rownan:duze_ur} o postaci:
+% \begin{equation}
+% \label{bliskie20mln_uklad_rownan}
+% \begin{cases}
+% (20-15.4)*c + \frac{1}{2}*(15.4-11)*c = 1\\
+% 11*a + b = 0  \\
+% 15.4*a + b = c \\
+% \end{cases}
+% \end{equation}.
+% Finalna operacja macierzowa wygl¹da nastêpuj¹co:
+% \begin{equation}
+% \label{bliskie20_mnozenie_macierzy} 
+%  \begin{vmatrix} 
+%  a \\ 
+%  b \\
+%  c \\
+%  \end{vmatrix}
+%  = 
+%  {\begin{vmatrix} 
+%  0 & 0 & 6.8 \\ 
+%  11 & 1 & 0 \\
+%  15.4 & 1 & -1 \\
+%  \end{vmatrix}}^{-1}
+%  *
+%  \begin{vmatrix} 
+%  1 \\ 
+%  0 \\
+%  0 \\
+%  \end{vmatrix}
+% \end{equation}.
+% Rozwi¹zanie tego uk³adu jest trójka:
+% \begin{equation}
+%  a = 0.033, 
+%  b = -0.368,  
+%  c = 0.147
+% \end{equation} 
+% Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora  \emph{bliskie 20 mln} wygl¹da zatem nastêpuj¹co:
+% \begin{equation}
+% \label{equation_bliskie20mln_wynik}
+% f(x) = \left\{ 
+% \begin{array}{l l}
+%  0.02*x -  0.22 & \quad \text{, for 11 $<$ $x$ $\leq$ 15.4}\\
+%   0.09 & \quad \text{, for 15.4 $<$ $x$ $<$ 20}\\
+% \end{array} \right.
+% \end{equation}.
+% 
+% \subsection{Kwantyfikator "nie bliskie 20 mln"}
+% \todo{Kwantyfikator "nie bliskie 20 mln"}
+% Kwantyfikator \emph{nie bliskie 20 mln} jest zadany przez wykres funkcji \ref{wykres:niebliskie20mln}. 
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[width=15cm]{niebliskie20mln.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres kwantyfikatora \emph{nie bliskie 20 mln}]{Wykres funkcji gêstoœci dla kwantyfikatora \emph{nie bliskie 20 mln}}
+%     \label{wykres:niebliskie20mln}
+% \end{figure}
+% Aby uzyskaæ wzór funkcji dla tego kwantyfikatora, rozwi¹zujemy uk³ad równañ analogiczny do uk³adu \ref{uklad_rownan:duze_ur} o postaci
+% \begin{equation}
+% \label{niebliskie20mln_uklad_rownan}
+% \begin{cases}
+% 11*c + \frac{1}{2}*(15.4-11)*c = 1\\
+% 11*a + b = c  \\
+% 15.4*a + b = 0 \\
+% \end{cases}
+% \end{equation}.
+% Finalna operacja macierzowa wygl¹da nastêpuj¹co:
+% \begin{equation}
+% \label{niebliskie20_mnozenie_macierzy} 
+%  \begin{vmatrix} 
+%  a \\ 
+%  b \\
+%  c \\
+%  \end{vmatrix}
+%  = 
+%  {\begin{vmatrix} 
+%  0 & 0 & 13.2 \\ 
+%  11 & 1 & -1 \\
+%  15.4 & 1 & 0 \\
+%  \end{vmatrix}}^{-1}
+%  *
+%  \begin{vmatrix} 
+%  1 \\ 
+%  0 \\
+%  0 \\
+%  \end{vmatrix}
+% \end{equation}.
+% Rozwi¹zanie tego uk³adu jest trójka:
+% \begin{equation}
+%  a = -0.017
+%  b = 0.263,  
+%  c = 0.075
+% \end{equation} 
+% Funkcja rozk³adu gêstoœci prawdopodobieñstwa, która aproksymuje zbiór punktów danych dla kwantyfikatora  \emph{nie bliskie 20 mln} wygl¹da zatem nastêpuj¹co:
+% \begin{equation}
+% \label{equation_niebliskie20mln_wynik}
+% f(x) = \left\{ 
+% \begin{array}{l l}
+%  -0.017*x + 0.263 & \quad \text{, for 11 $<$ $x$ $\leq$ 15.4}\\
+%   0.075 & \quad \text{, for 0 $<$ $x$ $<$ 11}\\
+% \end{array} \right.
+% \end{equation}.
+% Poni¿ej, pokazano parami, funkcje rozk³adu gêstoœci prawdopodobieñstwa dla przeciwstawnych kwantyfikatorów. 
+% Funkcjê rozk³adu gêstoœci prawdopodobieñstwa dla kwantyfikatorów \emph{du¿e} \emph{ma³e} pokazano na wykresie \ref{wykres:duze_i_male}, dla kwantyfikarów \emph{bliskie 10 mln} i \emph{nie bliskie 10 mln}, pokazano na wykresie \ref{wykres:kwantyfikatory10mln} a dla kwantyfikarów \emph{bliskie 20 mln } i \emph{nie bliskie 20 mln } na wykresie \ref{wykres:kwantyfikatory20mln}. 
+% \begin{figure}[htbp]  
+%     \centering
+%     \includegraphics[width=16cm]{male_duze.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres funkcji gêstoœci dla kwantyfikatorów \emph{du¿e} i \emph{ma³e} ]{Wykres funkcji gêstoœci dla kwantyfikatorów \emph{du¿e} i \emph{ma³e}}
+%     \label{wykres:duze_i_male}
+% \end{figure}
+% \begin{figure}[htbp]  
+%     \centering
+%     \includegraphics[width=16cm]{kw10mln.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres funkcji gêstoœci dla kwantyfikarów \emph{bliskie 10 mln} i \emph{nie bliskie 10 mln}]{Wykres funkcji gêstoœci dla kwantyfikarów \emph{bliskie 10 mln} i \emph{nie bliskie 10 mln}}
+%     \label{wykres:kwantyfikatory10mln}
+% \end{figure}
+% \begin{figure}[htbp]  
+%     \centering
+%     \includegraphics[width=16cm]{kw20mln.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres funkcji gêstoœci dla kwantyfikarów \emph{bliskie 20 mln } i \emph{nie bliskie 20 mln }]{Wykres funkcji gêstoœci dla kwantyfikarów \emph{bliskie 20 mln } i \emph{nie bliskie 20 mln }}
+%     \label{wykres:kwantyfikatory20mln}
+% \end{figure}
+% \section{Rozwi¹zanie problemu}
+% Po identyfikacji funkcji rozk³adu gêstoœci prawdopodobieñstwa, mo¿na przyst¹piæ do rozwi¹zania zadanego problemu. Jako odpowiedŸ na postawiony w zadaniu problem decyzyjny postaramy siê podaæ rozk³ady gêstoœci prawdopodobieñstwa dla biznesu pierwszego oraz biznesu drugiego, oraz policzyæ wartoœæ oczekiwan¹ z wynikowych rozk³adów. Wartoœæ oczekiwana oraz odchylenie standardowe z tych rozk³adów bêd¹ stanowi³y dla nas podstawê do ostatecznego podjêcia decyzji, który biznes, ze statystycznego punktu widzenia, jest bardziej korzystny. 
+% \subsection{Przedstawienie analitycznej formy rozk³adów gêstoœci prawdopodbieñstwa dla zadania}
+% Ogólna funkcja rozk³adu gêstoœci przyjmuje postaæ:
+% \begin{equation}
+% \label{equation:ogolna_postac_gestosci_rozkladu_prawdopodobienstwa}
+% gp_{DBn} = f(DBn,p),
+% \end{equation}
+% gdzie
+% \begin{itemize}
+% \item $gp_{DBn}$ - oznacza gêstoœæ rozk³adu pradopodobieñstwa dochodu z biznesu n-tego
+% \item $DBn$ - oznacza dochód z biznesu n-tego
+% \item $p$ - oznacza prawdopodobieñstwo
+% \end{itemize}
+% Funkcjê rozk³adu gêstoœci prawdopodobieñstwa dla biznesu pierwszego przedstawia siê nastêpuj¹co:
+% \begin{equation}
+% \label{equation:funkcja_rozkladu_gest_prawd_biznes1}
+% gp_{DB1} = \newline f(DB1,p) = fb10mln(p)\otimes D(p) \oplus fnb10mln(p)\otimes M(p),
+% \end{equation}
+% gdzie 
+% \begin{itemize}
+%  \item $fb10mln(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{bliskie 10 mln}
+%  \item $D(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{du¿e}
+%  \item $fnb10mln(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{nie bliskie 10 mln}
+%  \item $M(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{ma³e}
+% \end{itemize}
+% Analogicznie, by okreœlamy funkcjê rozk³adu gêstoœci prawdopodobieñstwa dla biznesu drugiego:
+% \begin{equation}
+% \label{equation:funkcja_rozkladu_gest_prawd_biznes2}
+% gp_{DB2} = \newline f(DB1,p) = fb20mln(p)\otimes M(p) \oplus fnb20mln(p)\otimes D(p),
+% \end{equation}
+% gdzie 
+% \begin{itemize}
+%  \item $fb20mln(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{bliskie 20 mln}
+%  \item $D(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{du¿e}
+%  \item $fnb20mln(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{nie bliskie 20 mln}
+%  \item $M(p)$ - oznacza funkcjê rozk³adu gêstoœci dla kwantyfikatora \emph{ma³e}
+% \end{itemize}
+% 
+% Gdy uda nam siê ustaliæ obie funkcje, nale¿y policzyæ wartoœæ oczekiwan¹ takiego rozk³adu oraz odchylenie standardowe, co bêdzie stanowi³o dla nas statystyczn¹ odpowiedŸ. 
+% \subsection{Funkcje rozk³adu gêstoœci prawdopodbieñstwa dla biznesu pierwszego}
+% Funkcja gêstoœci rozk³adu prawdopodobieñstwa jest dana wzorem \ref{equation:funkcja_rozkladu_gest_prawd_biznes1}. 
+% Zanim zostanie przedstawiona koñcowa funkcje gêstoœci, pokazane zostan¹ wyniki posi³kowe poszczególnych operacji. 
+% Pierwsz¹ operacj¹ jest operacja:
+% \begin{equation}
+% \label{equation:pierwsza_operacja_biznes1}
+% biznes1f1(x) = fb10mln(p)\otimes D(p), 
+% \end{equation}
+% która zachodzi miêdzy funkcjami rozk³adów gêstoœci prawdopodobieñstwa dla kwantyfikarów \emph{bliskie 10 mln} i \emph{du¿e}.Operacja $\otimes$ zosta³a opisana w rozdziale \todo{Dodaæ gdzie zosta³a zdefiniowana i j¹ zdefiniowaæ ? }. Wynik tego dzia³ania zosta³ przedstawiony na wykresie \ref{wykres:frgp_biznes1_op1}. Funkcja, która powstaje w wyniku tej operacji, wyliczona w programie jest funkcj¹ dyskretn¹ okreœlon¹ w danych punktach. Poniewa¿, nas interesuj¹ jedynie funkcje ci¹g³e, funkcja ta musi zostaæ zaaproksymowana na zadanym przedziale ( pamiêtamy o tym ¿e funkcja bêd¹ca wynikiem aproksymacji, równie¿ musi byæ funkcj¹ gêstoœæ, co oznacza jej ca³kowalnoœæ do 1) . Wykres \ref{wykres:frgp_biznes1_op1_aproksymacja} przedstawia funkcjê dyskretn¹ oraz jej aproksymacjê do wielomianu 6-tego stopnia. Stopnie wielomianu, w tej operacji przybli¿enia, oraz w pozosta³ych, zosta³y ustalone empirycznie poprzez minimalizacjê odchylenia odchy³ki funkcji od jej przybli¿enia. Równanie funkcji zosta³o przedstawione na wzorze \ref{wzor:fgrp1_biznes1_op1_aproks_rownanie}:
+% \begin{equation}
+% \label{wzor:fgrp1_biznes1_op1_aproks_rownanie}
+% biznes1f1(x) = \left\{ 
+% \begin{array}{l l}
+%  \frac{(-7.22336*x^0 + 8.84955*x^1 + -4.29262*x^2 + 1.04695*x^3+ -x^4 + x^5 + -0.000226031*x^6 )}{0.98102} & \quad \text{, dla 3.08 $<$ $x$ $\leq$ 9.98}\\
+%   0 & \quad \text{, dla -inf $<$ $x$ $<$ 3.08 }\\
+%   0 & \quad \text{, dla 9.98 $<$ $x$ $<$ inf}\\
+% \end{array} \right. .
+% \end{equation}
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[width=16cm]{frgp_biznes1_op1.eps}
+%         \rule{35em}{0.5pt}
+%        \todo{opis dla frgp_biznes1_op1
+%     \label{wykres:frgp_biznes1_op1}
+% \end{figure}
+% 
+% Jak widaæ na wykresie \ref{wykres:frgp_biznes1_op1_aproksymacja}, aproksymacja ta jest bardzo dok³adna na przedziale i jej b³¹d jest niewielki. 
+% \begin{figure}[htbp]  
+%     \centering
+%     \includegraphics[width=16cm]{frgp_biznes1_op1_aproksymacja.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci \emph{bliskie 10 mln}$\otimes$\emph{du¿e}]{Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci \emph{bliskie 10 mln}$\otimes$ \emph{du¿e}}
+%     \label{wykres:frgp_biznes1_op1_aproksymacja}
+% \end{figure}
+% \newline
+% Nastêpnym dzia³anie jest:
+% \begin{equation}
+% \label{equation:druga_operacja_biznes1}
+% biznes1f2(x) = fnb10mln(p)\otimes M(p)
+% \end{equation}
+% Wynik tej operacji zosta³ przedstawiony na wykresie \ref{wykres:frgp_biznes1_op2}. Tak jak w przypadku operacji \ref{equation:pierwsza_operacja_biznes1} tak w tym przypadku powsta³a funkcja jest funkcj¹ dyskretn¹ wymagaj¹c¹ aproksymacji na przedziale. Równanie funkcji zosta³o przedstawione na wzorze \ref{wzor:fgrp1_biznes1_op2_aproks_rownanie}, a niedok³adnoœci aproksymacji na wykresie \ref{wykres:frgp_biznes1_op2_aproksymacja}. 
+% \begin{figure}[htbp]  
+%     \centering
+%     \includegraphics[width=16cm]{frgp_biznes1_op2.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres funkcji gêstoœci dla kwantyfikarów \emph{ma³e} i \emph{nie bliskie 10 mln} oraz funkcji wynikowej dla operacji $\otimes$ miêdzy nimi]{Wykres funkcji gêstoœci dla kwantyfikarów \emph{ma³e} i \emph{nie bliskie 10 mln} oraz funkcji wynikowej dla operacji $\otimes$ miêdzy nimi}
+%     \label{wykres:frgp_biznes1_op2}
+% \end{figure}
+% \begin{equation}
+% \label{wzor:fgrp1_biznes1_op2_aproks_rownanie}
+% biznes1f2(x) = \left\{ 
+% \begin{array}{l l}
+%  \frac{(2.54408*x^0 + -13.4774*x^1 + 40.2776*x^2 + -64.1313*x^3 + 57.4434*x^4 + -30.0347*x^5 + 9.09288*x^6 + -1.47599*x^7 + 0.0993372*x^8)}{0.978629} & \quad \text{, dla 0 $<$ $x$ $\leq$ 3.45}\\
+%   0 & \quad \text{, dla -inf $<$ $x$ $<$ 0 }\\
+%   0 & \quad \text{, dla 3.45 $<$ $x$ $<$ inf}\\
+% \end{array} \right.
+% \end{equation}
+% \begin{figure}[htbp]  
+%     \centering
+%     \includegraphics[width=16cm]{frgp_biznes1_op2_aproksymacja.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci  \emph{ma³e} $\otimes$ \emph{nie bliskie 10 mln} ]{Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci \emph{ma³e} $\otimes$ \emph{nie bliskie 10 mln}}
+%     \label{wykres:frgp_biznes1_op2_aproksymacja}
+% \end{figure}
+% 
+% Ostatni¹ operacj¹ jest splecenie funkcji poœrednich, uzyskanych w operacjach \ref{equation:pierwsza_operacja_biznes1} oraz \ref{equation:druga_operacja_biznes1} : 
+% \begin{equation}
+% \label{equation:trzecia_operacja_biznes1}
+% gp_{DB1} = biznes1f1(x) \oplus biznes1f2(x) = fb10mln(p)\otimes D(p) \oplus fnb10mln(p)\otimes M(p), 
+% \end{equation}
+% o wzorach \ref{wzor:fgrp1_biznes1_op1_aproks_rownanie} i\ref{wzor:fgrp1_biznes1_op2_aproks_rownanie}. 
+% Wynik tego dzia³ania pokazany jest na wykresie \ref{wykres:frgp_biznes1_op3}, a niedok³adnoœæ aproksymacji na wykresie \ref{wykres:frgp_biznes1_op3_aproksymacja}. Wynikowa funkcja $gp_{DB1}$, ma wzór:
+% \begin{equation}
+% \label{wzor:fgrp1_biznes1_op3_aproks_rownanie}
+% gp_{DB1} = \left\{ 
+% \begin{array}{l l}
+% \frac(2.5253*x^0 + -1.57345*x^1 + 0.25237*x^2 + 0.0159547*x^3 + -0.00724035*x^4 + 0.000607499*x^5 + -1.62706e-05*x^6){0.999594} & \quad \text{, dla 3.18 $<$ $x$ $\leq$ 13.38}\\
+%   0 & \quad \text{, dla -inf $<$ $x$ $<$ 3.18 }\\
+%   0 & \quad \text{, dla 13.38 $<$ $x$ $<$ inf}\\
+% \end{array} \right. . 
+% \end{equation}
+% \begin{figure}[htbp]  
+%     \centering
+%     \includegraphics[width=16cm]{frgp_biznes1_op3.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres funkcji gêstoœci $gp_{DB1}$ ]{Wykres funkcji gêstoœci $gp_{DB1}$ }
+%     \label{wykres:frgp_biznes1_op3}
+% \end{figure}
+% \begin{figure}[htbp]  
+%     \centering
+%     \includegraphics[width=16cm]{frgp_biznes1_op3_aproksymacja.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[ ]{Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci $gp_{DB1}$}
+%     \label{wykres:frgp_biznes1_op3_aproksymacja}
+% \end{figure}
+% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% 
+% \subsection{Funkcje rozk³adu gêstoœci prawdopodbieñstwa dla biznesu drugiego}
+% 
+% Funkcja gêstoœci rozk³adu prawdopodobieñstwa dla biznesu drugiego jest dana wzorem \ref{equation:funkcja_rozkladu_gest_prawd_biznes2}.
+% Tak jak w przypadku obliczeñ funkcji gêstoœci prawdopodobieñstwa dla biznesu pierwszego, tak w tym przypadku obliczenia zostan¹ podzielone na trzy operacje. 
+% Pierwszym dzia³aniem jest:
+% \begin{equation}
+% \label{equation:pierwsza_operacja_biznes2}
+% biznes2f1(x) = fnb20mln(p)\otimes D(p), 
+% \end{equation}
+% która zachodzi miêdzy funkcjami rozk³adów gêstoœci prawdopodobieñstwa dla kwantyfikarów \emph{nie bliskie 20 mln} i \emph{du¿e}.Wynik tego dzia³ania zosta³ przedstawiony na wykresie \ref{wykres:frgp_biznes2_op1}, a niedok³adnoœæ odwzorowania zosta³a uwidoczniona na wykresie \ref{wykres:frgp_biznes2_op1_aproksymacja}. Równanie funkcji zosta³o przedstawione na wzorze \ref{wzor:fgrp1_biznes2_op1_aproks_rownanie}:
+% \begin{equation}
+% \label{wzor:fgrp1_biznes2_op1_aproks_rownanie}
+% biznes2f1(x) = \left\{ 
+% \begin{array}{l l}
+%  \frac{(0.0836205*x^0 + 0.0177805*x^1 + -0.0116741*x^2 + 0.00319557*x^3 + -0.000398944*x^4 + 2.20096e-05*x^5 + -4.41138e-07*x^6)}{0.988036} & \quad \text{, dla 0.5 $<$ $x$ $\leq$ 15.35}\\
+%   0 & \quad \text{, dla -inf $<$ $x$ $<$ 0.5 }\\
+%   0 & \quad \text{, dla 15.35 $<$ $x$ $<$ inf}\\
+% \end{array} \right. .
+% \end{equation}
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[width=16cm]{frgp_biznes2_op1.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres funkcji gêstoœci dla kwantyfikarów \emph{du¿e} i \emph{nie bliskie 20 mln} oraz funkcji wynikowej dla operacji $\otimes$ miêdzy nimi]{Wykres funkcji gêstoœci dla kwantyfikarów \emph{du¿e} i \emph{nie bliskie 20 mln} oraz funkcji wynikowej dla operacji $\otimes$ miêdzy nimi}
+%     \label{wykres:frgp_biznes2_op1}
+% \end{figure}
+% \begin{figure}[htbp]  
+%     \centering
+%     \includegraphics[width=16cm]{frgp_biznes2_op1_aproksymacja.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci \emph{nie bliskie 20 mln}$\otimes$\emph{du¿e}]{Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci \emph{nie bliskie 10 mln}$\otimes$ \emph{du¿e}}
+%     \label{wykres:frgp_biznes2_op1_aproksymacja}
+% \end{figure}
+% \newline
+% 
+% Nastêpnym dzia³anie jest:
+% \begin{equation}
+% \label{equation:druga_operacja_biznes2}
+% biznes2f2(x) = fb20mln(p)\otimes M(p)
+% \end{equation}
+% Wynik tej operacji zosta³ przedstawiony na wykresie \ref{wykres:frgp_biznes2_op2}. Równanie zaaproksymowanej funkcji zosta³o przedstawione na wzorze \ref{wzor:fgrp1_biznes2_op2_aproks_rownanie}, a niedok³adnoœci aproksymacji na wykresie \ref{wykres:frgp_biznes2_op2_aproksymacja}. 
+% \begin{figure}[htbp]  
+%     \centering
+%     \includegraphics[width=16cm]{frgp_biznes1_op2.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres funkcji gêstoœci dla kwantyfikarów \emph{ma³e} i \emph{nie bliskie 10 mln} oraz funkcji wynikowej dla operacji $\otimes$ miêdzy nimi]{Wykres funkcji gêstoœci dla kwantyfikarów \emph{ma³e} i \emph{nie bliskie 10 mln} oraz funkcji wynikowej dla operacji $\otimes$ miêdzy nimi}
+%     \label{wykres:frgp_biznes2_op2}
+% \end{figure}
+% \begin{equation}
+% \label{wzor:fgrp1_biznes2_op2_aproks_rownanie}
+% biznes1f2(x) = \left\{ 
+% \begin{array}{l l}
+%  \frac{(0.186694*x^0 + -0.0295955*x^0 + 0.0317438*x^2 + -0.0113698*x^3 + 0.00139805*x^4 + -5.87695e-05*x^5 + 1.75719e-07*x^6)}{0.952766} & \quad \text{, dla 0.1 $<$ $x$ $\leq$ 9.05}\\
+%   0 & \quad \text{, dla -inf $<$ $x$ $<$ 0.1 }\\
+%   0 & \quad \text{, dla 9.05 $<$ $x$ $<$ inf}\\
+% \end{array} \right.
+% \end{equation}
+% \begin{figure}[htbp]  
+%     \centering
+%     \includegraphics[width=16cm]{frgp_biznes2_op2_aproksymacja.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci  \emph{ma³e} $\otimes$ \emph{nie bliskie 10 mln} ]{Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci \emph{ma³e} $\otimes$ \emph{nie bliskie 10 mln}}
+%     \label{wykres:frgp_biznes2_op2_aproksymacja}
+% \end{figure}
+% % 
+% 
+% Ostatni¹ operacj¹ jest splecenie funkcji poœrednich, uzyskanych w operacjach \ref{equation:pierwsza_operacja_biznes2} oraz \ref{equation:druga_operacja_biznes2} : 
+% \begin{equation}
+% \label{equation:trzecia_operacja_biznes2}
+% gp_{DB2} = biznes2f1(x) \oplus biznes2f2(x) = fnb20mln(p)\otimes D(p) \oplus fb20mln(p)\otimes M(p), 
+% \end{equation}
+% o wzorach \ref{wzor:fgrp1_biznes2_op1_aproks_rownanie} i\ref{wzor:fgrp1_biznes2_op2_aproks_rownanie}. 
+% Wynik tego dzia³ania pokazany jest na wykresie \ref{wykres:frgp_biznes2_op3}, a niedok³adnoœæ aproksymacji na wykresie \ref{wykres:frgp_biznes2_op3_aproksymacja}. Wynikowa funkcja $gp_{DB2}$, ma wzór:
+% \begin{equation}
+% \label{wzor:fgrp1_biznes2_op3_aproks_rownanie}
+% gp_{DB2} = \left\{ 
+% \begin{array}{l l}
+% \frac{(-0.00187736*x^0 + 0.0153108*x^1 + 0.0015905*x^2 + -0.000360704*x^3 + 1.37708e-05*x^4 + 5.76882e-08*x^5 + -6.93204e-09*x^6}){1.0002} & \quad \text{, dla 0.25 $<$ $x$ $\leq$ 24.35 }\\
+%   0 & \quad \text{, dla -inf $<$ $x$ $<$ 3.18 }\\
+%   0 & \quad \text{, dla 13.38 $<$ $x$ $<$ inf}\\
+% \end{array} \right. . 
+% \end{equation}
+% \begin{figure}[htbp]  
+%     
+%     \centering
+%     \includegraphics[width=16cm]{frgp_biznes2_op3.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[Wykres funkcji gêstoœci $gp_{DB2}$ ]{Wykres funkcji gêstoœci $gp_{DB2}$ }
+%     \label{wykres:frgp_biznes2_op3}
+% \end{figure}
+% \begin{figure}[htbp]  
+%     \centering
+%     \includegraphics[width=16cm]{frgp_biznes2_op3_aproksymacja.eps}
+%         \rule{35em}{0.5pt}
+%     \caption[ ]{Wykres przedstawiaj¹cy niedok³adnoœæ aproksymacji funkcji gêstoœci $gp_{DB2}$}
+%     \label{wykres:frgp_biznes2_op3_aproksymacja}
+%     
+% \end{figure}
+% \subsection{Wartoœci oczekiwane i b³¹d}
+% Z funkcji rozk³adu gêstoœci prawdopodobieñstwa biznesu pierwszego, danej wzorem \ref{wzor:fgrp1_biznes1_op3_aproks_rownanie}, policzona wartoœæ oczekiwana wynosi $\approx$ 7.4, natomiast z funkcji rozk³adu gêstoœci prawdopodobieñstwa biznesu drugiego, danej wzorem \ref{wzor:fgrp1_biznes1_op3_aproks_rownanie}, wyliczona wartoœæ oczekiwana wynosi $\approx$ 8.46. 
+% \newline
+% Przedstawione wy¿ej wartoœci s¹ wartoœciami uœrednionymi. Zale¿nie od wyboru stopnia wielomianów, którymi aproksymowaliœmy wynikowe funkcje, wartoœæ oczekiwana obu koñcowych rozk³adów ulega³a zmianie. Wartoœæ oczekiwana biznesu pierwszego zawsze nale¿a³a do przedzia³u [ 7.34 -7.4 ], natomiast dla biznesu drugiego [ 8.38 - 8.55 ]. B³¹d wyniku dla pierwszego biznesu wynosi³ zatem $\approx$ 1 \% i by³ taki sam jak dla biznesu drugiego. 
+% \newline
+% B³¹d na takim poziomie nie wp³ywa na koñcowy wynik. 
+% \subsection{OdpowiedŸ na problem dwóch biznesów}
+% 
+% Ze statystycznego punktu widzienia, zdecydowanie lepiej jest wybraæ biznes drugi, poniewa¿ wartoœæ oczekiwana dochodu z niego jest wy¿sza $\approx$ 1 mln z³otych. 
+% 

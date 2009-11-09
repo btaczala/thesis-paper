@@ -4,7 +4,7 @@ img_extIsRegExp=false
 img_extensions=.eps .jpg .jpeg .png .pdf .ps .fig .gif
 kileprversion=2
 kileversion=2.1 beta2
-lastDocument=Thesis.tex
+lastDocument=Chapters/Chapter2.tex
 masterDocument=
 name=Thesis
 pkg_extIsRegExp=false
@@ -36,28 +36,28 @@ order=1
 
 [item:Chapters/Chapter2.tex]
 archive=true
-column=50
+column=51
 encoding=windows-1250
 highlight=LaTeX
-line=16
+line=19
 open=true
 order=4
 
 [item:Chapters/Chapter3.tex]
 archive=true
-column=35
+column=83
 encoding=windows-1250
 highlight=LaTeX
-line=280
+line=317
 open=true
 order=3
 
 [item:Chapters/Chapter4.tex]
 archive=true
-column=2
+column=34
 encoding=windows-1250
 highlight=LaTeX
-line=127
+line=65
 open=true
 order=0
 
@@ -84,6 +84,6 @@ archive=true
 column=3
 encoding=windows-1250
 highlight=LaTeX
-line=25
+line=17
 open=true
 order=2
