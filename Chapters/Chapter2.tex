@@ -2,36 +2,368 @@
 \chapter{Czêœæ teoretyczna} 
 \label{Rozdzia³ 2 }
 \lhead{Rozdzia³ 2. \emph{Czêœæ teoretyczna }} 
+W poni¿szym rozdziale zostan¹ przedstawione oraz wyjaœnione podstawowe pojêcia dotycz¹ce statystyki matematycznej, probabilistyki oraz matematyki rozmytej. Pojêcia te musz¹ zostaæ wprowadzone i wyt³umaczone, by móc zrozumieæ kluczowe dla tej pracy operacje na funkcjach rozk³adu gêstoœci prawdopodobieñstwa uto¿samionych z kwantyfikatorami lingwistycznymi. 
 \section{Wyjaœnienie podstawowych zagadnieñ z zakresu statystyki matematycznej}
-W poni¿szym rozdziale zostan¹ przedstawione oraz wyjaœnione podstawowe pojêcia statystyki matematycznej. 
+Z bardzo szerokiej dyscypliny jak¹ jest statystyka matematyczna oraz probabilistyka przedstawione i wyjaœnione zosta³y tylko te pojêcia, które bezpoœrednio ³¹cz¹ siê z tematem pracy, lub wymagaj¹ objaœnia, gdy¿ bêd¹ pomocne przy objaœnieniu innych pojêæ. 
+Zanim autor przedstawi pojêcia najwa¿niejsze w kontekœcie tej pracy, wyjaœnione zostan¹ pojêcia fundamentalne dla dyscypliny statystyki matematycznej. 
+
+W bardzo wielu dziedzinach matematyki, czy innych istniej¹ pojêcia pierwotne, niedefiniowalne. Dla statystyki pojêciem takim jest pojêcie \emph{zdarzenia elementarnego}. W praktyce \emph{zdarzeniem elementarnym} okreœlamy jednorazowy wynik eksperymentu statystycznego, taki jak rzut koœci¹ do gry, czy monet¹. 
+
+
+\emph{Zbiorem zdarzeñ elementarnych} ( przestrzeni¹ zdarzeñ elementarnych ), oznaczanym, zwyczajowo przez $\varOmega$, nazywamy zbiór wszystkich niepodzielnych wynikami doœwiadczenia czy obserwacji, \emph{czyli zdarzeñ elementarnych}\cite{probabilistyka}. Jedno zdarzenie okreœlamy przez $\omega$. 
+
+
+\emph{Zmienn¹ losowa} okreœlamy jednoznaczne przyporz¹dkowanie ka¿demu zdarzeniu elementarnemu wartoœci liczbowej, czyli funkcjê $X(\omega)$, która dla ka¿dego $\omega \in \varOmega$ przyporz¹dkujê jedn¹ i tylko jedn¹ liczbê $X(\omega) = x $\cite{statystyka_od_podstaw}. Zmienne losowe dzielimy na:
 \begin{itemize}
- \item zbiór zdarzeñ elementarnych ( przestrzeñ zdarzeñ elementarnych ) - pojêcie pierwotne, oznaczane zwyczajowo przez $\varOmega$, a jej elementy \emph{zdarzenia elementarne} poprzez $\omega$. W praktyce rozumuje siê tê przestrzeñ jako zbiór wszystkich elementów, które s¹ elementarnymi, niepodzielnymi wynikami doœwiadczenia czy obserwacji \cite{probabilistyka}
-  \item rozk³ad prawdopodobieñstwo - dla okreœlonego zbioru $S$, bêdacej klas¹ wszystkich podzbiorów $\varOmega$ okreœlamy rzeczywist¹ funkcjê P, nazwan¹ rozk³adem prawdopodobieñstwem, spe³niaj¹c¹ za³o¿enia:
-  \begin{itemize}
-   \item $P(A) \geq 0$ - funkcja jest nieujemna
-   \item $P(\varOmega) = 1$ - prawdopodbieñstwa zdarzenia pewnego jest równe jednoœci.
-   \item dla ka¿dego ci¹gu $A_1, A_2 , ..$ zdarzeñ parami roz³¹cznych $(A_i \bigcap A_j = \varnothing $ dla $i,j = 1,2, .. ; i \neq j $ spe³nina jest zale¿noœæ: \newline
-   $P(\bigcup_{i=1}^{\infty}) = \sum_{i=1}^{\infty}P(A_i)$ \newline
-   czyli P jest przeliczalnie addytywn¹ funkcj¹ zbioru. \cite{probabilistyka}
-  \end{itemize}
-  \item prawdopodobieñstwo - wartoœc funkcji P na jednym zdarzeniu\cite{probabilistyka}. 
-  \item zmienna losowa - jest to jednoznaczne przyporz¹dkowanie ka¿demu zdarzeniu elementarnemu wartoœci liczbowej, czyli funkcja $X(e)$, która dla ka¿dego $\omega \in \varOmega$ przyporz¹dkujê jedn¹ i tylko jedn¹ liczbê $X(e) = x $\cite{statystyka_od_podstaw}. Zmienne losowe dzielimy na:
-  \begin{itemize}
-   \item zmienna typu skokowego - jeœli mo¿e przyjmowaæ skoñczon¹ lub nieskoñczon¹, ale przeliczaln¹ liczbê wartoœci\cite{statystyka_od_podstaw}
-   \item zmienna typu ci¹g³ego - jeœli mo¿liwe jej wartoœci tworz¹ przedzia³ ze zbioru liczb rzeczywistych\cite{statystyka_od_podstaw}
-  \end{itemize}
+\item \emph{zmienna losowa typu skokowego} - jeœli mo¿e przyjmowaæ skoñczon¹ lub nieskoñczon¹, ale przeliczaln¹ liczbê wartoœci\cite{statystyka_od_podstaw},
+\item \emph{zmienna losowa typu ci¹g³ego} - jeœli mo¿liwe jej wartoœci tworz¹ przedzia³ ze zbioru liczb rzeczywistych\cite{statystyka_od_podstaw}.
 \end{itemize}
-\section{Funkcja gêstoœci oraz jej w³aœciwoœci}
-\section{Czym jest splot funkcji oraz jak¹ rolê pe³ni w statystyce matematycznej}
-\subsection{Definicja splotu funkcji}
-\subsection{W³aœnoœci splotu funkcji}
-\subsection{Ró¿ne sploty funkcji, oraz ich wykresy}
-\section{Wyjaœnienie podstawowych zagadnieñ z zakresu matematyki rozmytej}
-\subsection{Czy s¹ kwantyfikatory lingwistyczne oraz na czym polega rozmywanie wiedzy}
-\subsection{Dlaczego kwantyfikator lingwistyczny mo¿na przedstawiæ jako funkcjê rozk³adu gêstoœci prawdopodobieñstwa?}
-\section{Centralne twierdzenie graniczne}
-\clearpage
+Tak wiêc \emph{zmienna losowa} jest to ka¿de przekszta³cenie zbioru $\varOmega$ w zbiór $R^1$\cite{probabilistyka}. Zmienne losowe pocz¹wszy od teraz dla uproszczenia oznaczamy du¿ymi koñcowymi literami $X$, $Y$, $Z$. 
+
+
+Po wyjaœnieniu pojêæ elementarnych autor przejdzie do zdefiniowania prawdopodobieñstwa oraz rozk³adu prawdopodobieñstwa.
+\begin{quote}
+Na rodzinie zbiorów $S$, okreœlamy funkcjê rzeczywist¹ $P$, o której zak³ada siê ¿e spe³nia nastêpuj¹ce aksjomaty:\newline
+AKSJOMAT I. \emph{Dla ka¿dego $A \in S$}
+\begin{equation*}
+ \label{equation:aksjomat1}
+ P(A) \geq 0,
+\end{equation*}
+\emph{czyi funkcja $P$ jest nieujemna. }
+\newline
+AKSJOMAT II. \emph{Prawdopodobieñstwo zdarzenia pewnego jest równe jednoœci, czyli}
+\begin{equation*}
+ \label{equation:aksjomat2}
+ P(\varOmega) = 1.
+\end{equation*}
+\newline
+AKSJOMAT III. \emph{Dla ka¿dego ci¹gu $A_1,A_2,...$ zdarzeñ parami roz³¹cznych$(A_i \bigcap A_j = \varnothing $ dla $i,j = 1,2, .. ; i \neq j $ prawdziwa jest równoœæ}
+\begin{equation*}
+ \label{equation:aksjomat3}
+ P( \bigcup_{i=1}^{\infty}) = \sum_{i=1}^{\infty}P(A_i) 
+\end{equation*}
+Funkcjê $P$ nazywamy \emph{rozk³adem prawdopodobieñstwa na $S$}.
+\emph{Prawdopodobieñstwem} zaœ od tej pory bêdziemy nazywaæ wartoœæ tej funkcji na jednym zdarzeniu. 
+\end{quote}
+
+By zdefiniowaæ dystrybuantê, rozwa¿ony zostanie przypadek, gdzie $\varOmega$ jest jednowymiarow¹ przestrzeni¹ euklidesow¹, tzn. $\varOmega = R^1$. Gdy chcemy wyznaczyæ funkcjê $P$ w $R^1$, nale¿y zdefiniowaæ pomocnicz¹ funkcjê $F$ okreœlon¹ w $R^1$, maj¹c¹ nastêpuj¹ce w³asnoœci 
+\begin{enumerate}
+ \item $F$ jest niemalej¹ca,
+ \item \begin{equation}
+        \lim_{ x \to - \infty} F(x) = 0, \lim_{ x \to \infty} F(x) = 1
+       \end{equation}
+ \item $F$ jest lewostronnie ci¹g³a. 
+\end{enumerate}
+Ogólna postaæ naszej pomocniczej funkcji $F$ ma postaæ:
+\begin{equation}
+ F(x) = \int\limits_{- \infty}^{x} f(u)du \mbox{, gdzie } f \geq 0 \mbox{ i } \int\limits_{- \infty}^{\infty} f(u)du = 1.
+\end{equation}
+Warunek, ¿e funkcja $F$ jest niemalej¹ca, oznacza, ¿e dla ka¿dego $ a < b $, ca³ka z funkcji f po dowolnym przedziale $(a;b)$ jest nieujemna. 
+Funkcjê P wyznacza za pomoc¹ funkcji F w sposób:
+\begin{equation}
+\label{equation:okreœlenie_funkcji_p}
+ P(\langle a;b)) = F(b) - F(a). 
+\end{equation}
+Przy tak zadanej funkcji $F$ wzór \ref{equation:okreœlenie_funkcji_p} okreœla funkcjê $P$ dla ka¿dego $A=\langle a;b)$, czyli okreœla funkcjê na zbiorze wszystkich przedzia³ów. Funkcjê $F$ o takich w³asnoœciach nazywamy \emph{dystrybuant¹}. 
+\newline 
+Dla tak zadanych definicji \emph{rozk³adu prawdopodobieñstwa} oraz \emph{dystrybuanty}, mo¿na wyprowadziæ definicjê \emph{rozk³adu prawdopodobieñstwa zmiennej losowej} oraz \emph{dystrybuanty zmiennej losowej}. 
+\begin{quote}
+
+Dana jest przestrzeñ ($\varOmega$,$S$,$P$) oraz zmienna losowa $X$. \emph{Rozk³adem prawdopodobieñstwa zmiennej losowej } nazywamy funkcjê $P_x$ utworzon¹ w nastêpuj¹cy sposób: dla ka¿dego $A \in S$
+\begin{equation}
+ P_x(A) = P(\{ \omega:X(\omega) \in A\},  
+\end{equation}
+oraz spe³niaj¹c¹ uk³ad aksjomatów I-III. 
+\newline 
+\emph{Dystrybuantê zmiennej losowej} wyznaczon¹ przez $P_x$ okreœlamy jako:
+\begin{equation}
+ F_x(A) = P_x((-\infty,x)).
+\end{equation}
+\end{quote}
+Dystrybuanta oraz dystrybuanta zmiennej losowej nie ró¿ni¹ siê pojêciowo, ró¿nica w nazwie zaznacza zwi¹zek ze zmienn¹ losow¹. 
+
+N potrzeby dalszych rozwa¿añ wyjaœnione zostan¹ pojêcia \emph{niezale¿noœci zdarzeñ}, a nastêpnie \emph{niezale¿noœci zmiennych losowych}. Od tej pory wszystkie brane pod uwagê pary zdarzeñ i zmiennych losowe uwa¿amy za niezale¿ne. 
+\begin{quote}
+ Niech $P(B) > 0$. Mówimy, ¿e zdarzenie A nie zale¿y od zdarzenia B, jeœli
+ \begin{equation}
+ \label{equation:niezaleznosc}
+  P(A|B) = P(A).
+ \end{equation}
+\end{quote}
+Przekszta³caj¹c \ref{equation:niezaleznosc} oraz wzór na prawdopodobieñstwo warunkowe\footnote{$P(A|B) = \frac{P ( A \bigcap B )}{P(B)} s$}, otrzymujemy wa¿n¹ w³asnoœæ:
+\begin{equation}
+\label{equation:niezaleznosc2}
+P(A \bigcap B) = P(A)P(B), 
+\end{equation}
+gdy zdarzenia $A$ i $B$ s¹ niezale¿ne.
+
+Natomiast dla zmiennych losowych definicji ich niezale¿noœci brzmi nastêpuj¹co:
+\begin{quote}
+
+Zmienne losowe $X_1$ i $X_2$ s¹ \emph{niezale¿ne}, jeœli dla dowolnych zbiorów $S_1$ $S_2$, zdarzenia $Z_1:\{ \omega: X_1(\omega) \in S_1 \}$ oraz $Z_2:\{ \omega: X_2(\omega) \in S_2 \}$ spe³niaj¹ warunek:
+\begin{equation}
+ P( Z_1 \bigcap Z_2) = P(Z_1)P(Z_2).
+\end{equation}
+Powy¿szy warunek jest spe³niony, wtedy i tylko wtedy, gdy:
+\begin{equation}
+\label{aa}
+F(x,y) = F(x_1)F(x_2). 
+\end{equation}
+\end{quote}
+W zwi¹zku z tym warunek \ref{aa} mo¿na równie¿ traktowaæ jako definicjê zmiennych losowych niezale¿nych. 
+
+
+Z rozk³adem zmiennej losowej s¹ zwi¹zane pewne, charakteryzuj¹ce go w syntetyczny sposób wielkoœci liczbowe. Charakterystyki te s¹ nazywane parametrami zmiennej losowej. Autor przedstawi jeden taki parametr, \emph{wartoœæ oczekiwan¹}, który pos³u¿y przy wnioskowaniu w przedstawionym w ostatnim rozdziale przyk³adzie. 
+\begin{quote}
+Wartoœci¹ oczekiwan¹ \emph{zmiennej losowej X} ( ci¹g³ej ) nazywamy wyra¿enie:
+\begin{equation}
+\label{equation:wartosc_oczekiwana}
+ E(X) = \int\limits_{-\infty}^{\infty} \! f(x)*x \, dx, 
+\end{equation}
+ gdzie $f(x)$ jest funkcj¹ gêstoœci\footnote{Wyjaœniona w nastêpnym podrozdziale} \footnote{Mo¿e siê zdarzyæ, ¿e rozk³ad zmiennej losowej nie ma wartoœci oczekiwanej. Dzieje siê tak wtedy, gdy ca³ka wystêpuj¹ca we wzorze \ref{equation:wartosc_oczekiwana} nie jest bezwzglêdnie zbie¿na}\cite{statystyka_od_podstaw}.
+\end{quote}
+\section{Funkcja gêstoœci}
+Kolejne pojêcia bêdziemy omawiaæ tylko dla zmiennej losowej typu ci¹g³ego, gdy¿ tylko taka jest u¿yteczna z naszego punktu widzenia. 
+Dla takich losowych zmiennych definiujemy funkcjê gêstoœci prawdopodobieñstwa nastêpuj¹co: 
+\begin{quote}
+ Je¿eli zmienna losowa $X$, typu ci¹g³ego, o dystrybuancie $F$ oraz istnieje funkcja $ f \geq 0$, ¿e dla ka¿dego $x$ zachodzi równoœæ:\cite{probabilistyka}
+ \begin{equation}
+ \label{equation:funkcja_gest_wzor1}
+  F(x) = \int\limits_{-\infty}^{x} f(u)du,  
+ \end{equation}
+ wtedy funkcjê $f$ nazywamy \emph{funkcj¹ gêstoœci} lub \emph{funkcj¹ rozk³adu gêstoœci prawdopodobieñstwa}. 
+ \end{quote}
+Dla ka¿dej funkcji $f$, bêd¹cej gêstoœci¹ zachodzi zatem zale¿noœæ:
+\begin{equation}
+\int\limits_{-\infty}^{\infty} f(x)dx = F(\infty) = 1. 
+\end{equation}
+co oznacza: prawdopodobieñstwo zdarzenia, gdy zmienna losowa ci¹g³a jest mniejsza od nieskoñczonoœci jest zawsze równe jednoœci.
+W punktach, w których funkcja f jest ci¹g³a, zale¿noœæ \ref{equation:funkcja_gest_wzor1} mo¿emy zró¿niczkowaæ stronami wzglêdem x i wówczas otrzymujemy
+\begin{equation}
+\label{equation:dystry_rozniczkowalnosc}
+F^{'}(x)=f(x)
+\end{equation}
+Z definicji pochodnej funkcji oraz z w³asnoœci wyra¿onej w \ref{equation:dystry_rozniczkowalnosc}, w punktach ci¹g³oœci funkcji zachodzi zale¿noœæ:
+\begin{equation}
+f(x) = F^{'}(x) = \lim_{\Delta x\to\infty} \frac{F(x+ \Delta x) - F(x) }{\Delta x} = \lim_{\Delta x\to\infty} \frac{P( x \leq X < x + \Delta x)}{\Delta x} .
+\end{equation}
+By odnaleŸæ wzór na obliczanie prawdopodobieñstwa $P( x_1 \leq X < x_2)$ na podstawie gêstoœci $f$, nale¿y rozwi¹zaæ:
+\begin{equation}
+P( x_1 \leq X < x_2) = F(x_2) - F(x_1) = \\
+\int\limits_{-\infty}^{x_2} \! f(u) \, du - \int\limits_{-\infty}^{x_1} \! f(u) \, du = \int\limits_{x_1}^{x_2} \! f(u) \, du. 
+\end{equation}
+Powy¿sz¹ formu³ê odczytuje siê nastêpuj¹co : Prawdopodobieñstwo zdarzenia, gdy zmienna losowa jest mniejsza ni¿ $x_2$ a wiêksza ni¿ $x_1$ wynosi wartoœæ ca³ki z funkcjê gêstoœci na przedziale $(x1;x2)$.
+
+
+Poni¿ej zosta³y przedstawione rozk³ady prawdopodobieñstwa oraz funkcje gêstoœci dla zmiennej losowych, bêd¹cej wynikiem operacji na dwóch innych, niezale¿nych zmiennych losowych. Operacje te to dodawanie, odejmowanie, mno¿enie oraz dzielenie.Dla tych operacji na zmiennych losowych, wprowadzone zostan¹ nastêpuj¹ce symbole operuj¹ce na ich rozk³adach:
+\begin{itemize}
+\item $\oplus$ - operacja miêdzy rozk³adami zmiennej $X_1$ oraz $X_2$, daj¹ca rozk³ad zmiennej  $S = X_1 + X_2$, 
+\item $\ominus$ - operacja miêdzy rozk³adami zmiennej $X_1$ oraz $X_2$, daj¹ca rozk³ad zmiennej $S = X_1 - X_2$,
+\item $\otimes$ - operacja miêdzy rozk³adami zmiennej $X_1$ oraz $X_2$, daj¹ca rozk³ad zmiennej $S = X_1 * X_2$,
+\item $\oslash$ - operacja miêdzy rozk³adami zmiennej $X_1$ oraz $X_2$, daj¹ca rozk³ad zmiennej $S = X_1 / X_2$.
+\end{itemize}
+\subsection{Funkcja gêstoœci dla sumy zmiennych losowych}
+Chcemy znaleŸæ wzór funkcji gêstoœci dla zmiennej losowej bêd¹cej sum¹ dwóch innych zmiennych losowych, zak³adaj¹c przy tym ich niezale¿noœæ.
+zmienn¹$S$ jest ustalona jako suma zmiennych $X_1$ i $X_2$. 
+\begin{equation}
+ S = X_1 + X_2
+\end{equation}
+Aby odnaleŸæ wzór funkcji gêstoœci dla takiego rozk³adu prawdopodobieñstwa zmiennej losowej oraz jej dystrybuanty rozwi¹zaæ nale¿y równanie\cite{artykul}:
+\begin{equation}
+\label{equation:fg_suma_glowne}
+ F(S) = P(S \ leq s) = P( X_1 + X_2 \leq s ) = \int\limits_{0}^{x_2} \! \int\limits_{0}^{x_1} \! f(x_1,x_2) dx_1 \, dx_2
+\end{equation}
+Rozk³ad ³¹cznych dwóch niezale¿nych zmiennych losowych wygl¹da nastêpuj¹co:
+\begin{equation}
+ f(x_1,x_2) = f_1(x_1)f_2(x_2), 
+\end{equation}
+a zmienn¹ $x_2$ mo¿na przedstawiæ jako:
+\begin{equation}
+ s = x_1 + x_2 \Rightarrow x_2 = s-x_1,
+\end{equation}
+co po podstawieniu do \ref{equation:fg_suma_glowne} i zmianie granic ca³kowania daje:
+\begin{equation}
+\label{equation:fg_suma_glowne2}
+ F(S) = \int\limits_{0}^{x_1} \! \int\limits_{0}^{x_2} \! f_1(x_1)f_2(x_2) dx_2 \, dx_1 = \int\limits_{0}^{x_1} \! \int\limits_{0}^{s - x_1} \! f_1(x_1)f_2(x_2) dx_2 \, dx_1 . 
+\end{equation}
+By znaleŸæ funkcjê gêstoœci nale¿y zgodnie z równaniem \ref{equation:dystry_rozniczkowalnosc} zró¿niczkowaæ \ref{equation:fg_suma_glowne}:
+\begin{equation}
+\label{equation:fg_suma_glowne3}
+ f(s) = \frac{\partial}{\partial{s}}  \int\limits_{0}^{x_1} \! \int\limits_{0}^{s - x_1} \! f_1(x_1)f_2(x_2) dx_2 \, dx_1  = \int\limits_{0}^{x_1}  \! f_1(x_1) ( \frac{\partial}{\partial{s}} \int\limits_{0}^{s - x_1} \! f_2(x_2) dx_2 )  \, dx_1  .
+\end{equation}
+Wartoœæ ró¿niczki w ca³ce wewnêtrznej wynosi, zgodnie z podstawowym twierdzeniem rachunku ca³kowego \footnote{ Twierdzenie mo¿na przedstawiæ w postaci nastêpuj¹cej: 
+\begin{equation}
+\frac{\partial{}}{\partial{dt}}\int\limits_{-\infty}^a \!  f(t)\,dt = f(a)
+\end{equation}}
+
+\begin{equation}
+\frac{\partial}{\partial{s}} \int\limits_{0}^{s - x_1} \! f_2(x_2) dx_2 =  \frac{\partial}{\partial{s}} F_2(s-x_1) = f_2(s - x_1 ).
+\end{equation}
+Podstawiaj¹c powy¿szy wynik do równania \ref{equation:fg_suma_glowne3} otrzymujemy:
+\begin{equation}
+F(s) = \int\limits_{0}^{x_1} \! f_1(x_1)f_2(s-x_1)\, dx_1, 
+\end{equation}
+co jest wynikow¹ dystrybuant¹ zmiennej $s$. Funkcja podca³kowa to szukana funkcja gêstoœci\cite{artykul}. 
+\subsection{Funkcja gêstoœci dla ró¿nicy zmiennych losowych}
+Dystrybuanta oraz funkcja gêstoœci dla ró¿nicy zmiennych losowych liczona jest analogicznie jak dla sumy zmiennych losowych. 
+G³ównym równaniem jest\cite{artykul}:
+\begin{equation}
+\label{equation:fg_ró¿nica_glowne}
+ F(S) = P(S \ leq s) = P( X_1 + X_2 \leq s ) = \int\limits_{0}^{x_2} \! \int\limits_{0}^{x_1} \! f(x_1,x_2) dx_1 \, dx_2, 
+\end{equation}
+gdzie $S$ jest zdefiniowane nastêpuj¹co:
+\begin{equation}
+ S = X_1 - X_2,
+\end{equation}
+oraz 
+\begin{equation}
+ s = x_1 - x_2 \Rightarrow x_2 = x_1 - s.
+\end{equation}
+Wykonuj¹c analogicznie operacja jak dla sumy koñcowym wynikiem jest równanie:
+\begin{equation}
+F(s) = \int\limits_{0}^{x_1} \! f_1(x_1)f_2(x_1-s)\, dx_1.
+\end{equation}
+\subsection{Funkcja gêstoœci dla ilorazu zmiennych losowych}
+Dystrybuanta dla ilorazu zmiennych losowych liczona jest analogicznie jak dla sumy i ró¿nicy.
+G³ównym równaniem jest\cite{artykul}:
+\begin{equation}
+\label{equation:fg_iloraz_glowne}
+ F(S) = P(S \ leq s) = P( X_1 + X_2 \leq s ) = \int\limits_{0}^{x_2} \! \int\limits_{0}^{x_1} \! f(x_1,x_2) dx_1 \, dx_2, 
+\end{equation}
+gdzie $S$ jest zdefiniowane nastêpuj¹co:
+\begin{equation}
+ S = X_1 * X_2,
+\end{equation}
+oraz 
+\begin{equation}
+ s = x_1 * x_2 \Rightarrow x_2 = \frac{s}{x_1}.
+\end{equation}
+Wyj¹tkiem jest operacja liczenia pochodnej z dystrybuanty $F_2(X_2)$:
+\begin{equation}
+ \frac{\partial}{\partial{s}} \int\limits_{0}^{\frac{s}{x_1}} \! f_2(x_2) dx_2  = \frac{\partial}{\partial{s}} F_2(\frac{s}{x_1}) = f_2(\frac{s}{x_1})\frac{1}{x_1},
+\end{equation}
+gdzie nale¿y uwzglêdniæ pochodn¹ funkcji wewnêtrznej. 
+Koñcowe równanie wygl¹da zatem nastêpuj¹co:
+\begin{equation}
+F(s) = \int\limits_{0}^{x_1} \! f_1(x_1)f_2(\frac{s}{x_1})\frac{1}{x_1}\, dx_1.
+\end{equation}
+\subsection{Funkcja gêstoœci dla iloczynu zmiennych losowych}
+Dla iloczynu zmiennych losowych $s = \frac{x_1}{x_2}$, bêd¹cego ostatni¹ operacj¹ dla której podana zostanie dystrybuanta oraz funkcjê gêstoœci. Dla tej operacji pomiête zostan¹ operacje szcz¹tkowe i przedstawione zostanie jedynie równanie ostateczne\cite{artykul}:
+\begin{equation}
+F(s) = \int\limits_{0}^{x_1} \! f_1(x_1)f_2(\frac{x_1}{s})x1\, dx_1.
+\end{equation}
+\section{Wyjaœnienie podstawowych zagadnieñ z zakresu matematyki rozmytej }
+\subsection{Zmienne lingwistyczne, zbiory rozmyte, zbiory spe³niaj¹ce warunek podzia³u do jednoœci}
+
+Zanim wyjaœnione zostan¹ terminy z zakresu kwantyfikatorów nale¿y wprowadziæ podstawowe pojêcia dla matematyki liczb rozmytych. 
+
+\emph{Zmienn¹ lingwistyczn¹}  nazywamy wielkoœæ wejœciow¹, wyjœciow¹ b¹dŸ zmienn¹ stanu, który zamierzamy ocieniaæ stosuj¹c oceny lingwistyczne ( przyk³adem jest np. prêdkoœæ statku)\cite{piegat}.\newline
+\emph{Wartoœci¹ lingwistyczn¹}  jest s³owna ocena wielkoœci lingwistycznej ( przyk³adem jest s¹ terminy: bardzo du¿y, œredni , brzydki, ³adne, m³ody, stary)\cite{piegat}.\newline
+\emph{Wartoœci lingwistyczne } wystêpuj¹ w modelach wraz ze \emph{zmiennymi lingwistycznymi} których dotycz¹ ( np. wysokie ciœnienie powietrza, œrednia prêdkoœæ samochodu)\cite{piegat}. 
+\emph{Przestrzeñ lingwistyczna zmiennej } jest zbiorem wszystkich wartoœci lingwistycznych stosowanych do oceny danej zmiennej lingwistycznej. Przestrzeñ tak jest zbiorem skoñczenie-wymiarowym\cite{piegat}.
+\emph{Przestrzeni¹ numeryczn¹ zmiennej } nazywamy zbiorem wszystkich wartoœci numerycznych jakie mo¿e ona realnie przyj¹æ w rozpatrywanym systemie, lub te¿ takich wartoœci, które s¹ istotna dla rozwi¹zywanego problemu\cite{piegat}. 
+
+
+\emph{Zbiorem rozmytym} w pewnej numerycznej przestrzeni rozwa¿añ $X$, nazywamy zbiór par:
+\begin{equation}
+ A = \{ (\mu_a^{*}(x),X) ) \}, \forall x \in X,
+\end{equation}
+gdzie: $\mu_a$ jest funkcj¹ przynale¿noœci zbioru rozmytego $A$, która ka¿demu elementowi $x \in X$ przypisuje stopieñ jego przynale¿noœci $\mu_a^{*}(x)$ do zbioru rozmytego $A$, przy czym:
+\begin{equation}
+ \mu_A(x) \in [0,1]. 
+\end{equation}
+Przyk³adow¹ interpretacjê zbioru rozmytego pokazano na rysunku \ref{wykres:zbior_rozmyty}.
+Szczególnymi zbiorami rozmytymi na zadanej przestrzeni rozwa¿añ, s¹ zbiory rozmyte \emph{spe³niaj¹ce warunek podzia³u jednoœci}\footnote{przedstawione na rysunku \ref{wykres:zb_podzial_jednosci}}:
+\begin{equation}
+ \sum\limits_h \mu_{A_h} (x) \equiv 1, \forall x, 
+\end{equation}
+gdzie $h$ oznacza numer zbioru rozmytego\cite{piegat}\cite{fuzzy_techniques}. 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=10cm]{zbior_rozmyty.pdf}
+      \rule{35em}{0.5pt}
+    \caption[Zbiór rozmyty]{Zbiór rozmyty}
+    \label{wykres:zbior_rozmyty}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=10cm]{osoby_wzrost.pdf}
+      \rule{35em}{0.5pt}
+    \caption[Zbiory rozmyte spe³niaj¹ce warunek podzia³u jednoœci]{Zbiory rozmyte spe³niaj¹ce warunek podzia³u jednoœci}
+    \label{wykres:zb_podzial_jednosci}
+\end{figure}
+
+
+\subsection{Kwantyfikator lingwistyczny}
+
+
+\emph{Kwantyfikatorem lingwistycznym} nazywamy taki kwantyfikator, który jest  zdefiniowany przez wyra¿enia lingwistyczne ( np. `wiêkszoœæ` czy `oko³o 3`)\cite{theoretical_advances}. \newline
+Wyró¿niane s¹ dwa typy kwantyfikowanych stwierdzeñ:
+\begin{itemize}
+ \item $Q$ $X$ jest $A$, 
+ \item $Q$ $B$ $X$ jest $A$, 
+\end{itemize}
+gdzie 
+\begin{itemize}
+ \item $Q$ - kwantyfikator lingwistyczny,
+ \item $X$ - zbiór, gdzie stopieñ przynale¿noœci dowolnego obiektu do zbioru wynosi 0 lub 1,
+ \item $A, B$ - rozmyte predykaty.
+\end{itemize}
+Pierwszy typ oznacza w jêzyku naturalnym: `$Q$ elementów nale¿¹cych do $X$ spe³nia $A$`. Przyk³adem jest sformu³owanie : \emph{`Wiêkszoœæ pracowników jest m³oda`}, gdzie:
+\begin{itemize}
+ \item $Q$ - oznacza kwantyfikator wiêkszoœæ,
+ \item $X$ - oznacza zbiór pracowników,
+ \item $A$ - warunek `jest m³oda`.
+\end{itemize}
+
+Drugi typ kwantyfikatora oznacza: `Poœród elementów $X$ spe³niaj¹cych $B$, warunek $A$ jest spe³niony przez $Q$ elementów`. Przyk³adem jest sformu³owanie : \emph{`Wiêkszoœæ m³odych pracowników dobrze zarabia`}, gdzie:
+\begin{itemize}
+ \item $Q$ - oznacza kwantyfikator wiêkszoœæ,
+ \item $B$ - oznacza warunek `jest m³oda`.
+ \item $X$ - oznacza zbiór pracowników,
+ \item $A$ - oznacza warunek `dobrze zarabia`.
+\end{itemize}
+
+
+Reprezentacj¹ kwantyfikatora jest zbiór rozmyty \footnote{ dla kwantyfikatora absolutnego jest nim zbiór rozmyty w przestrzeni rozwa¿añ $R$, dla kwantyfikatora relatywnego, jest nim zbiór rozmyty z przestrzeni zwartej w przedziale $[0,1]$ \cite{theoretical_advances}}. Funkcja przynale¿noœci ( dla kwantyfikatora typu `Q X jest A` ) w tym zbiorze oznacza stopieñ spe³nienia predykatu $A$ przez j-ty element zbioru $X$. 
+
+
+Na rysunku \ref{wykres:zb_podzial_jednosci} przedstawiono 3 zbiory rozmyte, które mo¿emy potraktowaæ jako kwantyfikatory lingwistyczne. Praktyczne, intuicyjne, rozumienie takich kwantyfikatorów to odpowiedŸ na pytanie: co oznacza okreœlenie zmiennej lingwistycznej jako ujemnej ? Tak zdefiniowane kwantyfikatory okreœlaj¹ liczbê ujemn¹ i tylko ujemn¹ ( nie zerow¹ czy dodatni¹ ) gdy wpada ona do przedzia³u $[-\infty,-1]$. Gdy natomiast liczba wpada do przedzia³u $[-1,-0.5]$, mo¿na powiedzieæ o tej liczbie, ¿e jest ujemna oraz zerowa ( mówimy o niej ¿e jest `zerowa` rzadziej, czêœciej jest dla nas ujemna). Gdy liczba wpada do przedzia³u $[-0.5,0]$ mo¿na mówiæ o niej równie¿ , ¿e mo¿e byæ ujemna i mo¿e byæ zerowa ( tym razem czêœciej o niej mówimy ¿e jest zerowa ). Analogicznie sytuacja ma siê z liczbami okreœlanymi jako zerowe oraz dodatni.
+
+\subsection{kwantyfikator lingwistyczny jako funkcjê rozk³adu gêstoœci prawdopodobieñstwa?}
+
+Jak rozumieæ próbê po³¹czenia dwóch zupe³nie ró¿nych terminów z ró¿nych dziedzin matematycznych ? Otó¿, przy uwa¿nym zastanowieniu, mo¿na dojœæ do wniosku ¿e oba te terminy nie s¹ od siebie tak dalekie, mo¿na powiedzieæ nawet ¿e s¹ sobie bliskie, tylko znajduj¹ siê w zupe³nie ró¿nych dzia³ach matematyki. 
+
+
+Autor postara siê uzmys³owiæ to¿samoœæ pojêæ na przyk³adzie. 
+`Jaka jest szansa znalezienia na ziemi cz³owieka o wzroœcie 192,68 cm ?`. OdpowiedŸ na to pytanie mo¿e byæ zaskakuj¹ca dla wiêkszoœci spo³eczeñstwa, ale szansa ta jest równa zero. W jêzyku naturalnym, wyjaœnia siê, ¿e poniewa¿ wzrost jest wielkoœci¹ ci¹g³¹ to sensowne jest jedynie pytanie o wzrost zawieraj¹cy siê w pewnym przedziale. \newline
+W jêzyku statystyki matematycznej znana jest w³asnoœæ, \footnote{przedstawiona wraz z dowodem}:
+\begin{equation}
+P(X = x_0 )  = \lim\limits_{\varDelta x \to 0} P(x_0 \leq X < x_o + \varDelta  x ) = 
+\end{equation}
+\begin{eqnarray}
+  P(X = x_0 ) & = & \lim\limits_{\varDelta x \to 0} \! P(x_0 \leq X < x_o + \varDelta  x ) \, \\
+   & = & \lim\limits_{\varDelta x \to 0} \int\limits_{x_0}^{x_0 + \varDelta } \! f(x) dx\, = \int\limits_{x_0}^{x_0 } \! f(x) dx\, = 0. 
+\end{eqnarray}
+Nie mówimy zatem o prawdopodobieñstwie znalezienia cz³owieka o wzroœcie 192,68 centymetrów, ale o prawdopodobieñstwie znalezienia cz³owieka, którego wzrost mieœci siê w doœæ bliskim przedziale\footnote{Oczywiœcie mowa tutaj jedynie o wielkoœciach ci¹g³ych oraz o rozk³adach zmiennej losowej ci¹g³ej}.
+
+Tak sam schemat obowi¹zuje przy kwantyfikatorach. Stawiaj¹c pytanie `Jaka jest szansa znalezienia na ziemi cz³owieka du¿ego? `, szukamy osoby, której wzrost mieœci siê w pewnym przedziale. Je¿eli badana zmienna mieœci siê w przedziale, gdzie funkcja przynale¿noœci kwantyfikatora `du¿e` ma wartoœæ ró¿n¹ od zera, to mo¿na stwierdziæ, ¿e dana wartoœæ charakteryzuje w jakimœ stopniu osobnika jako du¿ego. Inaczej sformu³owany to pytanie brzmi:
+`Jaka jest szansa znalezienia osobnika o wzroœcie $z$ i sklasyfikowania go jako du¿ego? `
+W jêzyku statystyki wyra¿a siê to przez zapis: 
+\begin{equation}
+ P(wzrost=duzy | x=z ) = ? 
+\end{equation}
+Gdy uda nam siê sca³kowaæ funkcjê gêstoœci dla takiego prawdopodobieñstwa, otrzymamy jego rozk³ad, który bêdzie odpowiedzi¹ na postawione przez pytanie.
+
+
+Warto zaznaczyæ, ¿e w tego typu rozwa¿aniach nale¿y tak definiowaæ kwantyfikatory aby odpowiadaj¹ce im zbiory rozmyte spe³nia³y warunek podzia³u do jednoœci. Dla kwantyfikatorów okreœlaj¹cych wzrost, du¿y, œredni, ma³y, zachodziæ  ma nastêpuj¹ce równoœæ:
+\begin{eqnarray*}
+  P( wzrost=duzy|x=z) &+& P( wzrost=sredni|x=z) + \\ 
+  & + & P( wzrost=maly|x=z) = 0
+\end{eqnarray*}
 \section{Aproksymacja funkcji wielomianem algebraicznym}
+W ostatnim podrozdziale teoretycznym przedstawiê metodykê aproksymacji funkcji. Ta operacja bêdzie potrzeba przy operacjach na funkcjach rozk³adów gêstoœci prawdopodobieñstwa. Jak autor wczeœniej zaznaczy³ interesuj¹ nas tylko zmienne losowe typu ci¹g³ego, a wiêc ci¹g³e rozk³ady prawdopodobieñstwa oraz ci¹g³e funkcje gêstoœci. Jednak, ka¿da operacja na rozk³adach gêstoœci, wykonywana w œrodowisku komputerowym, w wyniku utworzy funkcjê dyskretn¹. Aproksymacja bêdzie to metod¹ umo¿liwiaj¹ca nam powrót do zmiennej ci¹g³ej. 
+\newline
 Zadanie: funkcjê zadan¹ w postaci dyskretniej, poprzez zdefiniowanie zbioru punktów w których ta funkcja jest okreœlona, nale¿y przybli¿yæ funkcj¹ ci¹g³¹ na zadanym przedziale. Funkcja ta ma byæ dana wielomianem m-tego stopnia, gdzie m musi spe³niaæ zale¿noœæ
 \begin{equation}
  n > m + 1 \Rightarrow m < n -1
@@ -58,14 +390,14 @@ a odchylenie standardowe wyra¿a siê nastêpuj¹co:
 \label{equation:odchylenie_standardowe}
  S = \sum_{i=1}^n ( a_0 + a_{1}x + a_{2}x^2 + ... + a_{m}x^m - y_i )^2 .
 \end{equation}
-To równanie nazywane jest form¹ kwadratow¹ i wykazane zosta³o ¿ê ma tylko jedno minimum. W takim przypadku warunek konieczny istnienia minimum, \ref{equation:czastkowe_do_zera} , jest jednoczeœnie warunkiem koniecznym. 
-Aby znaleœæ funkcjê aproksymuj¹c¹ nale¿y znaleœæ wspó³czyniki $a_0 , a_1, a_2, ... , a_m$, takie aby $S$ mia³o wartoœæ minimaln¹. W tym celu bêdziemy przyrównywaæ pochodnê cz¹stowe do zera:
+To równanie nazywane jest form¹ kwadratow¹ i wykazane zosta³o, ¿e ma tylko jedno minimum. W takim przypadku warunek konieczny istnienia minimum, \ref{equation:czastkowe_do_zera} , jest jednoczeœnie warunkiem koniecznym. 
+Aby znaleŸæ funkcjê aproksymuj¹c¹ nale¿y znaleŸæ wspó³czynniki $a_0 , a_1, a_2, ... , a_m$, takie aby $S$ mia³o wartoœæ minimaln¹. W tym celu bêdziemy przyrównywaæ pochodne cz¹stkowe do zera:
 \begin{eqnarray*}
 \label{equation:czastkowe_do_zera}
- \frac{\delta S}{\delta a_0}&=&0 \\
- \frac{\delta S}{\delta a_1}&=&0 \\
+ \frac{\partial{S}}{\partial{a_0}}&=&0 \\
+ \frac{\partial{S}}{\partial{a_1}}&=&0 \\
  .... \\
- \frac{\delta S}{\delta a_m}&=&0 \\
+ \frac{\partial{S}}{\partial{a_m}}&=&0 \\
 \end{eqnarray*}
 Ró¿niczkuj¹c \ref{equation:odchylenie_standardowe} otrzymujemy uk³ad równañ liniowych:
 \begin{eqnarray*}
@@ -91,51 +423,56 @@ Wprowadzaj¹c oznaczenia:
 otrzymujemy równanie macierzowe:
 \begin{equation}
 \label{equation:rownanie_macierzowe_pierwsze}
- \begin{vmatrix} 
+ \begin{bmatrix} 
  S_0 & S_1 & ... & S_m \\
  S_1 & S_2 & ... & S_{m+1} \\
  ... & ... & ... & ... \\
  S_{m+1} & S_{m+2} & ... & S_{m+m} \\
- \end{vmatrix}
+ \end{bmatrix}
  * 
- \begin{vmatrix} 
+ \begin{bmatrix} 
  a_0 \\ 
  a_1 \\
  ... \\
  a_m \\
- \end{vmatrix}
+ \end{bmatrix}
  = 
- \begin{vmatrix} 
+ \begin{bmatrix} 
  t_0 \\ 
  t_1 \\
  ... \\
  t_m \\
- \end{vmatrix},
+ \end{bmatrix},
 \end{equation}
 którego przekszta³camy do:
 \begin{equation}
 \label{equation:rownanie_macierzowe_drugie}
- \begin{vmatrix} 
+ \begin{bmatrix} 
  a_0 \\ 
  a_1 \\
  ... \\
  a_m \\
- \end{vmatrix}
+ \end{bmatrix}
  =
- {\begin{vmatrix} 
+ {\begin{bmatrix} 
  S_0 & S_1 & ... & S_m \\
  S_1 & S_2 & ... & S_{m+1} \\
  ... & ... & ... & ... \\
  S_{m+1} & S_{m+2} & ... & S_{m+m} \\
- \end{vmatrix}}^{-1}2
+ \end{bmatrix}}^{-1}2
  *
- \begin{vmatrix} 
+ \begin{bmatrix} 
  t_0 \\ 
  t_1 \\
  ... \\
  t_m \\
- \end{vmatrix}.
+ \end{bmatrix},
 \end{equation}
+co ogólnie mo¿na zapisaæ jako:
+\begin{equation}
+ A = S^{-1}*T
+\end{equation}
+Rozwi¹zanie takiego równanie istnieje wtedy i tylko wtedy, gdy macierz $S$ jest odwracalna.
 Wartoœci $a_0, a_1 , ... , a_m$ s¹ rozwi¹zaniem równania \ref{equation:rownanie_macierzowe_drugie} i stanowi¹ sta³e w naszej funkcje aproksymuj¹cej \ref{equation:glowna_postac}. 
 Aby poznaæ jakoœæ aproksymacji mo¿e pos³u¿yæ siê nastêpuj¹cymi parametrami:
 \begin{itemize}
@@ -151,7 +488,7 @@ Aby poznaæ jakoœæ aproksymacji mo¿e pos³u¿yæ siê nastêpuj¹cymi parametrami:
  \begin{equation}
         S_{y/x} = \delta = \sqrt{S_{y/x}^2}
  \end{equation}
- \item wspó³czynik korelacji:
+ \item wspó³czynnik korelacji:
  \begin{equation}
         r = \sqrt{ 1 - \frac{S_{y/x}^2}{S_y^2}}
  \end{equation}
@@ -161,4 +498,3 @@ Aby poznaæ jakoœæ aproksymacji mo¿e pos³u¿yæ siê nastêpuj¹cymi parametrami:
  \end{equation}
  jest wariancj¹ zmiennej y. 
 \end{itemize}
-

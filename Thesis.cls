@@ -31,7 +31,7 @@
 \thispagestyle{plain}
 \null\vfil
 %\vskip 60\p@
-\begin{center}{\huge\bf Declaration of Authorship\par}\end{center}
+\begin{center}{\huge\bf Oœwiadczenie\par}\end{center}
 %\vskip 60\p@
 {\normalsize #1}
 \vfil\vfil\null
@@ -181,17 +181,17 @@
       \vfill
       {\huge \bf \@title \par}
       \vfill
-      {\LARGE by \par}
+%       {\LARGE by \par}
       \smallskip
       {\LARGE \authornames \par}
       \bigskip
       \bigskip
-      {\large in the \par}
-      {\large \deptname \par}
+%       {\large in the \par}
+%       {\large \deptname \par}
       \bigskip
       \bigskip
       \bigskip
-      {\Large \@date \par}
+      {\Large Szczecin, 2009 \par}
       \bigskip
     \end{center}
     \par
@@ -224,9 +224,10 @@
     \bigskip
     {\normalsize \deptname \par}
     \bigskip
-    {\normalsize Doctor of Philosophy\par}
-    \bigskip
-    {\normalsize\bf \@title \par}
+%     {\normalsize Doctor of Philosophy\par}
+%     \bigskip
+%     {\normalsize\bf \@title \par}
+    {\normalsize\bf Project and implementation of application evaluating operations on linguistic quantifiers \par}
     \medskip
     {\normalsize by \authornames \par}
     \bigskip
@@ -260,8 +261,8 @@
 }\end{spacing}
 }
 \renewcommand\listoffigures{
-\btypeout{List of Figures}
-\addtotoc{List of Figures}
+\btypeout{Spis rysunków}
+\addtotoc{Spis rysunków}
 \begin{spacing}{1}{
     \setlength{\parskip}{1pt}
     \if@twocolumn

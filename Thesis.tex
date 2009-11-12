@@ -4,12 +4,24 @@
 %% Thesis.tex -- MAIN FILE (the one that you compile with LaTeX)
 %% ---------------------------------------------------------------- 
 % Set up the document
-\documentclass[a4paper, 11pt, oneside]{Thesis}  % Use the "Thesis" style, based on the ECS Thesis style by Steve Gunn
-\graphicspath{{Figures/}}  % Location of the graphics files (set up for graphics to be in PDF format)
-
-
+\documentclass[a4paper, 11pt, oneside]{Thesis} 
+\graphicspath{{Figures/}{wykresy/}}
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+   \pdffalse
+\else
+   \pdfoutput=1
+   \pdftrue
+\fi
+\ifpdf
+   \usepackage{graphicx}
+   \usepackage{epstopdf}
+   \DeclareGraphicsRule{.eps}{pdf}{.pdf}{`epstopdf #1}
+   \pdfcompresslevel=9
+\else
+   \usepackage{graphicx}
+\fi
 \usepackage{polski}
-
 \usepackage{todonotes}
 \usepackage{listing}
 \lstset{ %
@@ -25,7 +37,7 @@ basicstyle=\footnotesize,       % the size of the fonts that are used for the co
 % breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
 escapeinside={\%*}{*)}          % if you want to add a comment within your code
 }
-\renewcommand{\lstlistlistingname}{Lista kodów Ÿród³owych} % Label of Table of Listings
+\renewcommand{\lstlistlistingname}{Spis kodów Ÿród³owych} % Label of Table of Listings
 \renewcommand{\lstlistingname}{Listing} % Label for every Listing
 
 % Include any extra LaTeX packages required
@@ -34,9 +46,6 @@ escapeinside={\%*}{*)}          % if you want to add a comment within your code
 \usepackage{vector}  % Allows "\bvec{}" and "\buvec{}" for "blackboard" style bold vectors in maths
 \hypersetup{urlcolor=blue, colorlinks=true}  % Colours hyperlinks in blue, but this can be distracting if there are many links.
 
-
-
-%% ----------------------------------------------------------------
 \begin{document}
 \frontmatter
 
@@ -45,34 +54,28 @@ escapeinside={\%*}{*)}          % if you want to add a comment within your code
             {Author Name}
             }
 \addresses  {\groupname\\\deptname\\\univname} 
-\date       {\today}
-\subject    {}
-\keywords   {}
-%% ----------------------------------------------------------------
-
-%%z- ----------------------------------------------------------------
-
-\listoftodos
-\clearpage
 
 \maketitle
 
+\addtotoc{Abstract}
+\abstract{
+\addtocontents{toc}{\vspace{1em}}
 
-%%z-e ----------------------------------------------------------------
-\setstretch{1.3}  % It is better to have smaller font and larger line spacing than the other way round
+Analitic solution of decisive problems, based only on probabilities of event occurence, is extermally difficult and time-consuming and in most cases incorrect due to arithmetic exceptions made in progress of calculations. 
+In This Master Thesis I will introduce author's application, capable of resolving those decision problems, by capably operating of probability distribution functions for probabilities given in problem. The main focus is on the methodology of solving such problem and as a particular example the problem of "Two business" is solved. 
 
-% Define the page headers using the FancyHdr package and set up for one-sided printing
-\fancyhead{}  % Clears all page headers and footers
-\rhead{\thepage}  % Sets the right side header to show the page number
-\lhead{}  % Clears the left side page header
 
-\pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
+}
+\clearpage
+\setstretch{1.3}  
 
-%% ----------------------------------------------------------------
-% Declaration Page required for the Thesis, your institution may give you a different text to place here
+\fancyhead{}
+\rhead{\thepage}
+\lhead{} 
+
+\pagestyle{fancy}
 \Declaration{
-
-\addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
+\addtocontents{toc}{\vspace{1em}}
 
 Oœwiadczam, ze przedk³adan¹ pracê magistersk¹ koñcz¹c¹ studia napisa³em samodzielnie.
 Oznacza to, ze przy pisaniu pracy poza niezbêdnymi konsultacjami, nie korzysta³em
@@ -90,43 +93,19 @@ Data:\\
 }
 \clearpage  % Declaration ended, now start a new page
 
-%% ----------------------------------------------------------------
-% The "Funny Quote Page"
-\pagestyle{empty}  % No headers or footers for the following pages
-
-\null\vfill
-% Now comes the "Funny Quote", written in italics
-\textit{,,Jeœli czegoœ nie da siê zrobiæ, zleæ to komuœ, kto o tym nie wie, a zrobi to na pewno.''}
-
-\begin{flushright}
-Internet
-\end{flushright}
-
-\vfill\vfill\vfill\vfill\vfill\vfill\null
-\clearpage  % Funny Quote page ended, start a new page
-%% ----------------------------------------------------------------
-
 % The Abstract Page
-\addtotoc{Abstract}  % Add the "Abstract" page entry to the Contents
-\abstract{
-\addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
 
-Analitic solution of decisive problems, based only on probabilities of event occurence, is extermally difficult and time-consuming and in most cases incorrect due to arithmetic exceptions made in progress of calculations. 
-In This Master Thesis I will introduce author's application, capable of resolving those decisive problems, by capably operating of probability distribution functions for probabilities given in problem. Main focus is taken into methodology of solving those problems, and for examplary resolution for problem of two buisnesses.  
-
-
-}
 \pagestyle{fancy}
 \lhead{\emph{Spis treœci}}  
 \tableofcontents  
 
 %% ----------------------------------------------------------------
-\lhead{\emph{Lista Rysunków}}  % Set the left side page header to "List if Figures"
-\listoffigures  % Write out the List of Figures
+\lhead{\emph{Spis rysunków}}  % Set the left side page header to "List if Figures"
+\listoffigures  
 
-%% ----------------------------------------------------------------
-% \lhead{\emph{Lista Tabel}}  % Set the left side page header to "List of Tables"
-% \listoftables  % Write out the List of Tables
+\addtotoc{Spis kodów Ÿród³owych}  % Add the "Abstract" page entry to the Contents
+\lstlistoflistings
+\clearpage  % Start a new page
 
 %% ----------------------------------------------------------------
 \setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
@@ -140,10 +119,7 @@ In This Master Thesis I will introduce author's application, capable of resolvin
     \textbf{MSVC} & \textbf{M}icro\textbf{S}oft \textbf{V}isual \textbf{C}++ \\
     \textbf{IDE} & \textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment
     \textbf{GDB} & \textbf{G}nu \textbf{D}e\textbf{b}ugger
-    
-%     funkcja gêstoœci - funkcja rozk³adu gêstoœci prawdopodobieñstwa   
 }
-%% ----------------------------------------------------------------
 \clearpage  %Start a new page
 \lhead{\emph{Symbole}}  % Set the left side page header to "Symbols"
 \listofnomenclature{lll}  % Include a list of Symbols (a three column table)
@@ -153,39 +129,21 @@ In This Master Thesis I will introduce author's application, capable of resolvin
   $\otimes$ - Operacja mno¿enia kwantyfikatorów lingwistycznych\\
   $\oslash$ - Operacja dzielenia kwantyfikatorów lingwistycznych \\
 }
-\setstretch{1.3}  % Return the line spacing back to 1.3
-% \pagestyle{empty}  % Page style needs to be empty for this page
-% \dedicatory{For/Dedicated to/To my\ldots}
-% \addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
+\setstretch{1.3} 
 
 %% ----------------------------------------------------------------
-\mainmatter	  % Begin normal, numeric (1,2,3...) page numbering
-\pagestyle{fancy}  % Return the page headers back to the "fancy" style
+\mainmatter
+\pagestyle{fancy}
 
-\input{./Chapters/Chapter1} % Introduction
+\input{./Chapters/Chapter1} 
+\input{./Chapters/Chapter2} 
+\input{./Chapters/Chapter3} 
+\input{./Chapters/Chapter4}
 
-\input{./Chapters/Chapter2} % Background Theory 
-
-\input{./Chapters/Chapter3} % Experimental Setup
-
-\input{./Chapters/Chapter4} % Experiment 1
-
-% \input{./Chapters/Chapter5} % Experiment 2
-
-%\input{./Chapters/Chapter6} % Results and Discussion
-
-%% ----------------------------------------------------------------
-% Now begin the Appendices, including them as separate files
-
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+\addtocontents{toc}{\vspace{2em}}
 
 \appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
 
-\input{./Appendices/AppendixA}	% Appendix Title
-
-%\input{./Appendices/AppendixB} % Appendix Title
-
-%\input{./Appendices/AppendixC} % Appendix Title
 
 \addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
 \backmatter
@@ -193,7 +151,7 @@ In This Master Thesis I will introduce author's application, capable of resolvin
 %% ----------------------------------------------------------------
 \label{Bibliografia}
 \lhead{\emph{Bibliografia}}  % Change the left side page header to "Bibliography"
-\bibliographystyle{unsrtnat}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+\bibliographystyle{plplain}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
 \bibliography{Bibliography}  % The references (bibliography) information are stored in the file named "Bibliography.bib"
 
 \end{document}  % The End
